@@ -91,7 +91,11 @@ OPENROUTER_URL = os.environ.get("OPENROUTER_URL", "https://openrouter.ai/api/v1"
 OPENROUTER_MODEL = os.environ.get("OPENROUTER_MODEL", "nvidia/nemotron-3-ultra-550b-a55b:free")
 OPENROUTER_FALLBACK_MODELS = [m.strip() for m in os.environ.get(
     "OPENROUTER_FALLBACK_MODELS",
-    "nvidia/nemotron-3-super-120b-a12b:free,nvidia/nemotron-3.5-lightning:free").split(",") if m.strip()]
+    "nvidia/nemotron-3-super-120b-a12b:free,nvidia/nemotron-3.5-lightning:free,"
+    "google/gemma-4-31b-it:free,poolside/laguna-s-2.1:free,"
+    # платная NVIDIA того же семейства — последний рубеж, когда бесплатные упёрлись в суточный
+    # лимит; работает только при положительном балансе OpenRouter, иначе пропускается
+    "nvidia/nemotron-3-super-120b-a12b").split(",") if m.strip()]
 # Зрение (снимки окна R-Pro): мультимодальная модель NVIDIA.
 OPENROUTER_VISION_MODEL = os.environ.get("OPENROUTER_VISION_MODEL", "nvidia/nemotron-3.5-super-vl:free")
 OPENROUTER_TEMPERATURE = float(os.environ.get("OPENROUTER_TEMPERATURE", "0.3"))

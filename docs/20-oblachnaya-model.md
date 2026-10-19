@@ -21,7 +21,9 @@
 | Роль | Переменная | По умолчанию |
 |---|---|---|
 | Основная (tools) | `OPENROUTER_MODEL` | `nvidia/nemotron-3-ultra-550b-a55b:free` |
-| Запасные при 429/5xx | `OPENROUTER_FALLBACK_MODELS` | `nvidia/nemotron-3-super-120b-a12b:free`, `nvidia/nemotron-3.5-lightning:free` |
+| Запасные при 429/5xx | `OPENROUTER_FALLBACK_MODELS` | `nvidia/nemotron-3-super-120b-a12b:free`, `nvidia/nemotron-3.5-lightning:free`, `google/gemma-4-31b-it:free`, `poolside/laguna-s-2.1:free`, затем платная `nvidia/nemotron-3-super-120b-a12b` (только при балансе на счёте) |
+
+**Лимиты бесплатных моделей OpenRouter** (по документации на 19.10.2026): 20 запросов в минуту; в сутки 50, а если на счёт когда-либо пополнено ≥ 10 кредитов — 1000. Лимит общий на аккаунт, новые ключи его не увеличивают. Один ход агента с инструментами — несколько запросов, поэтому без пополнения 50 в сутки хватит ненадолго.
 | Зрение (снимки окна) | `OPENROUTER_VISION_MODEL` | `nvidia/nemotron-3.5-super-vl:free` |
 
 ## Устройство

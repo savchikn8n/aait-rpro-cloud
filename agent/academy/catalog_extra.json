@@ -1,0 +1,143 @@
+{
+ "webinars": [
+  {
+   "slug": "visual-components-3d-factory-simulation-webinar-plan-for-whats-next",
+   "url": "https://academy.visualcomponents.com/webinars/visual-components-3d-factory-simulation-webinar-plan-for-whats-next/",
+   "title": "Visual Components 3D Factory Simulation Webinar: Plan for What’s Next!",
+   "category": "",
+   "version": "",
+   "toc": [],
+   "youtube": [
+    "fK9ngHzMf-I"
+   ],
+   "files": [
+    "https://academy.visualcomponents.com/app/uploads/2020/06/3D-Manufacturing-Simulation-Webinar.zip"
+   ],
+   "courses": [],
+   "kind": "webinar"
+  },
+  {
+   "slug": "how-can-manufacturing-simulation-help-your-team-to-accelerate-sales",
+   "url": "https://academy.visualcomponents.com/webinars/how-can-manufacturing-simulation-help-your-team-to-accelerate-sales/",
+   "title": "How can manufacturing simulation help your team to accelerate sales",
+   "category": "",
+   "version": "",
+   "toc": [],
+   "youtube": [
+    "9_gQ6_j4EiU"
+   ],
+   "files": [],
+   "courses": [],
+   "kind": "webinar"
+  },
+  {
+   "slug": "getting-started-with-visual-components-essentials-4-0",
+   "url": "https://academy.visualcomponents.com/webinars/getting-started-with-visual-components-essentials-4-0/",
+   "title": "Getting Started with Visual Components Essentials 4.0",
+   "category": "",
+   "version": "4.0.0",
+   "toc": [
+    "Basic application Settings",
+    "Navigating the 3D world",
+    "3D Controls",
+    "Basic Modes",
+    "Basic Commands",
+    "Building Layouts from ready-made components",
+    "Exporting: image, 3D PDF, video, 2D drawing"
+   ],
+   "youtube": [
+    "D5FvKWcWwq4"
+   ],
+   "files": [],
+   "courses": [],
+   "kind": "webinar"
+  },
+  {
+   "slug": "component-modeling-with-visual-components-professional-4-0",
+   "url": "https://academy.visualcomponents.com/webinars/component-modeling-with-visual-components-professional-4-0/",
+   "title": "Component Modeling with Visual Components Professional 4.0",
+   "category": "",
+   "version": "4.0.0",
+   "toc": [
+    "Component structure",
+    "Example component: Workpiece Positioner",
+    "Example component: Robot Positioner",
+    "Example component: End of arm tool - Gripper",
+    "Example component: Conveyor",
+    "Physics",
+    "Download files Forum"
+   ],
+   "youtube": [
+    "rNJtZQONwxE"
+   ],
+   "files": [
+    "https://academy.visualcomponents.com/app/uploads/2017/01/ComponentModelingWebinar-1.zip"
+   ],
+   "courses": [],
+   "kind": "webinar"
+  },
+  {
+   "slug": "robot-programming-with-visual-components-essentials-4-0",
+   "url": "https://academy.visualcomponents.com/webinars/robot-programming-with-visual-components-essentials-4-0/",
+   "title": "Robot Programming with Visual Components Essentials 4.0",
+   "category": "",
+   "version": "4.0.0",
+   "toc": [
+    "Program tab GUI overview",
+    "Teaching Motion points",
+    "Move vs. Jog manipulation mode",
+    "Configuring and Connecting IOs",
+    "Configuring Tools and Bases",
+    "External Axis",
+    "Download files Forum"
+   ],
+   "youtube": [
+    "WyIx8bXNsbU"
+   ],
+   "files": [
+    "https://academy.visualcomponents.com/app/uploads/2017/01/WebinarRobotPalletizing-1.zip"
+   ],
+   "courses": [],
+   "kind": "webinar"
+  },
+  {
+   "slug": "python-api-in-visual-components-4-0",
+   "url": "https://academy.visualcomponents.com/webinars/python-api-in-visual-components-4-0/",
+   "title": "Python API in Visual Components 2014 vs 4.0",
+   "category": "",
+   "version": "4.0.0",
+   "toc": [
+    "Command Registration",
+    "Action Panel",
+    "Localizing Commands",
+    "Selection and Context",
+    "Snap",
+    "Download files Forum"
+   ],
+   "youtube": [
+    "dnbqorGDmsw"
+   ],
+   "files": [
+    "https://academy.visualcomponents.com/app/uploads/2017/01/Examples-webinar.zip"
+   ],
+   "courses": [],
+   "kind": "webinar"
+  },
+  {
+   "slug": "programming-application-plugins-with-net-framework",
+   "url": "https://academy.visualcomponents.com/webinars/programming-application-plugins-with-net-framework/",
+   "title": "Programming application plugins with .NET Framework",
+   "category": "",
+   "version": "",
+   "toc": [],
+   "youtube": [
+    "ECedIYkASAM"
+   ],
+   "files": [
+    "https://academy.visualcomponents.com/app/uploads/2017/01/HelloWorldDemo-1.zip"
+   ],
+   "courses": [],
+   "kind": "webinar"
+  }
+ ]
+}
