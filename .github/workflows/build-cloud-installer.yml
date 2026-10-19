@@ -1,0 +1,40 @@
+name: Облачный установщик ИИ-агента (Windows)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Inno Setup
+        shell: powershell
+        run: choco install innosetup -y --no-progress
+
+      # Ключ OpenRouter в установщик не зашивается: его каждый пользователь вводит сам
+      # (tools\set-openrouter-key.ps1).
+      - name: Сборка установщика (облако OpenRouter, NVIDIA Nemotron)
+        shell: powershell
+        run: .\installer\build.ps1 -Cloud
+
+      - name: Переименовать и посчитать хеш
+        shell: powershell
+        run: |
+          $v = (Get-Content VERSION -Raw).Trim()
+          Copy-Item "installer\output\rpro-agent-setup-$v.exe" "rpro-agent-cloud-setup-$v.exe"
+          Get-FileHash "rpro-agent-cloud-setup-$v.exe" -Algorithm SHA256 | Format-List
+          (Get-Item "rpro-agent-cloud-setup-$v.exe").Length
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rpro-agent-cloud-setup
+          path: rpro-agent-cloud-setup-*.exe
+          retention-days: 30

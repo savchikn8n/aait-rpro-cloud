@@ -1,0 +1,2004 @@
+{
+"vcAssemblyPattern": {
+"parents": "",
+"properties": [
+"Properties",
+"UniqueID",
+"Slots",
+"Name"
+],
+"methods": [
+"getSlot",
+"createSlot",
+"removeSlot",
+"cloneSlotFrom",
+"deleteProperty",
+"getProperty",
+"createProperty"
+],
+"events": [],
+"rows": {
+"Properties": "Properties: List of vcProperty [R] — Property container.",
+"UniqueID": "UniqueID: String [R] — Unique identifier for this assembly pattern.",
+"Slots": "Slots: List of vcAssemblyPatternSlot [R] — List of all slots associated with this pattern.",
+"Name": "Name: String [RW] — Pattern name.",
+"getSlot": "getSlot(Integer index) -> vcAssemblyPatternSlot — Returns slot from the pattern at specified index.",
+"createSlot": "createSlot([Integer index]) -> vcAssemblyPatternSlot — Creates slot at index specified by index. If index is specified outside of valid indexes or not specified at all, the slot is appended to the existing ones.",
+"removeSlot": "removeSlot(vcAssemblyPatternSlot slot, Integer index) -> None — Deletes the slot, given explicitly as slot, or retrieved based on the index.",
+"cloneSlotFrom": "cloneSlotFrom(vcAssemblyPatternSlot slot, [Integer index]) -> vcAssemblyPatternSlot — Creates a copy of given slot at given pattern slot index. If index is specified outside of valid indexes or not specified at all, the slot is appended to the existing ones.",
+"deleteProperty": "deleteProperty(vcProperty property) -> None — Deletes a property of the step.",
+"getProperty": "getProperty(String propertyName) -> vcProperty — Returns a property of the step.",
+"createProperty": "createProperty(Enumeration type, String name, [Enumeration constraints]) -> vcProperty — Creates a new property to the step. See Property Constraint Constants for more information."
+}
+},
+"vcAssemblyPatternItem": {
+"parents": "",
+"properties": [
+"Properties",
+"DefaultProductType",
+"DefaultBoundsDimensions"
+],
+"methods": [],
+"events": [],
+"rows": {
+"Properties": "Properties: List of vcProperty [R] — Property container.",
+"DefaultProductType": "DefaultProductType: vcProductType [RW] — Controls the product that is created by default when this assembly pattern item is created.",
+"DefaultBoundsDimensions": "DefaultBoundsDimensions: vcVector [RW] — Controls the dimensions of the block visualization in Assembly Editor. Ignored when DefaultProductType is set."
+}
+},
+"vcAssemblyPatternManager": {
+"parents": "",
+"properties": [
+"Patterns"
+],
+"methods": [
+"createPattern",
+"deletePattern",
+"clonePattern",
+"findPattern"
+],
+"events": [],
+"rows": {
+"Patterns": "Patterns: List of vcAssemblyPattern [R] — List of all assembly patterns.",
+"createPattern": "createPattern(String name) -> vcAssemblyPattern — Creates a new assembly pattern with given name. Names must be unique.",
+"deletePattern": "deletePattern(String name, vcAssemblyPattern pattern) -> None — Deletes the pattern given explicitly, or deletes pattern by name.",
+"clonePattern": "clonePattern(String name, vcAssemblyPattern pattern) -> vcAssemblyPattern — Creates a copy of the pattern given explicitly, or found pattern with given name.",
+"findPattern": "findPattern(String name) -> vcAssemblyPattern — Returns an assembly pattern with given name, if it exists."
+}
+},
+"vcAssemblyPatternSlot": {
+"parents": "",
+"properties": [
+"Properties",
+"OrderIndex",
+"Position",
+"Pattern",
+"UniqueID",
+"Item"
+],
+"methods": [
+"deleteProperty",
+"getProperty",
+"createProperty"
+],
+"events": [],
+"rows": {
+"Properties": "Properties: List of vcProperty [R] — Property container.",
+"OrderIndex": "OrderIndex: Integer [RW] — Controls the order in which the pattern slots are created.",
+"Position": "Position: vcMatrix [RW] — Defines the positions of the slot within the pattern.",
+"Pattern": "Pattern: vcAssemblyPattern [R] — Defines the pattern that the slot is part of.",
+"UniqueID": "UniqueID: String [R] — Unique identifier for the assembly pattern slot.",
+"Item": "Item: vcAssemblyPatternItem [R] — Defines the item that fills the assembly pattern slot in the assembly pattern.",
+"deleteProperty": "deleteProperty(vcProperty property) -> None — Deletes a property of the step.",
+"getProperty": "getProperty(String propertyName) -> vcProperty — Returns a property of the step.",
+"createProperty": "createProperty(Enumeration type, String name, [Enumeration constraints]) -> vcProperty — Creates a new property to the step. See Property Constraint Constants for more information."
+}
+},
+"vcAssemblyProductType": {
+"parents": "vcProductType",
+"properties": [
+"RootStep",
+"AssemblySteps"
+],
+"methods": [
+"canBeAddedTo",
+"canBeMovedTo",
+"moveStepTo",
+"cloneStepFrom",
+"createStepTo",
+"deleteStep"
+],
+"events": [],
+"rows": {
+"RootStep": "RootStep: vcAssemblyStep [R] — The root step of the assembly product type. The root step cannot be removed.",
+"AssemblySteps": "AssemblySteps: List of vcAssemblyStep [R] — List of all assembly steps defined for the assembly product type.",
+"canBeAddedTo": "canBeAddedTo(vcAssemblyStep parent, vcAssemblyStep child) -> Boolean — Returns boolean if child step can be added as a child to theparent step. If the relation already exists, returns False.",
+"canBeMovedTo": "canBeMovedTo(vcAssemblyStep parent, vcAssemblyStep child, Integer index) -> Boolean — Returns boolean if child step can be moved to be a child of the parent step at a specified index. If index is outside the range of existing steps, the method checks if the step can be appended to existing steps of the parent. If child is already at the requested location within children of parent, returns False.",
+"moveStepTo": "moveStepTo(vcAssemblyStep parent, vcAssemblyStep stepToMove, Integer index) -> None — Moves stepToMove and adds it as a child to parent at specified index. If index is outside the range of existing steps, the moved step is appended to existing steps of the parent.",
+"cloneStepFrom": "cloneStepFrom(vcAssemblyStep parent, vcAssemblyStep stepToClone, Integer index) -> vcAssemblyStep — Creates a copy of stepToClone and adds it as a child to parent at specified index. If index is outside the range of existing steps, the created copy is appended to existing steps of the parent. If successful, returns the cloned step.",
+"createStepTo": "createStepTo(vcAssemblyStep parent, [string name], Integer index) -> vcAssemblyStep — Create a new assembly step and adds it as a child to parent at specified index. If index is outside the range of existing steps, the created step is appended to existing steps of the parent. If successful, returns the created step.",
+"deleteStep": "deleteStep(vcAssemblyStep step) -> None — Deleted the given step."
+}
+},
+"vcAssemblyStep": {
+"parents": "",
+"properties": [
+"Properties",
+"Name",
+"ProcessParameters",
+"Owner",
+"ChildSteps",
+"ParentStep",
+"RelativeFrame",
+"AbsoluteFrame",
+"Pattern"
+],
+"methods": [
+"moveChildStep",
+"getProperty",
+"deleteProcessParameter",
+"getProcessParameter",
+"createProcessParameter"
+],
+"events": [],
+"rows": {
+"Properties": "Properties: List of vcProperty [R] — General property container.",
+"Name": "Name: String [RW] — Step name.",
+"ProcessParameters": "ProcessParameters: List of vcProperty [RW] — Process parameters property container.",
+"Owner": "Owner: vcAssemblyProductType [R] — The assembly product type that the step is part of.",
+"ChildSteps": "ChildSteps: vcAssemblyStep [R] — Direct children of the assembly step.",
+"ParentStep": "ParentStep: vcAssemblyStep [R] — The parent step of the assembly step. The root step of the assembly product type has None as parent.",
+"RelativeFrame": "RelativeFrame: vcMatrix [RW] — Relative position of the step with respect to its parent.",
+"AbsoluteFrame": "AbsoluteFrame: vcMatrix [R] — Position of the step with respect to the root of assembly product type.",
+"Pattern": "Pattern: vcAssemblyPattern [RW] — The assembly pattern used for the assembly step. The value may be None.",
+"moveChildStep": "moveChildStep(vcAssemblyStep step, Integer index) -> None — Moves child step within the vcAssemblyStep to new index.",
+"getProperty": "getProperty(String propertyName) -> vcProperty — Returns a property of the step.",
+"deleteProcessParameter": "deleteProcessParameter(vcProperty property) -> None — Deletes a custom process parameter associated with the step.",
+"getProcessParameter": "getProcessParameter(String propertyName) -> vcProperty — Returns a custom process parameter associated with the step.",
+"createProcessParameter": "createProcessParameter(Enumeration type, String name, [Enumeration constraints]) -> vcProperty — Creates a new custom process parameter associated to the step. See Property Constraint Constants for more information."
+}
+},
+"vcBoolSignal": {
+"parents": "vcBehaviour",
+"properties": [
+"Value"
+],
+"methods": [
+"signal"
+],
+"events": [],
+"rows": {
+"Value": "Value: Boolean [RW] — Defines the value of signal. Setting this value does not trigger the OnSignal event unless you use the signal() method.",
+"signal": "signal([Boolean value]) -> None — Signals the current value of signal to all connected behaviors, thereby triggering the OnSignal event. An optional value argument can be given to set the Value property of the signal."
+}
+},
+"vcCaseScope": {
+"parents": "",
+"properties": [
+"CaseCondition"
+],
+"methods": [],
+"events": [],
+"rows": {
+"CaseCondition": "CaseCondition: String [RW] — Gets or sets an expression which will be evaluated against statement�s Condition."
+}
+},
+"vcConfigurableProductTypeFilter": {
+"parents": "",
+"properties": [
+"AcceptAllProductTypesProperty",
+"AcceptedFlowGroupsProperty",
+"AcceptedProductTypesProperty"
+],
+"methods": [
+"new",
+"bindToStatement"
+],
+"events": [],
+"rows": {
+"AcceptAllProductTypesProperty": "AcceptAllProductTypesProperty: vcProperty [R] — Returns True if all product types are accepted. Returns False if some product types are not accepted.",
+"AcceptedFlowGroupsProperty": "AcceptedFlowGroupsProperty: vcProperty [R] — Returns the list of flow groups (vcProcessFlowGroup) that are accepted.",
+"AcceptedProductTypesProperty": "AcceptedProductTypesProperty: vcProperty [R] — Returns the list of product types (vcProductType) that are accepted.",
+"new": "new(None) -> vcConfigurableProductTypeFilter — Creates a new vcConfigurableProductTypeFilter object and returns the new product type filter.",
+"bindToStatement": "bindToStatement(vcStatement parentObject, [Integer startingVarGroup]) -> None — Adds the filter properties to the given parentObject. If the filter is already bound, this method first removes the filter properties from the current parent object, and then adds the properties to the new parent object. To remove the filter properties from the current parent object, set the value of parentObject to None. startingVarGroup defines the vcProperty.Group value to assign to the first of the properties. The group of the other properties is based on that value. This defines the order of the properties in "
+}
+},
+"vcDistributionModeProductLineEntry": {
+"parents": "",
+"properties": [
+"Probability",
+"ProductType"
+],
+"methods": [],
+"events": [],
+"rows": {
+"Probability": "Probability: Real [RW] — Defines the weight of the product type, which is used to calculate the probability for creating product instances of. It is evaluated as relative to the sum of all configured probabilities like a weight value in a weighted sum. The value must be greater than or equal to zero.",
+"ProductType": "ProductType: vcProductType [RW] — Defines the product type of entry to create product instances of."
+}
+},
+"vcElseIfScope": {
+"parents": "vcScope",
+"properties": [
+"Condition"
+],
+"methods": [],
+"events": [],
+"rows": {
+"Condition": "Condition: Expression [RW] — Defines an expression that when evaluated returns a True or False value. A True value means the If statement will execute this scope. A False value means the If statement will not execute this scope."
+}
+},
+"vcEventReturnData": {
+"parents": "",
+"properties": [
+"Handled"
+],
+"methods": [],
+"events": [],
+"rows": {
+"Handled": "Handled: Boolean [RW] — Defines if this event has already been handled. This is used when an event should only be handled once. All listeners of the event should begin by checking this value before performing any operations. If True, then no further operations should be performed. Otherwise, logic can continue. If the listener then handles this event and no further handling should be done to it, the listener should write True here."
+}
+},
+"vcFeedOptionFlowInfo": {
+"parents": "",
+"properties": [],
+"methods": [
+"setStep",
+"setGroup",
+"new"
+],
+"events": [],
+"rows": {
+"setStep": "setStep(vcProcessFlowStep step) -> None — Sets the FlowStep property. Resets Group to None and GroupId to ��, if such ProcessGroup is not present in the new FlowStep.",
+"setGroup": "setGroup((String groupId) or (vcProcessGroup group)) -> None — Sets the GroupId and Group properties to match. If a custom Id is used, Group is set to None. If the new ProcessGroup cannot be found in the current FlowStep, FlowStep is set to None.",
+"new": "new(()) -> vcFeedOptionFlowInfo — Creates an empty vcFeedOptionFlowInfo object with FlowStep=None, GroupId=��, Group=None"
+}
+},
+"vcHelpers.Application1": {
+"parents": "",
+"properties": [
+"CurrentTab",
+"GeneralTabCaption",
+"Name"
+],
+"methods": [
+"getDialog",
+"addProperty",
+"destroyWindow",
+"getProperty",
+"hide",
+"show",
+"showTabs",
+"addLimitProperty",
+"addProperty",
+"addStepProperty",
+"displayPropertyDialog",
+"copyProperties",
+"endMessage",
+"findCommand",
+"progressMessage",
+"progressStdMessage",
+"startMessage"
+],
+"events": [],
+"rows": {
+"getDialog": "getDialog([String caption]) -> vcHelpers.Application.DialogObject — Creates a new DialogObject object representing a non-modal dialog box. An option caption argument can be given to define the title caption of the dialog.",
+"CurrentTab": "CurrentTab: String [RW] — Defines the active tab in the dialog. This property can be overridden by using the showTabs() method.",
+"GeneralTabCaption": "GeneralTabCaption: String [RW] — Defines the label for the first tab in the dialog.",
+"Name": "Name: String [RW] — Defines the text displayed in the title bar of the dialog.",
+"addProperty": "addProperty(vcCommand owner, Enumeration type, String name, Boolean visible, Boolean rebuild, Boolean update, var* value, String onchanged, var* units) -> vcProperty — Adds a property to the dialog's owner. If a property with the given name exists, that property is deleted and replaced with the new property. The onchanged argument can be used to call a function for handling property value changes; otherwise give a None value. A tab is added to the dialog when you add a property using the following format for its name argument. [TabName]::[PropertyName] The rebuild argument can be used to rebui",
+"destroyWindow": "destroyWindow(None) -> None — Hides and destroys the dialog.",
+"getProperty": "getProperty(String name) -> vcProperty — Returns a property of the dialog matching the given name; otherwise returns None.",
+"hide": "hide(None) -> None — Hides the dialog.",
+"show": "show(None) -> None — Shows the dialog.",
+"showTabs": "showTabs([String tabName]) -> None — Shows the dialog and its tabs. An optional tabName argument can be used to define which tab is listed first and active in the dialog. If there is no tab matching the given tabName or the method is called without any argument, the first listed tab is used in the dialog. By default, the first tab is named General.",
+"addLimitProperty": "addLimitProperty(vcCommand owner, Enumeration type, String name, Boolean visible, Boolean rebuild, Boolean update, var* value, String onchanged, var* units, var* min, var* max) -> vcProperty — Adds a property with defined limits to the dialog's owner. If a property with the given name exists, that property is deleted and replaced with the new property. The onchanged argument can be used to call a function for handling property value changes; otherwise give a None value. A tab is added to the dialog when you add a property using the following format for its name argument. [TabName]::[PropertyNa",
+"addStepProperty": "addStepProperty(vcCommand owner, Enumeration type, String name, Boolean visible, Boolean rebuild, Boolean update, var* value, String onchanged, var* units, List* [value1, ...]) -> vcProperty — Adds a property with defined values to the dialog's owner. If a property with the given name exists, that property is deleted and replaced with the new property. The onchanged argument can be used to call a function for handling property value changes; otherwise give a None value. A tab is added to the dialog when you add a property using the following format for its name argument. [TabName]::[PropertyNa",
+"displayPropertyDialog": "displayPropertyDialog(String cmdName, String title, String firstTabName) -> Boolean — Shows a modal property dialog bound to a command matching the given cmdName. The cmdName argument is used to find a command owning the dialog and its properties. The title argument defines the caption of the dialog's title bar. The firstTabName argument defines the first and active tab of the dialog. You can given an empty string \"\" if no tabs are required in the dialog.",
+"copyProperties": "copyProperties(vcComponent comp1, vcComponent comp2) -> None — Copies the properties of a component to another component. The comp1 argument defines the component whose properties are copied. The comp2 argument defines the component which gets the copied properties.",
+"endMessage": "endMessage(String message) -> None — Prints a given message to the Output panel and unblocks the application.",
+"findCommand": "findCommand(String name) -> vcCommand — Returns a command in the application matching the given name; otherwise returns None.",
+"progressMessage": "progressMessage(String message, Real fraction) -> None — Prints a given message to the Output panel and updates the value of the progress bar based on a given fraction ranging from 0.0 to 1.0. Generally, this is used to provide feedback to a user about the progress of one or actions. This method does not unblock the application.",
+"progressStdMessage": "progressStdMessage(Real completed, Real total) -> None — Displays the status of an operation based on a given amount of work completed in relation to the total amount of work. This method does not unblock the application.",
+"startMessage": "startMessage(String message) -> None — Prints a given message to the Output panel. Using this method, progressMessage() or progressStdMessage() will block the application, thereby preventing user interaction. To unblock the application, use the endMessage() method."
+}
+},
+"vcHelpers.Math": {
+"parents": "",
+"properties": [],
+"methods": [
+"sasa",
+"sass",
+"sssa",
+"sasasa",
+"sasass",
+"sasssa1",
+"sasssa2",
+"sasasad",
+"sasassd",
+"sasssa1d",
+"sasssa2d",
+"trapezoid",
+"trapesine",
+"matrixExpr"
+],
+"events": [],
+"rows": {
+"sasa": "sasa(Real side1, Real angle3, Real side2) -> Real angle1 — Returns the value of alpha in radians.",
+"sass": "sass(Real side1, Real angle3, Real side2) -> Real side3 — Returns the value of b.",
+"sssa": "sssa(Real side1, Real side2, Real side3) -> Real angle1 — Returns the value of alpha in radians.",
+"sasasa": "sasasa(Real side1, Real angle1, Real side2, Real angle2, Real side3) -> Real angle3 — Returns the value of c in radians.",
+"sasass": "sasass(Real side1, Real angle1, Real side2, Real angle2, Real side3) -> Real side4 — Returns the value of D.",
+"sasssa1": "sasssa1(Real side1, Real angle1, Real side2, Real side3, Real side4) -> Real angle2 — Returns the value of b in radians.",
+"sasssa2": "sasssa2(Real side1, Real angle1, Real side2, Real side3, Real side4) -> Real angle3 — Returns the value of c in radians.",
+"sasasad": "sasasad(Real side1, Real angle1, Real side2, Real angle2, Real side3) -> Real angle3 — Returns the value of c in degrees.",
+"sasassd": "sasassd(Real side1, Real angle1, Real side2, Real angle2, Real side3) -> Real side4 — Returns the value of D.",
+"sasssa1d": "sasssa1d(Real side1, Real angle1, Real side2, Real side3, Real side4) -> Real angle2 — Returns the value of b in degrees.",
+"sasssa2d": "sasssa2d(Real side1, Real angle1, Real side2, Real side3, Real side4) -> Real angle3 — Returns the value of c in degrees.",
+"trapezoid": "trapezoid(Real a, Real b, Real x, Real c, Real d) -> Real y — Return a value between 0-1 based on the x location on trapezoid defined by a,b,c,d.",
+"trapesine": "trapesine(Real a, Real b, Real x, Real c, Real d) -> Real y — Return a value between 0-1 based on the x location on trapezoid defined by a,b,c,d with sinusoidal ramps.",
+"matrixExpr": "matrixExpr(vcMatrix M, [Real tolerance]) -> String — Converts a given vcMatrix object to a string expression."
+}
+},
+"vcHelpers.Output": {
+"parents": "",
+"properties": [],
+"methods": [
+"info()",
+"warning()",
+"error()",
+"debug()",
+"setInfo()",
+"setWarnings()",
+"setErrors()",
+"setDebug()",
+"bindInfoProperty()",
+"bindErrorProperty()",
+"bindWarningProperty()",
+"bindDebugProperty()"
+],
+"events": [],
+"rows": {
+"info()": "info()(List of arguments, [Boolean simtime]) -> None — Prints given positional arguments to output. To print simulation time (as a prefix), set simtime key argument to True, default is False.",
+"warning()": "warning()(List of arguments, [Boolean simtime]) -> None — Prints given positional arguments to output. To print simulation time (as a prefix), set simtime key argument to True, default is False.",
+"error()": "error()(List of arguments, [Boolean simtime]) -> None — Prints given positional arguments to output. To print simulation time (as a prefix), set simtime key argument to True, default is False.",
+"debug()": "debug()(List of arguments, [Boolean simtime]) -> None — Prints given positional arguments to output. To print simulation time (as a prefix), set simtime key argument to True, default is False.",
+"setInfo()": "setInfo()(Boolean Value) -> None — Enable (True) or disable (False) info messages.",
+"setWarnings()": "setWarnings()(Boolean Value) -> None — Enable (True) or disable (False) warnings.",
+"setErrors()": "setErrors()(Boolean Value) -> None — Enable (True) or disable (False) errors.",
+"setDebug()": "setDebug()(Boolean Value) -> None — Enable (True) or disable (False) debug messages.",
+"bindInfoProperty()": "bindInfoProperty()(String or vcProperty) -> Boolean — Bind a component/command property as a toggle to enable/disable info messages. Use the name of the property or the property instance as the argument.",
+"bindErrorProperty()": "bindErrorProperty()(String or vcProperty) -> Boolean — Bind a component/command property as a toggle to enable/disable errors. Use the name of the property or the property instance as the argument.",
+"bindWarningProperty()": "bindWarningProperty()(String or vcProperty) -> Boolean — Bind a component/command property as a toggle to enable/disable warnings. Use the name of the property or the property instance as the argument.",
+"bindDebugProperty()": "bindDebugProperty()(String or vcProperty) -> Boolean — Bind a component/command property as a toggle to enable/disable debug messages. Use the name of the property or the property instance as the argument."
+}
+},
+"vcHelpers.Robot": {
+"parents": "",
+"properties": [
+"Acc",
+"ActiveTool",
+"AngularAcc",
+"AngularSpeed",
+"Bases",
+"Component",
+"Configuration",
+"ConfigurationsList",
+"Controller",
+"Executor",
+"GraspContainer",
+"Joints",
+"JointForce",
+"JointSpeed",
+"MotionTime",
+"RecordRoutine",
+"RecordRSL",
+"SignalMapIn",
+"SignalMapOut",
+"Speed",
+"Tools"
+],
+"methods": [
+"getRobot",
+"callSubRoutine",
+"comment",
+"delay",
+"driveJoints",
+"followNode",
+"getConfigNames",
+"graspComponent",
+"graspComponents",
+"jointMoveRel",
+"jointMoveToComponent",
+"jointMoveToMtx",
+"jointMoveToPosition",
+"linearMoveRel",
+"linearMoveToComponent",
+"linearMoveToMtx",
+"linearMoveToMtx_ExternalBase",
+"linearMoveToPosition",
+"mountTool",
+"moveAway",
+"pick",
+"pickFromPallet",
+"pickMovingPart",
+"place",
+"placeInPattern",
+"releaseAllComponents",
+"releaseComponent",
+"rsl_BinIn",
+"rsl_BinOut",
+"traceOff",
+"traceOn",
+"unmountTool",
+"getSelectedRobotsData",
+"printMatrix"
+],
+"events": [],
+"rows": {
+"getRobot": "getRobot(String interface_name or vcComponent robot_component or [no argument]) -> vcHelpers.Robot.vcRobot — Creates a new vcRobot object for a given component which must have a robot executor. One option is to give the name of an interface a robot is connected to in a component as an argument, for example a robot mounted on a pedestal. If found, the robot connected at the interface is used by the constructor. A second option is to give the component of a robot you want to program as an argument. A third option is to not give any argument, thereby a component owning the script is used by the c",
+"Acc": "Acc: Real [RW] — Defines the Cartesian acceleration of robot for linear movements.",
+"ActiveTool": "ActiveTool: String/Integer [RW] — Defines the active tool frame of robot by referencing the name or index of a tool frame in Tools property.",
+"AngularAcc": "AngularAcc: Real [RW] — Defines the angular acceleration of robot for linear movements.",
+"AngularSpeed": "AngularSpeed: Real [RW] — Defines the angular speed of robot for linear movements.",
+"Bases": "Bases: List of vcBaseFrame [R] — Gets a list of all base frames available in robot.",
+"Component": "Component: vcComponent [R] — Gets the component of robot.",
+"Configuration": "Configuration: String/Integer [RW] — Defines the configuration of robot. Set this property to None to use the current configuration of the robot. Note: The default configuration is -1/last configuration in ConfigurationsList.",
+"ConfigurationsList": "ConfigurationsList: List of String [R] — Gets a list of robot's configurations by name.",
+"Controller": "Controller: vcRobotController [R] — Gets the controller of robot.",
+"Executor": "Executor: vcRslProgramExecutor [R] — Gets the executor of robot.",
+"GraspContainer": "GraspContainer: vcContainer [RW] — Defines the Component Container behavior in the robot's flange node used to contain components grabbed by the robot.",
+"Joints": "Joints: List of vcJoint [R] — Gets a list of joints used by robot.",
+"JointForce": "JointForce: Real [RW] — Defines the joint force (0-100%) used by robot for joint/point-to-point movements.",
+"JointSpeed": "JointSpeed: Real [RW] — Defines the joint speed (0-100%) used by robot for joint/point-to-point movements.",
+"MotionTime": "MotionTime: Real [RW] — Defines a time used for scaling the acceleration and speed of robot motions to match the given time. If zero value, a motion's acceleration and speed determines its motion time. That is, this property has no effect.",
+"RecordRoutine": "RecordRoutine: String [RW] — Defines a sequence in the robot where new statements are added when RecordRSL is set to True. This property must be defined before setting RecordRSL to True. By default, new statements are added to the MainRoutine of the robot.",
+"RecordRSL": "RecordRSL: Boolean [RW] — Defines if actions executed by the robot are recorded as statements in the robot's program. If True, statements are added to a routine defined by RecordRoutine.",
+"SignalMapIn": "SignalMapIn: vcBooleanSignalMap [R] — Gets the Boolean Signal Map behavior used for robot inputs.",
+"SignalMapOut": "SignalMapOut: vcBooleanSignalMap [R] — Gets the Boolean Signal Map behavior used for robot outputs.",
+"Speed": "Speed: Real [RW] — Defines the Cartesian speed used by the robot for linear movements.",
+"Tools": "Tools: List of vcBaseFrame [R] — Gets a list of the robot's tool frames.",
+"callSubRoutine": "callSubRoutine(String rName) -> None — Calls a predefined routine by name in the robot's program.",
+"comment": "comment(String comment) -> None — Prints a given comment to the Output panel and records a Comment statement for this action in the robot's program.",
+"delay": "delay(Real delay) -> None — Executes a timed delay (in seconds) and records a Delay statement for this action in the robot's program.",
+"driveJoints": "driveJoints([Real j1], [Real j2], [Real j3], [Real j4], [Real j5], [Real j6], [Real motiontime], [Boolean relative], [Real ExtraJoints]) -> None — Drives one or more joints in the robot to given target values. If no value is given for a joint, the current value of the joint is used by the robot. Optional arguments j1 to j6 are target values for joints 1 through 6 in a robot, with six joints being common in articulated robots. An optional motiontime argument can be given to scale the acceleration and speed of the robot's motion to match the given time. The default value is zero in which scaling",
+"followNode": "followNode(vcNode Basenode, [Real FollowTime]) -> None — Defines a node in the 3D world to be followed by the robot for a set amount of time. An optional FollowTime argument can be given to set the amount of time the robot should follow the target node. The default value is 1.0/one second.",
+"getConfigNames": "getConfigNames(vcRslProgramExecutor executor, vcRobotController controller) -> List of String — Returns a list of available configurations by name for the robot.",
+"graspComponent": "graspComponent(vcComponent graspthis) -> None — Grasps a given component using robot.",
+"graspComponents": "graspComponents(List of vcComponent graspthese) -> None — Grasps a given list of components using the robot.",
+"jointMoveRel": "jointMoveRel([Real Tx], [Real Ty], [Real Tz], [Real Rx], [Real Ry], [Real Rz]) -> None — Executes a joint movement relative to the current pose of robot based in active tool's coordinate system. Optional arguments Tx, Ty and Tz are translation movements in the XYZ coordinate axes. Optional arguments Rx, Ry and Rz are rotation offsets for the XYZ coordinate axes.",
+"jointMoveToComponent": "jointMoveToComponent(vcNode ToComp, [Real Tx], [Real Ty], [Real Tz], [Real Rx], [Real Ry], [Real Rz], [vcFeature/String ToFrame], [String OnFace]) -> None — Executes a joint movement to a given component, which by default is the component's origin. Optional arguments Tx, Ty and Tz are offsets for target position. The default value for translations is zero. Optional arguments Rx, Ry and Rz are offsets for target orientation. The default value for rotations is zero. An optional ToFrame argument can be used to set the target location to be a Frame feature in a component. A Frame feature can be gi",
+"jointMoveToMtx": "jointMoveToMtx([vcMatrix ToMtx], [Real Tx], [Real Ty], [Real Tz], [Real Rx], [Real Ry], [Real Rz], [String CS]) -> None — Executes a joint movement to a given target matrix, otherwise the 3D world origin. An optional ToMtx argument defines the target matrix in the selected coordinate system for this method. By default, the identity matrix is based on World origin. Optional arguments Tx, Ty and Tz are offsets for target matrix position. The default value for translations is zero. Optional arguments Rx, Ry and Rz are offsets for target matrix orientation. The default value for rotations is zero.",
+"jointMoveToPosition": "jointMoveToPosition(Real Tx, Real Ty, Real Tz, Real Rx, Real Ry, Real Rz, String CS) -> None — Executes a joint movement to a target defined by given XYZ coordinate values and roll, pitch and yaw values based in a given coordinate system. The Tx, Ty and Tz arguments define the target's XYZ coordinate values. The Rx, Ry and Rz arguments define the target's orientation or ABC values. Rx C target value (Roll) Ry B target value (Pitch) Rz A target value (Yaw) The CS argument defines the coordinate system used for target calculation, which default is World coordinate system. The argument can be eit",
+"linearMoveRel": "linearMoveRel(Real Tx, Real Ty, Real Tz, Real Rx, Real Ry, Real Rz) -> None — Executes a linear movement relative to the current pose of robot based in active tool's coordinate system. The Tx, Ty and Tz arguments are translation movements in XYZ coordinate axes. The Rx, Ry and Rz arguments are rotation offsets for XYZ coordinate axes.",
+"linearMoveToComponent": "linearMoveToComponent(vcNode ToComp, [Real Tx], [Real Ty], [Real Tz], [Real Rx], [Real Ry], [Real Rz], [vcFeature/String ToFrame], [String OnFace]) -> None — Executes a linear movement to a given component, which by default is the component's origin. Optional arguments Tx, Ty and Tz are offsets for target position. The default value for translations is zero. Optional arguments Rx, Ry and Rz are offsets for target orientation. The default value for rotations is zero. An optional ToFrame argument can be used to set the target location to be a Frame feature in a component. A Frame feature can be ",
+"linearMoveToMtx": "linearMoveToMtx([vcMatrix ToMtx], [Real Tx], [Real Ty], [Real Tz], [Real Rx], [Real Ry], [Real Rz], [String CS]) -> None — Executes a linear movement to a given target matrix, otherwise the 3D world origin. An optional ToMtx argument defines the target matrix in the selected coordinate system for this method. By default, the identity matrix is based on World origin. Optional arguments Tx, Ty and Tz are offsets for target matrix position. The default value for translations is zero. Optional arguments Rx, Ry and Rz are offsets for target matrix orientation. The default value for rotations is zer",
+"linearMoveToMtx_ExternalBase": "linearMoveToMtx_ExternalBase(vcNode Basenode, vcMatrix ToMtx, [Real Tx], [Real Ty], [Real Tz], [Real Rx], [Real Ry], [Real Rz]) -> None — Executes a linear movement to a given target matrix based in given node's coordinate system. Generally, this method is used when a robot needs to motion to a moving part, for example a pallet on a conveyor. Optional arguments Tx, Ty and Tz are offsets for target matrix position. The default value for translations is zero. Optional arguments Rx, Ry and Rz are offsets for target matrix orientation. The default value for rotations is zero.",
+"linearMoveToPosition": "linearMoveToPosition(Real Tx, Real Ty, Real Tz, Real Rx, Real Ry, Real Rz, String CS) -> None — Executes a linear movement to a target defined by given XYZ coordinate values and roll, pitch and yaw values based in a given coordinate system. The Tx, Ty and Tz arguments define the target's XYZ coordinate values. The Rx, Ry and Rz arguments define the target's orientation or ABC values. Rx C target value (Roll) Ry B target value (Pitch) Rz A target value (Yaw) The CS argument defines the coordinate system used for target calculation, which default is World coordinate system. The argument can be e",
+"mountTool": "mountTool(vcComponent Tool) -> None — Mounts a given component to flange node of robot.",
+"moveAway": "moveAway([Real Tz]) -> None — Executes a linear retraction movement relative to current pose of robot. An optional Tz argument can be given to set retraction distance, which by default is 200.",
+"pick": "pick(vcComponent Part, [Real Approach], [Real Tx], [Real Ty], [Real Tz], [Real Tz], [Real Rx], [Real Ry], [Real Rz], [String OnFace], [String ApproachAxis]) -> None — Executes a sequence of actions in order for robot to pick a given component. Action 1 Robot executes a joint movement based on target component origin and Approach, OnFace and ApproachAxis values. Action 2 Robot executes a linear movement to target component based on OnFace value. Action 3 Target component is grabbed by robot. Action 4 Robot executes a linear retraction movement based on Approach value. All three motions executed",
+"pickFromPallet": "pickFromPallet(vcComponent Pallet, [Real Approach], [Boolean InversedOrder], [Integer Index]) -> vcComponent — Executes a sequence of actions in order for the robot to pick a component from a given Pallet. Action 1 Get a list of components attached to Pallet. That is, a list of child components. Action 2 Select child component to pick based on InversedOrder and Index values. Action 3 Robot executes a joint movement based on child component origin and Approach value. Action 4 Robot executes a linear movement to top face of child component. Action 5 Child component is grabbed by robot. Action 6 ",
+"pickMovingPart": "pickMovingPart(vcComponent Part, [Real Approach], [Real Tx], [Real Ty], [Real Tz], [Real Tz], [Real Rx], [Real Ry], [Real Rz]) -> None — Executes a sequence of actions in order for the robot to pick a given component that is not stationary. Action 1 Robot executes joint movement based on target component origin and Approach value. Action 2 Robot executes linear movement to top face of target component bound box. Action 3 Target component is grabbed by robot. Action 4 Robot executes a linear retraction movement based on Approach value. All three motions executed by the robot are created dynamic",
+"place": "place(vcComponent ToComp, [Real Approach], [Real Tx], [Real Ty], [Real Tz], [Real Tz], [Real Rx], [Real Ry], [Real Rz], [vcComponent Part], [String ApproachAxis]) -> None — Executes a sequence of actions in order for the robot to place a grasped component at a given component. Action 1 Robot executes joint movement based on ToComp origin, Approach and ApproachAxis values. Action 2 Robot executes linear movement to top face of ToComp. Action 3 Grasped component is released by robot to ToComp. Action 4 Robot executes a linear retraction movement based on Approach value. All three motions execute",
+"placeInPattern": "placeInPattern(vcComponent ToComp, Integer X_index, Integer Y_index, Integer Z_index, Integer PatternSize_X, PatternSize_Y, Integer PatternSize_Z, [Real Approach], [vcComponent Part], [Real StepSizeX], [Real StepSizeY], [Real StepSizeZ], [Real Rz]) -> None — Executes a sequence of actions in order for the robot to place components in a given pattern. Action 1 Robot executes joint movement to ToComp. Action 2 Robot executes linear movement to place location. Action 3 Grasped component is released by robot to ToComp. Action 4 Robot executes linear retraction movement away from place location. Al",
+"releaseAllComponents": "releaseAllComponents(vcNode/vcContainer ToObject) -> None — Attaches all components of robot's GraspContainer to a given node or container type behavior. If ToObject is a component, a target container is searched for automatically in the component. If not found, the components are directly attached to the given node.",
+"releaseComponent": "releaseComponent(vcNode/vcContainer ToObject, vcNode ReleaseThis) -> None — Attaches a component to a given node or container type behavior. If ToObject is a component, a target container is searched for automatically in the component. If not found, the released component is directly attached to the given node. The ReleaseThis argument is the component to be detached from robot; otherwise the method will search the robot's GraspContainer.",
+"rsl_BinIn": "rsl_BinIn(Integer Index, Boolean Value) -> None — Waits for a signal mapped to a given port to have the given value. The Index argument defines the port in the robot's inputs, Boolean Signal Map behavior. The Value argument defines the value that should be received at the port in order to complete execution. If RecordRSL is set to True, this action is recorded as a new input statement in the robot's program.",
+"rsl_BinOut": "rsl_BinOut(Integer Index, Boolean Value) -> None — Sends a given value to a signal mapped to a given port. The Index argument defines the port in the robot's outputs, Boolean Signal Map behavior. The Value argument defines the value that should be sent to the mapped signal. If RecordRSL is set to True, this action is recorded as a new output statement in the robot's program.",
+"traceOff": "traceOff(Integer Index) -> None — Turns off the tracing of the robot's motions at given tool frame. The Index argument defines the index position of a tool frame in the robot's Tools which is mapped to a port used for tracing.",
+"traceOn": "traceOn(Integer Index) -> None — Turns on the tracing of the robot's motions at given tool frame. The Index argument defines the index position of a tool frame in the robot's Tools which is mapped to a port used for tracing.",
+"unmountTool": "unmountTool(vcComponent Tool, vcContainer ToObject or vcComponent Tool, vcComponent ToObject) -> None — Dismounts a tool mounted on the robot to either a container type behavior or component. The Tool argument needs to be a tool component mounted on the robot.",
+"getSelectedRobotsData": "getSelectedRobotsData(None) -> List of robot data (vcRslProgramExecutor, vcRslRoutine, vcRobotController, String BaseName, String Toolname, List of String BaseNames, List of String ToolNames, Integer RobotConfig, List of String RobotConfigs) — Returns a list of data for the currently selected robot component in the 3D world. The list of data contains the following: robot program, current routine, robot controller, name of active base frame, name of active tool frame, list of names for all base frames, list of names for all tool frames, index of current configuration, and list of names for all ",
+"printMatrix": "printMatrix(vcMatrix mtx) -> None — Prints a given matrix in a clear, readable format to the Output panel."
+}
+},
+"vcHelpers.Robot2": {
+"parents": "",
+"properties": [
+"Acc",
+"ActiveTool",
+"AngularAcc",
+"AngularSpeed",
+"Bases",
+"Component",
+"Configuration",
+"ConfigurationsList",
+"Controller",
+"Executor",
+"GraspContainer",
+"Joints",
+"JointForce",
+"JointSpeed",
+"MotionTime",
+"RecordRoutine",
+"RecordRSL",
+"SignalMapIn",
+"SignalMapOut",
+"Speed",
+"Tools"
+],
+"methods": [
+"getRobot",
+"callSubRoutine",
+"comment",
+"delay",
+"driveJoints",
+"followNode",
+"getConfigNames",
+"graspComponent",
+"graspComponents",
+"jointMoveRel",
+"jointMoveToComponent",
+"jointMoveToMtx",
+"jointMoveToPosition",
+"linearMoveRel",
+"linearMoveToComponent",
+"linearMoveToMtx",
+"linearMoveToMtx_ExternalBase",
+"linearMoveToPosition",
+"mountTool",
+"moveAway",
+"pick",
+"pickFromPallet",
+"pickMovingPart",
+"place",
+"placeInPattern",
+"releaseAllComponents",
+"releaseComponent",
+"rsl_BinIn",
+"rsl_BinOut",
+"traceOff",
+"traceOn",
+"unmountTool",
+"getSelectedRobotsData",
+"printMatrix"
+],
+"events": [],
+"rows": {
+"getRobot": "getRobot(String interface_name or vcComponent robot_component or [no argument]) -> vcHelpers.Robot.vcRobot — Creates a new vcRobot object for a given component which must have a robot executor. One option is to give the name of an interface a robot is connected to in a component as an argument, for example a robot mounted on a pedestal. If found, the robot connected at the interface is used by the constructor. A second option is to give the component of a robot you want to program as an argument. A third option is to not give any argument, thereby a component owning the script is used by the c",
+"Acc": "Acc: Real [RW] — Defines the Cartesian acceleration of robot for linear movements.",
+"ActiveTool": "ActiveTool: String/Integer [RW] — Defines the active tool frame of robot by referencing the name or index of a tool frame in Tools property.",
+"AngularAcc": "AngularAcc: Real [RW] — Defines the angular acceleration of robot for linear movements.",
+"AngularSpeed": "AngularSpeed: Real [RW] — Defines the angular speed of robot for linear movements.",
+"Bases": "Bases: List of vcBaseFrame [R] — Gets a list of all base frames available in robot.",
+"Component": "Component: vcComponent [R] — Gets the component of robot.",
+"Configuration": "Configuration: String/Integer [RW] — Defines the configuration of robot. Set this property to None to use the current configuration of the robot. Note: The default configuration is -1/last configuration in ConfigurationsList.",
+"ConfigurationsList": "ConfigurationsList: List of String [R] — Gets a list of robot's configurations by name.",
+"Controller": "Controller: vcRobotController [R] — Gets the controller of robot.",
+"Executor": "Executor: vcExecutor [R] — Gets the executor of robot.",
+"GraspContainer": "GraspContainer: vcContainer [RW] — Defines the Component Container behavior in the robot's flange node used to contain components grabbed by the robot.",
+"Joints": "Joints: List of vcJoint [R] — Gets a list of joints used by robot.",
+"JointForce": "JointForce: Real [RW] — Defines the joint force (0-100%) used by robot for joint/point-to-point movements.",
+"JointSpeed": "JointSpeed: Real [RW] — Defines the joint speed (0-100%) used by robot for joint/point-to-point movements.",
+"MotionTime": "MotionTime: Real [RW] — Defines a time used for scaling the acceleration and speed of robot motions to match the given time. If zero value, a motion's acceleration and speed determines its motion time. That is, this property has no effect.",
+"RecordRoutine": "RecordRoutine: String [RW] — Defines a sequence in the robot where new statements are added when RecordRSL is set to True. This property must be defined before setting RecordRSL to True. You can refer to the main routine of robot program as 'MainRoutine', the name of an existing subroutine, or give a name for a new subroutine that will be created during the recording.",
+"RecordRSL": "RecordRSL: Boolean [RW] — Defines if actions executed by the robot are recorded as statements in the robot's program. If True, statements are added to a routine defined by RecordRoutine.",
+"SignalMapIn": "SignalMapIn: vcBooleanSignalMap [R] — Gets the Boolean Signal Map behavior used for robot inputs.",
+"SignalMapOut": "SignalMapOut: vcBooleanSignalMap [R] — Gets the Boolean Signal Map behavior used for robot outputs.",
+"Speed": "Speed: Real [RW] — Defines the Cartesian speed used by the robot for linear movements.",
+"Tools": "Tools: List of vcBaseFrame [R] — Gets a list of the robot's tool frames.",
+"callSubRoutine": "callSubRoutine(String rName) -> None — Calls a predefined routine by name in the robot's program.",
+"comment": "comment(String comment) -> None — Prints a given comment to the Output panel and records a Comment statement for this action in the robot's program.",
+"delay": "delay(Real delay) -> None — Executes a timed delay (in seconds) and records a Delay statement for this action in the robot's program.",
+"driveJoints": "driveJoints([Real j1], [Real j2], [Real j3], [Real j4], [Real j5], [Real j6], [Real motiontime], [Boolean relative], [Real ExtraJoints]) -> None — Drives one or more joints in the robot to given target values. If no value is given for a joint, the current value of the joint is used by the robot. Optional arguments j1 to j6 are target values for joints 1 through 6 in a robot, with six joints being common in articulated robots. An optional motiontime argument can be given to scale the acceleration and speed of the robot's motion to match the given time. The default value is zero in which scaling",
+"followNode": "followNode(vcNode Basenode, [Real FollowTime]) -> None — Defines a node in the 3D world to be followed by the robot for a set amount of time. An optional FollowTime argument can be given to set the amount of time the robot should follow the target node. The default value is 1.0/one second.",
+"getConfigNames": "getConfigNames(vcExecutor executor, vcRobotController controller) -> List of String — Returns a list of available configurations by name for the robot.",
+"graspComponent": "graspComponent(vcComponent graspthis) -> None — Grasps a given component using robot.",
+"graspComponents": "graspComponents(List of vcComponent graspthese) -> None — Grasps a given list of components using the robot.",
+"jointMoveRel": "jointMoveRel([Real Tx], [Real Ty], [Real Tz], [Real Rx], [Real Ry], [Real Rz]) -> None — Executes a joint movement relative to the current pose of robot based in active tool's coordinate system. Optional arguments Tx, Ty and Tz are translation movements in the XYZ coordinate axes. Optional arguments Rx, Ry and Rz are rotation offsets for the XYZ coordinate axes.",
+"jointMoveToComponent": "jointMoveToComponent(vcNode ToComp, [Real Tx], [Real Ty], [Real Tz], [Real Rx], [Real Ry], [Real Rz], [vcFeature/String ToFrame], [String OnFace]) -> None — Executes a joint movement to a given component, which by default is the component's origin. Optional arguments Tx, Ty and Tz are offsets for target position. The default value for translations is zero. Optional arguments Rx, Ry and Rz are offsets for target orientation. The default value for rotations is zero. An optional ToFrame argument can be used to set the target location to be a Frame feature in a component. A Frame feature can be gi",
+"jointMoveToMtx": "jointMoveToMtx([vcMatrix ToMtx], [Real Tx], [Real Ty], [Real Tz], [Real Rx], [Real Ry], [Real Rz], [String CS]) -> None — Executes a joint movement to a given target matrix, otherwise the 3D world origin. An optional ToMtx argument defines the target matrix in the selected coordinate system for this method. By default, the identity matrix is based on World origin. Optional arguments Tx, Ty and Tz are offsets for target matrix position. The default value for translations is zero. Optional arguments Rx, Ry and Rz are offsets for target matrix orientation. The default value for rotations is zero.",
+"jointMoveToPosition": "jointMoveToPosition(Real Tx, Real Ty, Real Tz, Real Rx, Real Ry, Real Rz, String CS) -> None — Executes a joint movement to a target defined by given XYZ coordinate values and roll, pitch and yaw values based in a given coordinate system. The Tx, Ty and Tz arguments define the target's XYZ coordinate values. The Rx, Ry and Rz arguments define the target's orientation or ABC values. Rx C target value (Roll) Ry B target value (Pitch) Rz A target value (Yaw) The CS argument defines the coordinate system used for target calculation, which default is World coordinate system. The argument can be eit",
+"linearMoveRel": "linearMoveRel(Real Tx, Real Ty, Real Tz, Real Rx, Real Ry, Real Rz) -> None — Executes a linear movement relative to the current pose of robot based in active tool's coordinate system. The Tx, Ty and Tz arguments are translation movements in XYZ coordinate axes. The Rx, Ry and Rz arguments are rotation offsets for XYZ coordinate axes.",
+"linearMoveToComponent": "linearMoveToComponent(vcNode ToComp, [Real Tx], [Real Ty], [Real Tz], [Real Rx], [Real Ry], [Real Rz], [vcFeature/String ToFrame], [String OnFace]) -> None — Executes a linear movement to a given component, which by default is the component's origin. Optional arguments Tx, Ty and Tz are offsets for target position. The default value for translations is zero. Optional arguments Rx, Ry and Rz are offsets for target orientation. The default value for rotations is zero. An optional ToFrame argument can be used to set the target location to be a Frame feature in a component. A Frame feature can be ",
+"linearMoveToMtx": "linearMoveToMtx([vcMatrix ToMtx], [Real Tx], [Real Ty], [Real Tz], [Real Rx], [Real Ry], [Real Rz], [String CS]) -> None — Executes a linear movement to a given target matrix, otherwise the 3D world origin. An optional ToMtx argument defines the target matrix in the selected coordinate system for this method. By default, the identity matrix is based on World origin. Optional arguments Tx, Ty and Tz are offsets for target matrix position. The default value for translations is zero. Optional arguments Rx, Ry and Rz are offsets for target matrix orientation. The default value for rotations is zer",
+"linearMoveToMtx_ExternalBase": "linearMoveToMtx_ExternalBase(vcNode Basenode, vcMatrix ToMtx, [Real Tx], [Real Ty], [Real Tz], [Real Rx], [Real Ry], [Real Rz]) -> None — Executes a linear movement to a given target matrix based in given node's coordinate system. Generally, this method is used when a robot needs to motion to a moving part, for example a pallet on a conveyor. Optional arguments Tx, Ty and Tz are offsets for target matrix position. The default value for translations is zero. Optional arguments Rx, Ry and Rz are offsets for target matrix orientation. The default value for rotations is zero.",
+"linearMoveToPosition": "linearMoveToPosition(Real Tx, Real Ty, Real Tz, Real Rx, Real Ry, Real Rz, String CS) -> None — Executes a linear movement to a target defined by given XYZ coordinate values and roll, pitch and yaw values based in a given coordinate system. The Tx, Ty and Tz arguments define the target's XYZ coordinate values. The Rx, Ry and Rz arguments define the target's orientation or ABC values. Rx C target value (Roll) Ry B target value (Pitch) Rz A target value (Yaw) The CS argument defines the coordinate system used for target calculation, which default is World coordinate system. The argument can be e",
+"mountTool": "mountTool(vcComponent Tool) -> None — Mounts a given component to flange node of robot.",
+"moveAway": "moveAway([Real Tz]) -> None — Executes a linear retraction movement relative to current pose of robot. An optional Tz argument can be given to set retraction distance, which by default is 200.",
+"pick": "pick(vcComponent Part, [Real Approach], [Real Tx], [Real Ty], [Real Tz], [Real Rx], [Real Ry], [Real Rz], [String OnFace], [String ApproachAxis]) -> None — Executes a sequence of actions in order for robot to pick a given component. Action 1 Robot executes a joint movement based on target component origin and Approach, OnFace and ApproachAxis values. Action 2 Robot executes a linear movement to target component based on OnFace value. Action 3 Target component is grabbed by robot. Action 4 Robot executes a linear retraction movement based on Approach value. All three motions executed by the rob",
+"pickFromPallet": "pickFromPallet(vcComponent Pallet, [Real Approach], [Boolean InversedOrder], [Integer Index]) -> vcComponent — Executes a sequence of actions in order for the robot to pick a component from a given Pallet. Action 1 Get a list of components attached to Pallet. That is, a list of child components. Action 2 Select child component to pick based on InversedOrder and Index values. Action 3 Robot executes a joint movement based on child component origin and Approach value. Action 4 Robot executes a linear movement to top face of child component. Action 5 Child component is grabbed by robot. Action 6 ",
+"pickMovingPart": "pickMovingPart(vcComponent Part, [Real Approach], [Real Tx], [Real Ty], [Real Tz], [Real Tz], [Real Rx], [Real Ry], [Real Rz]) -> None — Executes a sequence of actions in order for the robot to pick a given component that is not stationary. Action 1 Robot executes joint movement based on target component origin and Approach value. Action 2 Robot executes linear movement to top face of target component bound box. Action 3 Target component is grabbed by robot. Action 4 Robot executes a linear retraction movement based on Approach value. All three motions executed by the robot are created dynamic",
+"place": "place(vcComponent ToComp, [Real Approach], [Real Tx], [Real Ty], [Real Tz], [Real Rx], [Real Ry], [Real Rz], [vcComponent Part], [String ApproachAxis]) -> None — Executes a sequence of actions in order for the robot to place a grasped component at a given component. Action 1 Robot executes joint movement based on ToComp origin, Approach and ApproachAxis values. Action 2 Robot executes linear movement to top face of ToComp. Action 3 Grasped component is released by robot to ToComp. Action 4 Robot executes a linear retraction movement based on Approach value. All three motions executed by the ro",
+"placeInPattern": "placeInPattern(vcComponent ToComp, Integer X_index, Integer Y_index, Integer Z_index, Integer PatternSize_X, PatternSize_Y, Integer PatternSize_Z, [Real Approach], [vcComponent Part], [Real StepSizeX], [Real StepSizeY], [Real StepSizeZ], [Real Rz]) -> None — Executes a sequence of actions in order for the robot to place components in a given pattern. Action 1 Robot executes joint movement to ToComp. Action 2 Robot executes linear movement to place location. Action 3 Grasped component is released by robot to ToComp. Action 4 Robot executes linear retraction movement away from place location. Al",
+"releaseAllComponents": "releaseAllComponents(vcNode/vcContainer ToObject) -> None — Attaches all components of robot's GraspContainer to a given node or container type behavior. If ToObject is a component, a target container is searched for automatically in the component. If not found, the components are directly attached to the given node.",
+"releaseComponent": "releaseComponent(vcNode/vcContainer ToObject, vcNode ReleaseThis) -> None — Attaches a component to a given node or container type behavior. If ToObject is a component, a target container is searched for automatically in the component. If not found, the released component is directly attached to the given node. The ReleaseThis argument is the component to be detached from robot; otherwise the method will search the robot's GraspContainer.",
+"rsl_BinIn": "rsl_BinIn(Integer Index, Boolean Value) -> None — Waits for a signal mapped to a given port to have the given value. The Index argument defines the port in the robot's inputs, Boolean Signal Map behavior. The Value argument defines the value that should be received at the port in order to complete execution. If RecordRSL is set to True, this action is recorded as a new input statement in the robot's program.",
+"rsl_BinOut": "rsl_BinOut(Integer Index, Boolean Value) -> None — Sends a given value to a signal mapped to a given port. The Index argument defines the port in the robot's outputs, Boolean Signal Map behavior. The Value argument defines the value that should be sent to the mapped signal. If RecordRSL is set to True, this action is recorded as a new output statement in the robot's program.",
+"traceOff": "traceOff(Integer Index) -> None — Turns off the tracing of the robot's motions at given tool frame. The Index argument defines the index position of a tool frame in the robot's Tools which is mapped to a port used for tracing.",
+"traceOn": "traceOn(Integer Index) -> None — Turns on the tracing of the robot's motions at given tool frame. The Index argument defines the index position of a tool frame in the robot's Tools which is mapped to a port used for tracing.",
+"unmountTool": "unmountTool(vcComponent Tool, vcContainer ToObject or vcComponent Tool, vcComponent ToObject) -> None — Dismounts a tool mounted on the robot to either a container type behavior or component. The Tool argument needs to be a tool component mounted on the robot.",
+"getSelectedRobotsData": "getSelectedRobotsData(None) -> List of robot data (vcExecutor, vcRoutine, vcRobotController, String BaseName, String Toolname, List of String BaseNames, List of String ToolNames, Integer RobotConfig, List of String RobotConfigs) — Returns a list of data for the currently selected robot component in the 3D world. The list of data contains the following: robot program, current routine, robot controller, name of active base frame, name of active tool frame, list of names for all base frames, list of names for all tool frames, index of current configuration, and list of names for all configuration",
+"printMatrix": "printMatrix(vcMatrix mtx) -> None — Prints a given matrix in a clear, readable format to the Output panel."
+}
+},
+"vcHelpers.Selection": {
+"parents": "",
+"properties": [],
+"methods": [
+"getAllComponents",
+"getSelectedComponents",
+"getAllComponentsNodes",
+"getGivenComponentsNodes",
+"getSelectedComponentsNodes",
+"getSelectedNodes",
+"getAllComponentsFeatures",
+"getGivenComponentsFeatures",
+"getGivenNodesFeatures",
+"getSelectedComponentsFeatures",
+"getSelectedFeatures",
+"getSelectedNodesFeatures",
+"getAllComponentsGeosets",
+"getGivenComponentsGeosets",
+"getGivenFeaturesGeosets",
+"getGivenNodesGeosets",
+"getSelectedComponentsGeosets",
+"getSelectedFeaturesGeosets",
+"getSelectedGeosets",
+"getSelectedNodesGeosets",
+"getAllComponentsBehaviours",
+"getGivenComponentsBehaviours",
+"getGivenNodesBehaviours",
+"getSelectedComponentsBehaviours",
+"getSelectedNodesBehaviours",
+"extendStatements",
+"getAllComponentsPrograms",
+"getAllComponentsStatements",
+"getGivenComponentsProgram",
+"getGivenComponentsStatements",
+"getGivenProgramsRoutines",
+"getGivenProgramsStatements",
+"getGivenRoutinesStatements",
+"getSelectedComponentsPrograms",
+"getSelectedComponentsStatements",
+"getSelectedProgram",
+"getSelectedProgramsRoutines",
+"getSelectedProgramsStatements",
+"getSelectedRoutine",
+"getSelectedRoutinesStatements",
+"getSelectedStatements",
+"filterTypes",
+"filterBehaviours",
+"filterFeatures",
+"filterGeosets",
+"traverseFeatureChildren",
+"traverseNodeChildren",
+"getCurrentSelectionType",
+"getSelectedNodeGeosetMap",
+"rebuildSelectedGeosetNodes",
+"setCurrentSelectionType"
+],
+"events": [],
+"rows": {
+"getAllComponents": "getAllComponents(None) -> List of vcComponent — Returns a list of components in the 3D world.",
+"getSelectedComponents": "getSelectedComponents(None) -> List of vcComponent — Returns a list of selected components in the 3D world.",
+"getAllComponentsNodes": "getAllComponentsNodes(None) -> List of vcNode — Returns a list of nodes for all components in the 3D world.",
+"getGivenComponentsNodes": "getGivenComponentsNodes(vcComponent component) -> List of vcNode — Returns a list of nodes for a given component.",
+"getSelectedComponentsNodes": "getSelectedComponentsNodes(None) -> List of vcNode — Returns a list of nodes for selected components in the 3D world.",
+"getSelectedNodes": "getSelectedNodes(None) -> List of vcNode — Returns a list of selected nodes in the 3D world.",
+"getAllComponentsFeatures": "getAllComponentsFeatures(None) -> List of vcFeature — Returns a list of features for all components in the 3D world.",
+"getGivenComponentsFeatures": "getGivenComponentsFeatures(vcComponent component) -> List of vcFeature — Returns a list of features for a given component.",
+"getGivenNodesFeatures": "getGivenNodesFeatures(vcNode node) -> List of vcFeature — Returns a list of features for a given node.",
+"getSelectedComponentsFeatures": "getSelectedComponentsFeatures(None) -> List of vcFeature — Returns a list of features for selected components in the 3D world.",
+"getSelectedFeatures": "getSelectedFeatures(None) -> List of vcFeature — Returns a list of selected features in the 3D world.",
+"getSelectedNodesFeatures": "getSelectedNodesFeatures(None) -> List of vcFeature — Returns a list of features for selected nodes in the 3D world.",
+"getAllComponentsGeosets": "getAllComponentsGeosets([Boolean fromFeatureTree]) -> List of vcGeometrySet — Returns a list of geometry sets for all components in the 3D world. Setting fromFeatureTree to True will get the source geometry sets from geometry features on feature tree instead of vcNode.Geometry. Use this if you want to make changes to the geometry sets. The default value of fromFeatureTree is False.",
+"getGivenComponentsGeosets": "getGivenComponentsGeosets(vcComponent component, [Boolean fromFeatureTree]) -> List of vcGeometrySet — Returns a list of geometry sets for a given component. Setting fromFeatureTree to True will get the source geometry sets from geometry features on feature tree instead of vcNode.Geometry. Use this if you want to make changes to the geometry sets. The default value of fromFeatureTree is False.",
+"getGivenFeaturesGeosets": "getGivenFeaturesGeosets(vcFeature feature) -> List of vcGeometrySet — Returns a list of geometry sets for a given feature.",
+"getGivenNodesGeosets": "getGivenNodesGeosets(vcNode node, [Boolean fromFeatureTree]) -> List of vcGeometrySet — Returns a list of geometry sets for a given node. Setting fromFeatureTree to True will get the source geometry sets from geometry features on feature tree instead of vcNode.Geometry. Use this if you want to make changes to the geometry sets. The default value of fromFeatureTree is False.",
+"getSelectedComponentsGeosets": "getSelectedComponentsGeosets([Boolean fromFeatureTree]) -> List of vcGeometrySet — Returns a list of geometry sets for selected components in the 3D world. Setting fromFeatureTree to True will get the source geometry sets from geometry features on feature tree instead of vcNode.Geometry. Use this if you want to make changes to the geometry sets. The default value of fromFeatureTree is False.",
+"getSelectedFeaturesGeosets": "getSelectedFeaturesGeosets(None) -> List of vcGeometrySet — Returns a list of geometry sets for selected features in the 3D world.",
+"getSelectedGeosets": "getSelectedGeosets(None) -> List of vcGeometrySet — Returns a list of selected geometry sets in the 3D world.",
+"getSelectedNodesGeosets": "getSelectedNodesGeosets([Boolean fromFeatureTree]) -> List of vcGeometrySet — Returns a list of geometry sets for selected nodes in the 3D world. Setting fromFeatureTree to True will get the source geometry sets from geometry features on feature tree instead of vcNode.Geometry. Use this if you want to make changes to the geometry sets. The default value of fromFeatureTree is False.",
+"getAllComponentsBehaviours": "getAllComponentsBehaviours(None) -> List of vcBehaviour — Returns a list of behaviors for all components in the 3D world.",
+"getGivenComponentsBehaviours": "getGivenComponentsBehaviours(vcComponent component) -> List of vcBehaviour — Returns a list of behaviors for a given component.",
+"getGivenNodesBehaviours": "getGivenNodesBehaviours(vcNode node) -> List of vcBehaviour — Returns a list of behaviors for a given node.",
+"getSelectedComponentsBehaviours": "getSelectedComponentsBehaviours(None) -> List of vcBehaviour — Returns a list of behaviors for selected components in the 3D world.",
+"getSelectedNodesBehaviours": "getSelectedNodesBehaviours(None) -> List of vcBehaviour — Returns a list of behaviors for selected nodes in the 3D world.",
+"extendStatements": "extendStatements(vcStatement statement, List of vcStatement statements) -> List of vcStatement — Returns a list of statements which is extended by a given statement and all statements nested in it.",
+"getAllComponentsPrograms": "getAllComponentsPrograms(None) -> List of vcProgram — Returns a list of all robot programs in 3D world.",
+"getAllComponentsStatements": "getAllComponentsStatements(None) -> List of vcStatement — Returns a list of all statements in all robot programs in 3D world.",
+"getGivenComponentsProgram": "getGivenComponentsProgram(vcComponent) -> List of vcProgram — Returns a list of robot programs in a given component.",
+"getGivenComponentsStatements": "getGivenComponentsStatements(vcComponent) -> List of vcStatement — Returns a list of all statements in the robot programs of a given component.",
+"getGivenProgramsRoutines": "getGivenProgramsRoutines(vcProgram) -> List of vcRoutine — Returns a list of routines in a given robot program.",
+"getGivenProgramsStatements": "getGivenProgramsStatements(vcProgram) -> List of vcStatement — Returns a list of all statements in a given robot program.",
+"getGivenRoutinesStatements": "getGivenRoutinesStatements(vcRoutine) -> List of vcStatement — Returns a list of all statements in a given routine.",
+"getSelectedComponentsPrograms": "getSelectedComponentsPrograms(None) -> List of vcProgram — Returns a list of robot programs for currently selected components.",
+"getSelectedComponentsStatements": "getSelectedComponentsStatements(None) -> List of vcStatement — Returns a list of all statements in the robot programs of currently selected components.",
+"getSelectedProgram": "getSelectedProgram(None) -> vcProgram — Returns the active program of a robot.",
+"getSelectedProgramsRoutines": "getSelectedProgramsRoutines(None) -> List of vcRoutine — Returns a list of routines in active program of robot.",
+"getSelectedProgramsStatements": "getSelectedProgramsStatements(None) -> List of vcStatement — Returns a list of all statements in the active program of a robot.",
+"getSelectedRoutine": "getSelectedRoutine(None) -> vcRoutine — Returns the active routine of a robot.",
+"getSelectedRoutinesStatements": "getSelectedRoutinesStatements(None) -> List of vcStatement — Returns a list of all statements in the active routine of a robot.",
+"getSelectedStatements": "getSelectedStatements(None) -> List of vcStatement — Returns a list of currently selected statements.",
+"filterTypes": "filterTypes(List of items, List of types) -> List of items — Returns a filtered list of items matching a given type. See Constants for more information of types.",
+"filterBehaviours": "filterBehaviours(List of vcBehaviour behaviors, Enumeration type) -> List of vcBehaviour — Returns a new list of behaviors matching a given behavior type. See Behavior Constants for more information.",
+"filterFeatures": "filterFeatures(List of vcFeature features, Enumeration type) -> List of vcFeature — Returns a new list of features matching a given feature type. See Feature Constants for more information.",
+"filterGeosets": "filterGeosets(List of vcGeometrySet geosets, Enumeration type) -> List of vcGeometrySet — Returns a new list of geometry sets matching a given geometry set type. See Geometry Constants for more information.",
+"traverseFeatureChildren": "traverseFeatureChildren(vcFeature parent) -> List of vcFeature — Returns a list of child features for a given feature by using traversal.",
+"traverseNodeChildren": "traverseNodeChildren(vcNode parent) -> List of vcNode — Returns a list of child nodes for a given node by using traversal.",
+"getCurrentSelectionType": "getCurrentSelectionType(None) -> String — Returns the active selection type in the 3D world. See Selection Constants for more information.",
+"getSelectedNodeGeosetMap": "getSelectedNodeGeosetMap(None) -> 3-tuple (Dictionary of String node_name and vcNode node, Dictionary of String node_name and list of vcGeometrySet node_geosets, List of vcGeometrySet all_geosets) — Returns a 3-tuple detailing the geometry sets of a selected node and any other node that may share the same geometry.",
+"rebuildSelectedGeosetNodes": "rebuildSelectedGeosetNodes(None) -> None — Rebuilds selected geometry sets of a component and any other component that shares the same geometry.",
+"setCurrentSelectionType": "setCurrentSelectionType(Enumeration type) -> None — Sets the active selection type in the 3D world. See Selection Constants for more information."
+}
+},
+"vcHelpers.Solver": {
+"parents": "",
+"properties": [],
+"methods": [
+"findLocalMinimum"
+],
+"events": [],
+"rows": {
+"findLocalMinimum": "findLocalMinimum(Function evaluator, List of Real values) -> Real — Calls a given function and modifies a list of values until the evaluator returns a minimum real value."
+}
+},
+"vcHelpers.VcmFile": {
+"parents": "",
+"properties": [
+"Author",
+"Description",
+"DetailedRevision",
+"Email",
+"Icon",
+"Logo",
+"Manufacturer",
+"MaxPayLoad",
+"Name",
+"PreviewIcon",
+"Revision",
+"Tags",
+"Type",
+"Website"
+],
+"methods": [
+"ComponentData",
+"write"
+],
+"events": [],
+"rows": {
+"ComponentData": "ComponentData(String filepath) -> vcHelpers.VcmFile.ComponentData — Create a new ComponentData object for a given file.",
+"Author": "Author: String [RW] — Defines the author of file.",
+"Description": "Description: String [RW] — Defines a short description about file and its use.",
+"DetailedRevision": "DetailedRevision: String [RW] — Defines the version and change history of file, for example Major.Minor.Batch.Revision numbering.",
+"Email": "Email: String [RW] — Defines the contact email address of file.",
+"Icon": "Icon: String [R] — Gets the URI of file's icon.",
+"Logo": "Logo: String [R] — Gets the URI of file's logo.",
+"Manufacturer": "Manufacturer: String [RW] — Defines the manufacturer of file's real-world model.",
+"MaxPayLoad": "MaxPayLoad: Integer [RW] — Defines the maximum payload (in kilograms) of the component, for example a robot gripper.",
+"Name": "Name: String [RW] — Defines the name of component.",
+"PreviewIcon": "PreviewIcon: String [R] — Gets the URI of the image displayed when a user previews file in the eCatalog panel.",
+"Revision": "Revision: Integer [RW] — Defines the revision number of file.",
+"Tags": "Tags: List of Strings [RW] — Defines a list of tokens used to describe application, industry and other information about the component.",
+"Type": "Type: String [RW] — Classifies the component by type.",
+"Website": "Website: String [RW] — Defines a web address/link to associate with component. Note: This link is included with the component in a recorded 3D PDF.",
+"write": "write(None) -> None — Saves changes made to the file."
+}
+},
+"vcInterpolatingTransportController": {
+"parents": "vcContainer",
+"properties": [
+"IsSystem"
+],
+"methods": [],
+"events": [],
+"rows": {
+"IsSystem": "IsSystem: Boolean [R] — Always returns True"
+}
+},
+"vcJacobian": {
+"parents": "",
+"properties": [
+"ForwardKin",
+"FractionalStep",
+"IgnoreOrientation",
+"JacobianJointCount",
+"NumIterationsInner",
+"NumIterationsOuter",
+"OrientationMaxStep",
+"OrientationTolerance",
+"PositionalMaxStep",
+"PositionalTolerance",
+"RotationalJointStepSize"
+],
+"methods": [
+"inverse"
+],
+"events": [],
+"rows": {
+"ForwardKin": "ForwardKin: Function [RW] — Defines the function for forward kinematics calculation. If None, uses built-in method.",
+"FractionalStep": "FractionalStep: Real [RW] — Defines the fractional step of calculation. The default value is 0.5.",
+"IgnoreOrientation": "IgnoreOrientation: RW [Boolean] — Turns on/off the calculation of orientation. The default value is False in which orientation is calculated for solution. Generally, a True value would be used when orientation is not important, for example with Cartesian robots.",
+"JacobianJointCount": "JacobianJointCount: Integer [RW] — Defines the number of joints in calculation.",
+"NumIterationsInner": "NumIterationsInner: Integer [RW] — Defines the number of iterations for calculating inner product.",
+"NumIterationsOuter": "NumIterationsOuter: Integer [RW] — Defines the number of iterations for calculating outer product.",
+"OrientationMaxStep": "OrientationMaxStep: Real [RW] — Defines the max step for orientation in calculation.",
+"OrientationTolerance": "OrientationTolerance: Real [RW] — Defines the tolerance for orientation in calculation.",
+"PositionalMaxStep": "PositionalMaxStep: Real [RW] — Defines the max step for position in calculation.",
+"PositionalTolerance": "PositionalTolerance: Real [RW] — Defines the tolerance for position in calculation.",
+"RotationalJointStepSize": "RotationalJointStepSize: Real [RW] — Defines the step for rotational joint values in calculation.",
+"inverse": "inverse(vcMatrix target, List of Real values, [List of Boolean fixed]) -> 2-tuple (List of Real joint_values, Enumeration solution) — Calculates the joint values of robot for a given target and list of joint values. An optional fixed argument can be given to identify fixed joints in the robot. The returned value will identify joint values of robot and status of solution to target. See Solution Constants for more information."
+}
+},
+"vcLayoutPackFolder": {
+"parents": "vcLayoutItem",
+"properties": [
+"PackFolder"
+],
+"methods": [],
+"events": [],
+"rows": {
+"PackFolder": "PackFolder: vcPackFolder [R] — Gets the mechanism for attaching files to component."
+}
+},
+"vcObservableList_T_": {
+"parents": "",
+"properties": [],
+"methods": [
+"size",
+"get",
+"insert",
+"indexOf",
+"remove",
+"clear"
+],
+"events": [],
+"rows": {
+"size": "size(None) -> int — Returns number of contained elements",
+"get": "get((int index)) -> T — Returns element at index",
+"insert": "insert((int index) (int index, T object)) -> T — Creates new element in-place at index, returns created object. Inserts `object` at index, returns inserted object.",
+"indexOf": "indexOf((T object)) -> int — Returns object�s index, or -1, if not found.",
+"remove": "remove((int index)) -> Boolean — Returns True on succesfull removal, otherwise False.",
+"clear": "clear(None) -> None — Removes all contained elements from the container./td>"
+}
+},
+"vcPackFolder": {
+"parents": "",
+"properties": [
+"PackFolderLocalPath",
+"State"
+],
+"methods": [
+"mapFolder",
+"remapFolder",
+"rollbackFolder"
+],
+"events": [],
+"rows": {
+"PackFolderLocalPath": "PackFolderLocalPath: String [R] — Gets the file path of mapped folder.",
+"State": "State: Enumeration [R] — Gets the state of mapped folder. 0 Undefined, no folder is mapped. 1 Defined, but folder is not mapped. 2 Folder is mapped.",
+"mapFolder": "mapFolder([String uri]) -> None — Maps a temporary folder generated by the application or an existing folder at the given uri which must be a file path. Files will be packed/extracted at the time of call.",
+"remapFolder": "remapFolder(String uri) -> None — Remaps a different folder. This will not override the other folder until you save the VCMX file. Files in the other folder will also not be deleted unless they were contained in a temporary folder generated by the application.",
+"rollbackFolder": "rollbackFolder(None) -> None — Removes mapping to folder. Generally, this is used before you map a different folder."
+}
+},
+"vcPathStatement": {
+"parents": "vcStatement",
+"properties": [
+"Base",
+"FrameNameField",
+"FrameNameVisibleField",
+"ExternalTCP",
+"Positions",
+"ProcessHandler",
+"SchemaProperties",
+"ShowReferenceFrames",
+"Tool",
+"FrameVisible",
+"IsContinuous",
+"IsReference",
+"LineColor",
+"LineVisible",
+"Position",
+"PositionStatus",
+"E1 ... EN",
+"Acceleration",
+"AccuracyMethod",
+"AccuracyValue",
+"AngularAcceleration",
+"AngularDeceleration",
+"Deceleration",
+"MaxAngularSpeed",
+"MaxSpeed"
+],
+"methods": [
+"addSchemaProperties",
+"beginBatchUpdate",
+"clearPositions",
+"endBatchUpdate",
+"getSchemaSize",
+"getSchemaValue",
+"setSchemaValues",
+"removeSchemaProperties"
+],
+"events": [],
+"rows": {
+"Base": "Base: vcBaseFrame [RW] — Defines the base frame of the path statement.",
+"FrameNameField": "FrameNameField: Integer [RW] — Defines the index of schema property used for labeling position in 3D world. The schema property should be a string data type. The default is -1. This means the position will not be labeled with its custom name rather the number of position in path.",
+"FrameNameVisibleField": "FrameNameVisibleField: Integer [RW] — Defines the index of schema property used for controlling the visibility of position label in 3D world. The schema property should be a Boolean data type. The default is -1. This means the labels are visible.",
+"ExternalTCP": "ExternalTCP: Boolean [RW] — Defines if external tcp mode is used for the path statement.",
+"Positions": "Positions: vcPositionFrameIterator [R] — Gets an iterator for positions in the path statement. Each position is of type vcSchemaPositionFrame.",
+"ProcessHandler": "ProcessHandler: vcPythonProcessHandler [RW] — Defines the process handler used by robot to execute path statement.",
+"SchemaProperties": "SchemaProperties: List of vcProperty [R] — Gets a list of schema properties for path statement. See \"Schema Properties\" section for more information.",
+"ShowReferenceFrames": "ShowReferenceFrames: Boolean [RW] — Turns on/off visibility of positions marked as reference points.",
+"Tool": "Tool: vcBaseFrame [RW] — Defines the tool frame of the path statement.",
+"FrameVisible": "FrameVisible: Boolean [RW] — Turns on/off the visibility of the position in 3D world.",
+"IsContinuous": "IsContinuous: Boolean [RW] — Defines if robot motion to and from position should be one continuous motion.",
+"IsReference": "IsReference: Boolean [RW] — Indicates if position is used as reference for calculating adjustments to path positions.",
+"LineColor": "LineColor: vcVector [RW] — Defines the color of line to position.",
+"LineVisible": "LineVisible: Boolean [RW] — Defines if line to position is visible in 3D world.",
+"Position": "Position: vcMatrix [RW] — Defines the position matrix of position.",
+"PositionStatus": "PositionStatus: Integer [RW] — Indicates the status of position, for example whether or not it is unreachable. Status is determined by three flags. 1 Reachable 2 Within joint limits of robot 4 No singularity The default is 7. The status is not updated automatically by application. You would need to manually test the position as a vcMotionTarget object and evaluate configuration warnings. The configuration warning and position status values are flipped, so a configuration warning of 0 would be a status of 7. If you do not modify LineColor, the color of position in 3D world will automatically be",
+"E1 ... EN": "E1 ... EN: Real [RW] — Defines one or more external joint values for the position.",
+"Acceleration": "Acceleration: Real [RW] — Defines the maximum Cartesian acceleration of motion (units/s^2) used to calculate target trajectory.",
+"AccuracyMethod": "AccuracyMethod: Enumeration [RW] — Defines the zone of accuracy type to use for the position, for example distance, time or velocity. See Motion Target Constants for more information.",
+"AccuracyValue": "AccuracyValue: Real [RW] — Defines the limit used in AccuracyMethod.",
+"AngularAcceleration": "AngularAcceleration: Real [RW] — Defines the maximum angular acceleration of motion (degrees/s^2) used to calculate target trajectory.",
+"AngularDeceleration": "AngularDeceleration: Real [RW] — Defines the maximum angular deceleration of motion (degrees/s^2) used to calculate target trajectory.",
+"Deceleration": "Deceleration: Real [RW] — Defines the maximum Cartesian deceleration of motion (units/s^2) used to calculate target trajectory.",
+"MaxAngularSpeed": "MaxAngularSpeed: Real [RW] — Defines the maximum angular speed (degrees/s^2) used to calculate target trajectory.",
+"MaxSpeed": "MaxSpeed: Real [RW] — Defines the maximum Cartesian speed (units/s) used to calculate target trajectory.",
+"addSchemaProperties": "addSchemaProperties(List of Enumeration type and String name) -> List of Integer — Adds a list of custom properties for each position in path statement, and then returns a list of indices for the added properties in SchemaProperties. The format for each new property is its type followed a given name.",
+"beginBatchUpdate": "beginBatchUpdate(Integer schema_size) -> None — Sets the initial amount of schema database entries, for example 100 entries for 100 path positions. This is done to allocate enough memory for storing schema property values for each path position. Note: This method is required if there is no existing schema database. If the database exists, this is optional. Note: Using size value -1 doesn't allocate space for new schema items and doesn't reset current data. It only blocks notify events when items are updated between this call and EndBatchUpdate.",
+"clearPositions": "clearPositions(None) -> None — Removes all positions from path statement, thereby removing all schema database entries.",
+"endBatchUpdate": "endBatchUpdate(Integer schema_size) -> None — Sets the final amount of schema database entries, for example 96 entries for 96 path positions. This is done to not allocate more memory than is needed to store schema property values for each path position.",
+"getSchemaSize": "getSchemaSize(None) -> Integer — Returns the total amount of entries for schema database of path statement.",
+"getSchemaValue": "getSchemaValue(Integer position_index, String property_name) -> <Type> — Returns the value of schema property for path position.",
+"setSchemaValues": "setSchemaValues(Integer position_index, String property_name, <Type> value or Integer position_index, List of Integer property_indices, List of <Type> values) -> None — Sets one or more schema properties for path position. Note: The method should not be called when there are no rows in the schema database or if the row's index value does not exist.",
+"removeSchemaProperties": "removeSchemaProperties(List of String property_names or List of vcProperty properties) -> None — Removes properties referenced by property_names list or properties list arguments"
+}
+},
+"vcProcessController": {
+"parents": "vcBehaviour",
+"properties": [
+"FlowTable",
+"FlowTable2",
+"TransportSystem",
+"FlowGroupManager",
+"ProductTypeManager",
+"ProductMatcher",
+"ProcessManager",
+"ProcessData",
+"AssemblyPatternManager"
+],
+"methods": [],
+"events": [],
+"rows": {
+"FlowTable": "FlowTable: vcProcessFlowTable [R] — Gets this controller�s process flow table service for managing process sequences.",
+"FlowTable2": "FlowTable2: vcProcessFlowTable2 [R] — FlowTable used for Flow v2",
+"TransportSystem": "TransportSystem: vcTransportSystem [R] — Gets this controller�s transport system service for managing transport nodes, transport links and transport controllers and querying the transport graph.",
+"FlowGroupManager": "FlowGroupManager: vcProcessFlowGroupManager [R] — Gets this controller�s manager service for process flow groups.",
+"ProductTypeManager": "ProductTypeManager: vcProductTypeManager [R] — Gets this controller�s manager service for product types.",
+"ProductMatcher": "ProductMatcher: vcProductMatcher [R] — Gets the product matcher.",
+"ProcessManager": "ProcessManager: vcProcessManager [R] — Gets this controller�s process group manager service.",
+"ProcessData": "ProcessData: vcProcessControllerData [R] — Gets the �database� of this process controller that stores all associated layout-level information.",
+"AssemblyPatternManager": "AssemblyPatternManager: vcAssemblyPatternManager [R] — Gets the assembly pattern manager."
+}
+},
+"vcProcessExecutor": {
+"parents": "vcExecutor",
+"properties": [
+"ProcessController",
+"Processes",
+"TransportNode"
+],
+"methods": [
+"addProcess",
+"deleteProcess"
+],
+"events": [],
+"rows": {
+"ProcessController": "ProcessController: vcProcessController [R] — Gets the associated process controller.",
+"Processes": "Processes: List of vcProcessRoutine [R] — Gets all process routines in this executor. Returns None if the executor does not have a program.",
+"TransportNode": "TransportNode: vcTransportNode [RW] — Gets the associated transport node that this executor�s processes use to receive and send product instances. Setting this property also sets the ProcessExecutor property on the new transport node, and clears the property from the old transport node, if there was one.",
+"addProcess": "addProcess(String name) -> vcProcessRoutine — Creates a new process routine and adds it to this executor�s program. The routine name has to be unique within this executor�s program. Returns None if the executor doesn�t have a program.",
+"deleteProcess": "deleteProcess(vcProcessRoutine routine) -> None — Removes the given routine from this executor�s program and deletes it."
+}
+},
+"vcProcessFlowGroup": {
+"parents": "",
+"properties": [
+"Name",
+"FlowGroupManager",
+"Properties",
+"ProductTypes",
+"IsVisible"
+],
+"methods": [
+"getProperty"
+],
+"events": [],
+"rows": {
+"Name": "Name: String [RW] — Name of the group. Must be unique within the process controller.",
+"FlowGroupManager": "FlowGroupManager: vcProcessFlowGroupManager [R] — Gets the manager this flow group belongs to.",
+"Properties": "Properties: List of vcProperty [R] — Gets the properties of this flow group. All properties might not have a vcProperty implementation.",
+"ProductTypes": "ProductTypes: List of vcProductType [R] — The list of product types that belong to this group.",
+"IsVisible": "IsVisible: Boolean [RW] — Whether this group is visible in certain areas of the user interface.",
+"getProperty": "getProperty(String Name) -> vcProperty — Returns a property matching a given name in the group; otherwise returns None. All properties might not have a vcProperty implementation."
+}
+},
+"vcProcessFlowGroupManager": {
+"parents": "",
+"properties": [
+"Controller",
+"Groups"
+],
+"methods": [
+"createGroup",
+"findGroup",
+"deleteGroup",
+"deleteGroup",
+"clearGroups",
+"moveProductType"
+],
+"events": [],
+"rows": {
+"Controller": "Controller: vcProcessController [R] — Gets the process controller owner.",
+"Groups": "Groups: List of vcProcessFlowGroup [R] — The list of all registered flow groups.",
+"createGroup": "createGroup(String groupName) -> vcProcessFlowGroup — Tries to create a new group with the given name. The name must be unique within the process controller.",
+"findGroup": "findGroup(String groupName) -> vcProcessFlowGroup — Gets a flow group with the given name.",
+"deleteGroup": "deleteGroup(String groupName) -> None — Tries to find and delete a group with given name.",
+"clearGroups": "clearGroups(-) -> None — Deletes all groups.",
+"moveProductType": "moveProductType(vcProductType typeToMove, vcProcessFlowGroup destination) -> None — Tries to move the given product type to the given target group."
+}
+},
+"vcProcessFlowStep": {
+"parents": "",
+"properties": [],
+"methods": [
+"deleteProperty",
+"getProperty",
+"createProperty"
+],
+"events": [],
+"rows": {
+"deleteProperty": "deleteProperty(See vcComponent.deleteProperty) -> None — Deletes a property of the Flow Step itself.",
+"getProperty": "getProperty(String propertyName) -> vcProperty — Returns a property of the Flow Step itself.",
+"createProperty": "createProperty(See vcComponent.createProperty) -> vcProperty — Creates a new property to the Flow Step itself."
+}
+},
+"vcProcessFlowTable": {
+"parents": "",
+"properties": [
+"Controller",
+"Sequences"
+],
+"methods": [
+"createSequence",
+"deleteSequence",
+"getSequence",
+"copySequenceFrom"
+],
+"events": [],
+"rows": {
+"Controller": "Controller: vcProcessController [R] — The controller that owns this object.",
+"Sequences": "Sequences: List of vcProcessSequence [R] — All sequences in this table.",
+"createSequence": "createSequence(String groupName OR vcProcessFlowGroup group) -> vcProcessSequence — Creates a new sequence for the given group.",
+"deleteSequence": "deleteSequence(String groupName OR vcProcessFlowGroup group) -> None — Deletes the sequence for a given group.",
+"getSequence": "getSequence(String groupName OR vcProcessFlowGroup group) -> vcProcessSequence — Returns a sequence for the given group, if found.",
+"copySequenceFrom": "copySequenceFrom(vcProcessFlowGroup source, vcProcessFlowGroup target) -> vcProcessSequence — Copies the sequence defined for the given source flow group and adds it to this flow table, for the target flow group. There should not already be a sequence registered for the target flow group."
+}
+},
+"vcProcessFlowTable2": {
+"parents": "",
+"properties": [],
+"methods": [
+"createSequence",
+"deleteSequence",
+"getSequence",
+"copySequenceFrom"
+],
+"events": [],
+"rows": {
+"createSequence": "createSequence(vcProcessFlowGroup group) -> vcProcessSequence2 or None — Creates sequence associated with given FlowGroup. Returns None, if sequence already exists.",
+"deleteSequence": "deleteSequence(vcProcessFlowGroup group) -> None — Deletes sequences associated with given FlowGroup.",
+"getSequence": "getSequence(vcProcessFlowGroup group) -> vcProcessSequence2 or None — Gets sequence associated with given FlowGroup. Returns None, if FlowGroups does not have a sequence.",
+"copySequenceFrom": "copySequenceFrom(vcProcessFlowGroup source, vcProcessFlowGroup target) -> vcProcessSequence2 or None — Copies a sequences from FlowGroup `source` to FlowGroup `target`. Returns None (and does nothing), if the target FlowGroup already has a sequence."
+}
+},
+"vcProcessGroup": {
+"parents": "",
+"properties": [
+"Implementations",
+"Manager",
+"ProcessId"
+],
+"methods": [],
+"events": [],
+"rows": {
+"Implementations": "Implementations: List of vcProcessRoutine [R] — Gets all process implementations.",
+"Manager": "Manager: vcProcessManager [R] — The process manager that owns this group object.",
+"ProcessId": "ProcessId: String [R] — The process identifier (name) all these implementations share."
+}
+},
+"vcProcessIfStatement": {
+"parents": "vcStatement",
+"properties": [
+"Condition",
+"ElseScope",
+"ThenScope"
+],
+"methods": [],
+"events": [],
+"rows": {
+"Condition": "Condition: Expression (boolean) [RW] — Condition expression to evaluate when the statement is executed. See also Process Statement Expressions.",
+"ElseScope": "ElseScope: vcScope [R] — Scope to execute when Condition evaluates to False.",
+"ThenScope": "ThenScope: vcScope [R] — Scope to execute when Condition evaluates to True."
+}
+},
+"vcProcessManager": {
+"parents": "",
+"properties": [
+"Controller",
+"ProcessGroups"
+],
+"methods": [
+"findProcessGroup",
+"changeGroupId"
+],
+"events": [],
+"rows": {
+"Controller": "Controller: vcProcessController [R] — Gets the process controller owner.",
+"ProcessGroups": "ProcessGroups: List of vcProcessGroup [R] — Gets a list of all current processes in this process controller.",
+"findProcessGroup": "findProcessGroup(String processId) -> vcProcessGroup — Tries to find a process group that contains all processes with the given id. Returns None if no such processes exist.",
+"changeGroupId": "changeGroupId(vcProcessGroup group, String newId) -> None — Tries to rename a process i.e. change id of all process implementations in a process group. This can fail non-trivially if some process executor already contains a process with the new id. Either the rename succeeds fully or no changes are made, throws an exception if the operation didn�t succeed."
+}
+},
+"vcProcessRoutine": {
+"parents": "vcRoutine",
+"properties": [
+"Requirements",
+"Description"
+],
+"methods": [],
+"events": [],
+"rows": {
+"Requirements": "Requirements: vcRoutine [R] — Gets the process requirements routine of this process implementation.",
+"Description": "Description: String [RW] — Can be used to give a description for the process implementation."
+}
+},
+"vcProcessSequence": {
+"parents": "",
+"properties": [
+"FlowTable",
+"TargetGroup",
+"ProcessGroups"
+],
+"methods": [
+"addProcessGroup",
+"removeProcessGroup",
+"insertProcessGroup",
+"setProcessGroup",
+"getProcessGroup"
+],
+"events": [],
+"rows": {
+"FlowTable": "FlowTable: vcProcessFlowTable [R] — The flow table that owns this sequence.",
+"TargetGroup": "TargetGroup: vcProcessFlowGroup [R] — The flow group that this sequence is defined for.",
+"ProcessGroups": "ProcessGroups: List of vcProcessGroup [R] — The ordered list of processes that the products belonging to the target flow group should go through.",
+"addProcessGroup": "addProcessGroup(vcProcessGroup processGroup) -> None — Adds the given process group to this sequence.",
+"removeProcessGroup": "removeProcessGroup(vcProcessGroup processGroup) -> None — Removes the given process group from this sequence.",
+"insertProcessGroup": "insertProcessGroup(Integer index, vcProcessGroup processGroup) -> None — Inserts the given process group into the given index in this sequence.",
+"setProcessGroup": "setProcessGroup(Integer index, vcProcessGroup processGroup) -> None — Sets the process group in the given index in this sequence.",
+"getProcessGroup": "getProcessGroup(Integer index) -> vcProcessGroup — Returns the process group in the given index in this sequence."
+}
+},
+"vcProcessSequence2": {
+"parents": "",
+"properties": [],
+"methods": [
+"getNextProcessOptions"
+],
+"events": [],
+"rows": {
+"getNextProcessOptions": "getNextProcessOptions((vcNextProcessFlowInfo next) (vcNextProcessFlowInfo next, vcProduct product)) -> vcFeedOptionFlowInfo[] — Returns a list of possible FlowInfo options in priority order given the inputs. Includes ProcessGroups from next non-optional steps, starting from `next`, and all optional steps in between. Same as (1), but takes product�s history in account, to include All processes in any order steps."
+}
+},
+"vcProcessWhileStatement": {
+"parents": "vcStatement",
+"properties": [
+"Condition",
+"Scope"
+],
+"methods": [],
+"events": [],
+"rows": {
+"Condition": "Condition: Expression (boolean) [RW] — Condition expression to evaluate on each loop iteration. See also Process Statement Expressions.",
+"Scope": "Scope: vcScope [R] — Scope to keep executing while Condition evaluates to True."
+}
+},
+"vcProduct": {
+"parents": "",
+"properties": [
+"Properties",
+"ProductType",
+"Component",
+"CurrentProcessFlowState",
+"TransportSolution",
+"LastEnteredNode",
+"NextProcessFlowInfo",
+"WorldPositionMatrix"
+],
+"methods": [
+"changeType",
+"deleteProperty",
+"getProperty",
+"createProperty"
+],
+"events": [],
+"rows": {
+"Properties": "Properties: List of vcProperty [R] — Gets the properties that have vcProperty implementation.",
+"ProductType": "ProductType: vcProductType [R] — The type of this product.",
+"Component": "Component: vcComponent [R] — The component associated with this product instance.",
+"CurrentProcessFlowState": "CurrentProcessFlowState: vcProcessFlowState [RW] — Current FlowState of the product.",
+"TransportSolution": "TransportSolution: vcTransportSolution [RW] — Latest transport solution assigned to this product instance. Note that the product may already have reached the destination node and continued further by other means.",
+"LastEnteredNode": "LastEnteredNode: vcTransportNode [R] — Gets the transport node this product instance has last arrived in. Can be used to determine the product�s position along its transport solution.",
+"NextProcessFlowInfo": "NextProcessFlowInfo: vcNextProcessFlowInfo [RW] — Information used to determine next FlowState of a product.",
+"WorldPositionMatrix": "WorldPositionMatrix: vcMatrix [RW] — Gets (as a copy) or sets the product instance position in world coordinates. This takes into account the defined offset between the product�s component and the product itself.",
+"changeType": "changeType(vcProductType newType, [Boolean deleteAttachedComponents]) -> Boolean — Recreates this product instance and its visualization component to match the new product type defined by newType. An optional argument deleteAttachedComponents can be used to delete any other components attached to the component of this product instance. Returns True if successful, False otherwise. Any errors messages are concatenated into a Python error message.",
+"deleteProperty": "deleteProperty(vcProperty property) -> None — Deletes a property from this product instance.",
+"getProperty": "getProperty(String propertyName) -> vcProperty — Returns a property from this product instance.",
+"createProperty": "createProperty(vcProperty property) -> vcProperty — Creates a new property to this product instance."
+}
+},
+"vcProductCreator": {
+"parents": "vcFlow",
+"properties": [
+"ApplyProductTypeOrigin",
+"BatchFeed",
+"DistributionFeed",
+"FeedMode",
+"PartPooling",
+"SingleFeed",
+"TableFeed"
+],
+"methods": [],
+"events": [],
+"rows": {
+"ApplyProductTypeOrigin": "ApplyProductTypeOrigin: Boolean [RW] — Defines whether origin offset defined in the Product Type is taking into account or not. See vcProductType.OriginFrame",
+"BatchFeed": "BatchFeed: vcProductCreatorBatchMode [R] — Gets the configuration for batch feed mode.",
+"DistributionFeed": "DistributionFeed: vcProductCreatorDistributionMode [R] — Gets the configuration for distribution feed mode.",
+"FeedMode": "FeedMode: Integer enumeration [RW] — Defines the mode for feeding products. That is, when and what type of product to create during a simulation. See Feed Mode Constants for more information.",
+"PartPooling": "PartPooling: Boolean [RW] — Turns on/off the reuse of components made by the creator, thereby improving simulation performance. If True, dynamic components removed during simulation are recirculated to make new components, thereby reducing memory allocation. Note: Be careful when recirculating components that were modified during simulation, for example a change in node material.",
+"SingleFeed": "SingleFeed: vcProductCreatorSingleMode [R] — Gets the configuration for single feed mode.",
+"TableFeed": "TableFeed: vcProductCreatorTableMode [R] — Gets the configuration for table feed mode."
+}
+},
+"vcProductCreatorBatchMode": {
+"parents": "",
+"properties": [
+"BatchInterval",
+"Loop",
+"ProductBatches"
+],
+"methods": [
+"createBatch",
+"deleteBatch",
+"getProperty",
+"moveBatch"
+],
+"events": [],
+"rows": {
+"BatchInterval": "BatchInterval: Real [RW] — Amount to delay between batches in seconds. Should be zero or greater.",
+"Loop": "Loop: Boolean [RW] — Turns on/off the looping of the sequence.",
+"ProductBatches": "ProductBatches: List of vcProductCreatorFeedBatch [R] — List of all currently defined batches.",
+"createBatch": "createBatch(None) -> vcProductCreatorFeedBatch — Creates a new batch with default values and adds to the end.",
+"deleteBatch": "deleteBatch(vcProductCreatorFeedBatch batch) -> None — Deletes the given batch from this configuration.",
+"getProperty": "getProperty(String name) -> vcProperty — Returns a property matching a given name; otherwise returns None.",
+"moveBatch": "moveBatch(vcProductCreatorFeedBatch batch, Integer index) -> None — Moves the given batch to the given index. The index must be greater than or equal to 0."
+}
+},
+"vcProductCreatorDistributionMode": {
+"parents": "",
+"properties": [
+"Interval",
+"Limit",
+"ProductEntries",
+"RandomStream"
+],
+"methods": [
+"addProductEntry",
+"getProperty",
+"removeProductEntry"
+],
+"events": [],
+"rows": {
+"Interval": "Interval: Distribution expression [RW] — Time to wait in seconds between creating products. Note: Pseudo-random real number generated by an expression that defines a distribution. normal([stream], u, s) Normal distribution for mean value u and standard deviation s with an optional stream for seeding a random value to generator. exponential([stream], lambda) Exponential distribution where mean value is 1/lambda and variance is 1/lambda^2 with an optional stream for seeding a random value to generator. gamma([stream], k, theta) Gamma distribution with shape k and scale theta with an optional str",
+"Limit": "Limit: Integer [RW] — Number of products to create. Must be 0 or greater.",
+"ProductEntries": "ProductEntries: List of vcDistributionModeProductLineEntry [R] — List of all currently defined entries.",
+"RandomStream": "RandomStream: Integer [RW] — Index of the pseudo-random number generator to use when picking the next product type to instantiate. Must be in inclusive range 0-63.",
+"addProductEntry": "addProductEntry(vcProductType productType, Real probability) -> vcDistributionModeProductLineEntry — Adds a new entry to the distribution mode configuration based on the given productType and probability. Notes: The productType must not be None. The probability must be greater than or equal to zero. Having more than one entry with same vcProductType is allowed but not recommended.",
+"getProperty": "getProperty(String name) -> vcProperty — Returns a property matching a given name; otherwise returns None.",
+"removeProductEntry": "removeProductEntry(vcDistributionModeProductLineEntry entry) -> None — Deletes the given entry from this configuration."
+}
+},
+"vcProductCreatorFeedBatch": {
+"parents": "",
+"properties": [
+"Part",
+"Limit",
+"Interval"
+],
+"methods": [
+"getProperty"
+],
+"events": [],
+"rows": {
+"Part": "Part: vcProductType [RW] — The product type to create instances of.",
+"Limit": "Limit: Integer [RW] — Number of products to create. Must be 0 or greater.",
+"Interval": "Interval: Distribution [RW] — Time to wait in seconds between creating products. Note: Pseudo-random real number generated by an expression that defines a distribution. normal([stream], u, s) Normal distribution for mean value u and standard deviation s with an optional stream for seeding a random value to generator. exponential([stream], lambda) Exponential distribution where mean value is 1/lambda and variance is 1/lambda^2 with an optional stream for seeding a random value to generator. gamma([stream], k, theta) Gamma distribution with shape k and scale theta with an optional stream for see",
+"getProperty": "getProperty(String name) -> vcProperty — Returns a property matching a given name; otherwise returns None."
+}
+},
+"vcProductCreatorSingleMode": {
+"parents": "",
+"properties": [
+"Part",
+"Limit",
+"Interval"
+],
+"methods": [
+"getProperty"
+],
+"events": [],
+"rows": {
+"Part": "Part: vcProductType [RW] — The product type to create instances of.",
+"Limit": "Limit: Integer [RW] — Number of products to create. Must be 0 or greater.",
+"Interval": "Interval: Distribution expression [RW] — Time to wait in seconds between creating products. Note: Real-valued distribution property.",
+"getProperty": "getProperty(String name) -> vcProperty — Returns a property matching a given name; otherwise returns None."
+}
+},
+"vcProductCreatorTableMode": {
+"parents": "",
+"properties": [
+"File",
+"RowCount",
+"ProductRows"
+],
+"methods": [
+"addRow",
+"clearRows",
+"deleteRow",
+"getProperty",
+"getRow",
+"readRowsFromFile",
+"replaceAllRows"
+],
+"events": [],
+"rows": {
+"File": "File: String [RW] — Uri pointing to an xls file where to load the rows. Changing the value will cause an immediate attempt to read the file and replace all ProductRows if successful. Any errors are printed to output. (Deprecated) Use the ReadRowsFromFile and ReplaceAllRows methods.",
+"RowCount": "RowCount: Integer [R] — Gets the current product row count.",
+"ProductRows": "ProductRows: List of vcProductCreatorTableRow [R] — List of all currently defined product rows. The rows are returned as copies.",
+"addRow": "addRow(vcProductCreatorTableRow newRow) -> index — Adds a new row as a copy. The row gets inserted immediately after all existing rows with the same or smaller product creation time. Returns index of the new row. Throws an exception if the new row contains invalid values.",
+"clearRows": "clearRows(None) -> None — Deletes all product rows.",
+"deleteRow": "deleteRow(Integer index) -> None — Deletes the product row at given index. The index must be in inclusive range 0 to RowCount � 1",
+"getProperty": "getProperty(String name) -> vcProperty — Returns a property matching a given name; otherwise returns None.",
+"getRow": "getRow(Integer index) -> vcProductCreatorTableRow — Returns a copy of a product row at the given index. The index must be in inclusive range 0 to RowCount � 1",
+"readRowsFromFile": "readRowsFromFile(String fileUri, Boolean showErrorMessages) -> List of vcProductCreatorTableRow — Attempts to load rows from an xls file and returns them as a list if successful. Does not modify this table mode configuration. Returns None if reading or parsing the file failed. If showErrorMessages is True, any errors are printed to the output.",
+"replaceAllRows": "replaceAllRows(List of vcProductCreatorTableRow) -> None — Deletes all rows and then adds the new rows as copies. The rows are sorted by the creation time using a stable sort algorithm. Throws an exception if any of the new rows contains invalid values."
+}
+},
+"vcProductCreatorTableRow": {
+"parents": "",
+"properties": [
+"ProductType",
+"CreationTime"
+],
+"methods": [
+"new"
+],
+"events": [],
+"rows": {
+"new": "new(None) -> vcProductCreatorTableRow — Creates a new vcProductCreatorTableRow object. The ProductType property must be set to make it valid.",
+"ProductType": "ProductType: vcProductType [RW] — The product type to instantiate. Value should not be None.",
+"CreationTime": "CreationTime: Real [RW] — Simulation time in seconds when to create the product instance. Value must be greater than or equal to zero."
+}
+},
+"vcProductFeed": {
+"parents": "",
+"properties": [
+"Product",
+"NextProcessFlowOptions",
+"NextProcessGroupId",
+"SourceNode"
+],
+"methods": [
+"new",
+"tryCancel"
+],
+"events": [],
+"rows": {
+"Product": "Product: vcProduct [R] — Product instance in the simulation.",
+"NextProcessFlowOptions": "NextProcessFlowOptions: vcFeedOptionFlowInfo[] [R] — List of options (in priority order) to be matched to possible needs.",
+"NextProcessGroupId": "NextProcessGroupId: String [R] — Name of the target process.",
+"SourceNode": "SourceNode: vcTransportNode [R] — Current location of the product instance.",
+"new": "new(vcProduct product, vcTransportNode node, [string nextProcessGroupId] vcProduct product, vcTransportNode node, vcFeedOptionFlowInfo[] options) -> vcProductFeed vcProductFeed — Creates a new vcProductFeed object and returns the new feed. If NextProcessGroupId is not defined, the feed can be matched with any process that has a need with the matching product and a valid transport solution, including an existing route and necessary links. Creates new product type and assigns it to the given flow group. The name must be unique.",
+"tryCancel": "tryCancel(None) -> Boolean — Cancels a match and removes the feed from vcProductMatcher. A match cannot be cancelled after the match has been finalized. Returns True if the match was cancelled or the feed was not found in the product matcher."
+}
+},
+"vcProductFeedInfo": {
+"parents": "",
+"properties": [
+"Product",
+"NextProcessFlowOptions",
+"NextProcessGroupId",
+"SourceNode"
+],
+"methods": [],
+"events": [],
+"rows": {
+"Product": "Product: vcProduct [R] — Product instance in the simulation.",
+"NextProcessFlowOptions": "NextProcessFlowOptions: vcFeedOptionFlowInfo[] [R] — List of options (in priority order) to be matched to possible needs.",
+"NextProcessGroupId": "NextProcessGroupId: String [R] — Name of the target process.",
+"SourceNode": "SourceNode: vcTransportNode [R] — Current location of the product instance."
+}
+},
+"vcProductFilter": {
+"parents": "",
+"properties": [],
+"methods": [
+"acceptsProduct"
+],
+"events": [],
+"rows": {
+"acceptsProduct": "acceptsProduct(vcProduct product) -> Boolean — Tests the given product instance against the filter. Returns True if the product instance passes the filter. Throws an error if the product is None."
+}
+},
+"vcProductMatcher": {
+"parents": "",
+"properties": [
+"PendingNeedsCount",
+"PendingNeeds",
+"PendingFeedsCount",
+"PendingFeeds"
+],
+"methods": [
+"getPendingNeed",
+"getPendingFeed",
+"addNeed",
+"addFeed"
+],
+"events": [],
+"rows": {
+"PendingNeedsCount": "PendingNeedsCount: Integer [R] — Number of needs that have not yet been matched.",
+"PendingNeeds": "PendingNeeds: List of vcProductNeedInfo [R] — List of all pending needs.",
+"PendingFeedsCount": "PendingFeedsCount: Integer [R] — Number of feeds that have not yet been matched.",
+"PendingFeeds": "PendingFeeds: List of vcProductFeedInfo [R] — List of all pending feeds.",
+"getPendingNeed": "getPendingNeed(Integer index) -> vcProductNeedInfo — Returns a pending need found at a given index in list.",
+"getPendingFeed": "getPendingFeed(Integer index) -> vcProductFeedInfo — Returns a pending feed found at a given index in list.",
+"addNeed": "addNeed(vcProductNeed productNeed) -> None — Adds the productNeed to the product matcher to be matched with a feed. An error occurs if the same productNeed has already been added, or if the productNeed is linked to an active vcProductNeedFeedMatch object.",
+"addFeed": "addFeed(vcProductFeed productFeed) -> None — Adds the productFeed to the product matcher to be matched with a need. An error occurs if the same productFeed has already been added, or if the productFeed is already linked to an active vcProductNeedFeedMatch object."
+}
+},
+"vcProductNeed": {
+"parents": "",
+"properties": [
+"ProductFilter",
+"TargetProcessGroupId",
+"TargetNode",
+"NeedMatchType",
+"RegistrationSimTime"
+],
+"methods": [
+"new",
+"tryCancel"
+],
+"events": [],
+"rows": {
+"ProductFilter": "ProductFilter: vcProductFilter [R] — Filter defining the products that the process accepts.",
+"TargetProcessGroupId": "TargetProcessGroupId: String [R] — Name of the target process. To be matched with a feed, TargetProcessGroupId needs to have the same value as the feed's NextProcessGroupId property.",
+"TargetNode": "TargetNode: vcTransportNode [R] — Target location of the product. This is usually the process that creates the need. For a need and feed to be matched, a valid transportation solution must exist between the feed's SourceNode and the need's TargetNode.",
+"NeedMatchType": "NeedMatchType: NeedMatchType [R] — Type and requirements for matching the need with a feed. See the product match types in Product Matcher Constants.",
+"RegistrationSimTime": "RegistrationSimTime: Real [R] — Time in the simulation when the need has been added to the product matcher.",
+"new": "new(vcProductFilter filter, nextProcessGroupId string, vcTransportNode node) -> vcProductNeed — Creates a new vcProductNeed object and returns the new need.",
+"tryCancel": "tryCancel(None) -> Boolean — Cancels a match and removes the need from the product matcher. A match cannot be cancelled after the match has been finalized. Returns True if a match was cancelled or the need was not found in the product matcher."
+}
+},
+"vcProductNeedFeedMatch": {
+"parents": "",
+"properties": [
+"State",
+"SelectedProcessFlowInfo",
+"MatchedNeed",
+"MatchedFeed"
+],
+"methods": [
+"tryCancelMatch",
+"finalizeMatch",
+"dispose"
+],
+"events": [],
+"rows": {
+"State": "State: ProductMatchState [R] — State of the match. See the match state options in Product Matcher Constants.",
+"SelectedProcessFlowInfo": "SelectedProcessFlowInfo: vcNextProcessFlowInfo [R] — FlowInfo that was selected in the Feed-Need matching process.",
+"MatchedNeed": "MatchedNeed: vcProductNeedInfo [R] — Properties of the matched need. After a match has been disposed, the value is None.",
+"MatchedFeed": "MatchedFeed: vcProductFeedInfo [R] — Properties of the matched feed. After a match has been disposed, the value is None.",
+"tryCancelMatch": "tryCancelMatch(None) -> None — Attempt to cancel the match. Returns true if cancelling is successful. A match cannot be cancelled after the match has been finalized.",
+"finalizeMatch": "finalizeMatch([vcProductNeed receivingNeed]) -> None — Sets the match state to Finalized. Normally, done by the need owner in vcProductNeed.OnMatched event handler. Optionally, can replace the MatchedNeed if receivingNeed is given.",
+"dispose": "dispose(None) -> None — Disposes a completed or cancelled match, so that the vcProductNeed and vcProductFeed objects can be reused for another match. Changes the State to Disposed and sets the values of MatchedNeed and MatchedFeed to None. If dispose is called from within a state change event handler, disposing is delayed and will only be executed after all event handlers have been called. dispose can only be called when the State is Finalized, Cancelled, or Disposed. If the State is already Disposed, dispose does nothing."
+}
+},
+"vcProductNeedInfo": {
+"parents": "",
+"properties": [
+"ProductFilter",
+"TargetProcessGroupId",
+"TargetNode",
+"NeedMatchType",
+"RegistrationSimTime"
+],
+"methods": [],
+"events": [],
+"rows": {
+"ProductFilter": "ProductFilter: vcProductFilter [R] — Filter defining the products that the process accepts.",
+"TargetProcessGroupId": "TargetProcessGroupId: String [R] — Name of the target process. To be matched with a feed, TargetProcessGroupId needs to have the same value as the feed's NextProcessGroupId property.",
+"TargetNode": "TargetNode: vcTransportNode [R] — Target location of the product. This is usually the process that creates the need. For a need and feed to be matched, a valid transportation solution must exist between the feed's SourceNode and the need's TargetNode.",
+"NeedMatchType": "NeedMatchType: NeedMatchType [R] — Type and requirements for matching the need with a feed. See the product match types in Product Matcher Constants.",
+"RegistrationSimTime": "RegistrationSimTime: Real [R] — Time in the simulation when the need has been added to the product matcher."
+}
+},
+"vcProductType": {
+"parents": "",
+"properties": [
+"Name",
+"UniqueId",
+"FlowGroup",
+"IsAssembly",
+"IsSystem",
+"ParentProduct",
+"OriginFrame",
+"ComponentUri",
+"Properties",
+"ComponentProperties",
+"ProductProperties"
+],
+"methods": [
+"deleteProperty",
+"getProperty",
+"createProperty",
+"createComponentProperty",
+"deleteComponentProperty",
+"getComponentProperty",
+"createProductProperty",
+"deleteProductProperty",
+"getProductProperty",
+"resetUniqueId"
+],
+"events": [],
+"rows": {
+"Name": "Name: String [RW] — Name of this product type. Must be unique within the owning process controller.",
+"UniqueId": "UniqueId: String [R] — Unique identifier for this product type used internally.",
+"FlowGroup": "FlowGroup: vcProcessFlowGroup [R] — The flow group that this product type belongs to. Use methods in vcProcessFlowGroup to associate the type to another flow group.",
+"IsAssembly": "IsAssembly: Boolean [R] — Returns True if this product type is assembly product type.",
+"IsSystem": "IsSystem: Boolean [R] — Returns True if this product type is special internal type.",
+"ParentProduct": "ParentProduct: vcProductType [RW] — The product type this type is derived from.",
+"OriginFrame": "OriginFrame: vcMatrix [RW] — Defines relative position of product and its component as offset from component origin to origin of product instance.",
+"ComponentUri": "ComponentUri: String [RW] — Simulation component type used to visualize product instances created from this product type. Setting this Uri causes the product type to immediately attempt to load and make an internal copy of the component. Note: Special �component� Uri scheme (component:componentName) can be used to point to an existing static component in the simulation layout.",
+"Properties": "Properties: List of vcProperty [R] — Gets the properties of this product type itself. All properties might not have a vcProperty implementation.",
+"ComponentProperties": "ComponentProperties: List of vcProperty [R] — Gets the properties that are applied to components of product instances created from this product type.",
+"ProductProperties": "ProductProperties: List of vcProperty [R] — Gets the properties that are applied to product instances created from this product type.",
+"deleteProperty": "deleteProperty(vcProperty property) -> None — Deletes a property of the product type itself.",
+"getProperty": "getProperty(String propertyName) -> vcProperty — Returns a property of the product type itself.",
+"createProperty": "createProperty(Enumeration type, String name, [Enumeration constraints]) -> vcProperty — Creates a new property to the product type itself. An optional constraints argument can be used to define constraints for new property, which must be defined at the time of creation. See Property Constants for more information.",
+"createComponentProperty": "createComponentProperty(Enumeration type, String name, [Enumeration constraints]) -> vcProperty — Creates a new component instance property to this product type. An optional constraints argument can be used to define constraints for new property, which must be defined at the time of creation. See Property Constants for more information.",
+"deleteComponentProperty": "deleteComponentProperty(vcProperty property) -> None — Deletes a component instance property from this product type.",
+"getComponentProperty": "getComponentProperty(String propertyName) -> vcProperty — Returns a component instance property defined in this product type.",
+"createProductProperty": "createProductProperty(Enumeration type, String name, [Enumeration constraints]) -> vcProperty — Creates a new product instance property to this product type. An optional constraints argument can be used to define constraints for new property, which must be defined at the time of creation. See Property Constants for more information.",
+"deleteProductProperty": "deleteProductProperty(vcProperty property) -> None — Deletes a product instance property from this product type.",
+"getProductProperty": "getProductProperty(String propertyName) -> vcProperty — Returns a product instance property defined in this product type.",
+"resetUniqueId": "resetUniqueId(-) -> None — Assigns a new unique id for this product type."
+}
+},
+"vcProductTypeFilter": {
+"parents": "vcProductFilter",
+"properties": [
+"AcceptAllProductTypes",
+"AcceptedFlowGroups",
+"AcceptedProductTypes"
+],
+"methods": [
+"new"
+],
+"events": [],
+"rows": {
+"AcceptAllProductTypes": "AcceptAllProductTypes: Boolean [RW] — When set to True, any product is accepted and AcceptedFlowGroups and AcceptedProductTypes are ignored.",
+"AcceptedFlowGroups": "AcceptedFlowGroups: list of vcProcessFlowGroup [RW] — Allows only the selected flow groups.",
+"AcceptedProductTypes": "AcceptedProductTypes: list of vcProductType [RW] — Allows only the selected product types.",
+"new": "new(None) -> vcProductTypeFilter — Creates a new vcProductTypeFilter object and returns the new product type filter."
+}
+},
+"vcProductTypeManager": {
+"parents": "",
+"properties": [
+"Controller",
+"ProductTypes"
+],
+"methods": [
+"createProductType",
+"deleteProductType",
+"findProductType"
+],
+"events": [],
+"rows": {
+"Controller": "Controller: vcProcessController [R] — Gets the owner process controller.",
+"ProductTypes": "ProductTypes: List of vcProductType or vcAssemblyProductType [R] — Gets a list of all product types in this process controller. vcAssemblyProductType are listed where appropriate.",
+"createProductType": "createProductType(String name, vcProcessFlowGroup groupToPlaceObject, Boolean createAssemblyProductType) -> vcProductType or vcAssemblyProductType — Creates new product type and assigns it to the given flow group. The name must be unique. When createAssemblyProductType is set to True, creates and returns vcAssemblyProductType. Otherwise, creates and returns vcProductType.",
+"deleteProductType": "deleteProductType(vcProductType typeToDelete or String typeName) -> None — Tries to delete the given product type. Cannot delete system product types or product types from a different process controller. Tries to delete product type with given name. Cannot delete system product types or product types from a different process controller.",
+"findProductType": "findProductType(String name) -> vcProductType — Tries to find a product type with the given name. Returns None if not found."
+}
+},
+"vcPythonTransportController": {
+"parents": "vcTransportController",
+"properties": [
+"Icon",
+"IconColor",
+"IsSystem"
+],
+"methods": [
+"workDone"
+],
+"events": [],
+"rows": {
+"Icon": "Icon: String [RW] — The icon file used to represent this transport controller in UI. Defines either filesystem path to the SVG image file or an SVG path data. Both relative and absolute paths with/without .svg extension are allowed. Relative paths are relative to the Icons or Icons. Additional folder under VC installation folder. Example: �UPM/pDroneTransportController�",
+"IconColor": "IconColor: String [RW] — Fill color applied to the of the Icon in ARGB, RGB or unqualified-color-name format. (e.g. #FFFF0000 or #FF0000 or Red)",
+"IsSystem": "IsSystem: Boolean [R] — Always returns False.",
+"workDone": "workDone(Integer workId) -> None — Notifies the Work statement that work has been done so the process can continue executing."
+}
+},
+"vcStatisticsChart": {
+"parents": "",
+"properties": [
+"AllSources",
+"ChartTileType",
+"ChartType",
+"DataRows",
+"DataType",
+"FieldCountPerProperty",
+"LegendVisibility",
+"Name",
+"Position",
+"RecordAccumulatedValues",
+"SamplingInterval",
+"Series",
+"TileType",
+"TitleVisibility"
+],
+"methods": [
+"addSeries",
+"clearData",
+"clearSeries",
+"deleteSeries",
+"update"
+],
+"events": [],
+"rows": {
+"AllSources": "AllSources: List of List (vcProperty property, String expression, vcComponent component, vcVector color, Real thickness) [R] — Gets all sources of reported items, including their components. A reported item is a vcProperty object associated with a component. For example, a reported item could be a component property or a property of a component behavior. A vcVector object is used to define the display color of reported item in chart.",
+"ChartTileType": "ChartTileType: Integer [RW] — Defines the location type of chart, thereby indicating whether the tile is an empty or filled with a chart. Generally, you would use ChartTileType to parse through several charts in a dashboard to collect data from charts that report items. For example, you could ignore or skip empty tiles.",
+"ChartType": "ChartType: Enumeration [RW] — Defines the chart type. For more information, see Statistics Constants.",
+"DataRows": "DataRows: List of List (Real simulation_time, Real value1, ... Real valueN) [R] — Gets the data collected during a simulation from reported items.",
+"DataType": "DataType: Enumeration [RW] — Defines the data type of chart. For more information, see Statistics Constants.",
+"FieldCountPerProperty": "FieldCountPerProperty: Integer [RW] — Defines the field count of items reported by chart.",
+"LegendVisibility": "LegendVisibility: Boolean [RW] — Turns on/off the display of chart legend.",
+"Name": "Name: String [RW] — Defines the title of chart.",
+"Position": "Position: List of String name, Integer column, Integer row, Integer column_span, Integer row_span [RW] — Defines the position chart in tab grid.",
+"RecordAccumulatedValues": "RecordAccumulatedValues: Boolean [RW] — Turns on/off the collection of data reported by chart.",
+"SamplingInterval": "SamplingInterval: Real [RW] — Defines how often (in seconds) the chart updates to show recorded data during a simulation. If -1, the chart uses the sampling interval of its dashboard.",
+"Series": "Series: List of vcStatisticsSeries [R] — Gets a list of data series used by chart to report items.",
+"TileType": "TileType: Enumeration [RW] — Same as ChartTileType. For more information, see Statistics Constants.",
+"TitleVisibility": "TitleVisibility: Boolean [RW] — Turns on/off the display of chart title.",
+"addSeries": "addSeries(None) -> vcStatisticsSeries — Adds a new data series to chart.",
+"clearData": "clearData(None) -> None — Removes all data reported by chart, thereby emptying DataRows.",
+"clearSeries": "clearSeries(None) -> None — Resets all data series in chart, thereby emptying AllSources.",
+"deleteSeries": "deleteSeries(vcStatisticsSeries data_series) -> None — Deletes a given data_series from chart.",
+"update": "update(None) -> None — Refreshes the chart."
+}
+},
+"vcStatisticsDashboard": {
+"parents": "",
+"properties": [
+"SelectedTab",
+"StatisticsInterval",
+"Tabs"
+],
+"methods": [
+"createTab",
+"deleteTab"
+],
+"events": [],
+"rows": {
+"SelectedTab": "SelectedTab: vcStatisticsTab [RW] — Defines the active tab in dashboard.",
+"StatisticsInterval": "StatisticsInterval: Real [RW] — Defines the global sampling interval for reporting data. This will affect data series referencing vcStatistics properties as well as any chart with a sampling interval of -1.",
+"Tabs": "Tabs: List of vcStatisticsTab [R] — Gets a list of all tabs in dashboard.",
+"createTab": "createTab(String name, Boolean activate) -> vcStatisticsTab — Adds a new tab of a given name to the dashboard. The activate argument can be used to make the new tab the selected tab in dashboard.",
+"deleteTab": "deleteTab(vcStatisticsTab) -> None — Removes a given tab from the dashboard."
+}
+},
+"vcStatisticsSeries": {
+"parents": "",
+"properties": [
+"Colors",
+"Components",
+"Expression",
+"Name",
+"ParentChart",
+"Property",
+"SeriesName",
+"Sources",
+"Thickness"
+],
+"methods": [],
+"events": [],
+"rows": {
+"Colors": "Colors: List of vcVector [RW] — Defines the colors of series, which is displayed in chart. For example, data collected from different components should be color-coded to differentiate their data in chart.",
+"Components": "Components: List of vcComponent [RW] — Defines the components the series collects data from during a simulation. In order to collect data, a listed component must have Property.",
+"Expression": "Expression: String [RW] — Defines the expression of series.",
+"Name": "Name: String [RW] — Defines the name of series object.",
+"ParentChart": "ParentChart: vcStatisticsChart [R] — Gets the chart of series.",
+"Property": "Property: vcProperty [RW] — Defines the reported item (source) of series.",
+"SeriesName": "SeriesName: String [RW] — Defines the name of series, which is displayed in chart legend.",
+"Sources": "Sources: List of List (vcProperty property, String expression, vcComponent component, vcVector color, Real thickness) [R] — Gets a list of sources for series data. This information includes the reported item (vcProperty) and its component.",
+"Thickness": "Thickness: List of Real [RW] — Defines the display thickness of series, for example the line thickness of data collected from different components."
+}
+},
+"vcStatisticsTab": {
+"parents": "",
+"properties": [
+"Charts",
+"Layouts",
+"MaxColumns",
+"MaxRows",
+"Name",
+"SelectedChart",
+"SelectedLayout",
+"SelectedLayoutItem"
+],
+"methods": [
+"clearLayout",
+"createChart",
+"createLayout",
+"deleteChart",
+"selectChart"
+],
+"events": [],
+"rows": {
+"Charts": "Charts: List of vcStatisticsChart [RW] — Defines the charts of tab.",
+"Layouts": "Layouts: List of List (String layout_name, List (String placeholder_name, Integer column, Integer row, Integer column_span, Integer row_span))) [RW] — Defines the available layouts for tab grid.",
+"MaxColumns": "MaxColumns: Integer [RW] — Defines the maximum number of columns in tab grid.",
+"MaxRows": "MaxRows: Integer [RW] — Defines the maximum number of rows in tab grid.",
+"Name": "Name: String [RW] — Defines the name of tab.",
+"SelectedChart": "SelectedChart: vcStatisticsChart [RW] — Defines the active chart of tab.",
+"SelectedLayout": "SelectedLayout: Integer [RW] — Defines the current layout of tab grid.",
+"SelectedLayoutItem": "SelectedLayoutItem: List of String layout_name, List (String placeholder_name, Integer column, Integer row, Integer column_span, Integer row_span) [RW] — Defines the attributes of SelectedLayout. Note: A layout has a name and a list for each of its placeholders/tiles. A placeholder defines the grid column and row size of a chart.",
+"clearLayout": "clearLayout(None) -> None — Deletes all charts from tab grid.",
+"createChart": "createChart(vcStatisticsChart location, Enumeration chart_type, Boolean activate) -> vcStatisticsChart — Adds a new chart of a given type to tab grid. The location argument specifies where in grid to insert the new chart. In this context, the vcStatisticsChart object is a grid location. It can be a chart with existing data or an empty chart used as a placeholder. In either case, a call will remove the existing chart and exchange it with a new one in the grid. The activate argument can be used to make the new chart the active chart in tab. For more information on the chart_type argument, see St",
+"createLayout": "createLayout(None) -> None — Creates a new layout for tab grid.",
+"deleteChart": "deleteChart(Integer index or vcStatisticsChart chart) -> None — Removes a chart from tab grid, thereby replacing the old chart with a new empty chart used as a placeholder in grid.",
+"selectChart": "selectChart(Integer index or vcStatisticsChart chart) -> vcStatisticsChart — Selects a chart in tab, thereby making it the active chart in tab."
+}
+},
+"vcSwitchCaseStatement": {
+"parents": "vcStatement",
+"properties": [
+"Condition",
+"Cases"
+],
+"methods": [
+"addCase",
+"moveCase",
+"deleteCase",
+"releaseCase",
+"getCase"
+],
+"events": [],
+"rows": {
+"Condition": "Condition: Expression [RW] — Expression that defines the value against which the case conditions are evaluated. See also Process Statement Expressions and Robot Statements.",
+"Cases": "Cases: List of vcCaseScope [RO] — All case scopes in this statement. Each scope has an RW property CaseCondition of type String which will be evaluated against statement�s Condition.",
+"addCase": "addCase(None or Integer index or Integer index, vcCaseScope scope) -> vcCaseScope or vcCaseScope or None — Creates a new case and appends it to the end. or Creates a new case and inserts it to the given index. If index is less than zero or greater than the current case count, the case will be appended to the end. or Inserts an existing case to the given index. If index is less than zero or greater than the current case count, the case will be appended to the end.",
+"moveCase": "moveCase(vcCaseScope scope, Integer newIndex) -> None — Moves an existing case to the new position. If the given index is less than zero or greater than the current case count, the case will be moved to the end.",
+"deleteCase": "deleteCase(vcCaseScope scope) -> None — Removes an existing case and deletes it.",
+"releaseCase": "releaseCase(vcCaseScope scope) -> None — Removes an existing case.",
+"getCase": "getCase(Integer index) -> vcCaseScope — Gets an existing case."
+}
+},
+"vcTransportController": {
+"parents": "vcBehaviour",
+"properties": [
+"IsSystem"
+],
+"methods": [],
+"events": [],
+"rows": {
+"IsSystem": "IsSystem: Boolean [R] — True if this controller is part of the application."
+}
+},
+"vcTransportLink": {
+"parents": "",
+"properties": [
+"Source",
+"Destination",
+"Implementer",
+"SupportedGroup",
+"Properties"
+],
+"methods": [
+"createProperty",
+"getProperty",
+"deleteProperty"
+],
+"events": [],
+"rows": {
+"Source": "Source: vcTransportNode [R] — The transport node to start moving from.",
+"Destination": "Destination: vcTransportNode [R] — The destination transport node.",
+"Implementer": "Implementer: vcTransportController [RW] — The controller that will take care of moving the product through this link. Note that when reassigning the implementer, the transport controllers usually modify the link�s properties immediately in event handlers.",
+"SupportedGroup": "SupportedGroup: vcProcessFlowGroup [R] — Only product types belonging to this flow group can travel through this link.",
+"Properties": "Properties: List of vcProperty [R] — Gets the properties that have vcProperty implementation.",
+"createProperty": "createProperty(vcProperty property) -> vcProperty — Creates a new dynamic property to this transport link.",
+"getProperty": "getProperty(String propertyName) -> vcProperty — Returns a property from this transport link.",
+"deleteProperty": "deleteProperty(vcProperty property) -> None — Deletes a property from this transport link."
+}
+},
+"vcTransportNode": {
+"parents": "vcBehaviour",
+"properties": [
+"TransportSystem",
+"TransportLinks",
+"ProcessExecutor",
+"ComponentContainer",
+"VisualPositionFrame",
+"VisualPosition",
+"DefaultProductPositionFrame",
+"DefaultResourcePositionFrame",
+"Frame",
+"ResetAt",
+"TriggerAt"
+],
+"methods": [
+"createTransportTarget",
+"getTransportTarget",
+"deleteTransportTarget",
+"beginTransportOut"
+],
+"events": [],
+"rows": {
+"TransportSystem": "TransportSystem: vcTransportSystem [R] — The associated transport system.",
+"TransportLinks": "TransportLinks: List of vcTransportLink [R] — The transportLinks coming into, and going out from, this node.",
+"ProcessExecutor": "ProcessExecutor: vcProcessExecutor [R] — The associated process executor. This property is read only; it�s value can be changed by setting the TransportNode property on a ProcessExecutor. (Deprecated) Should not assume 1 to 1 mapping between process executors and transport nodes and thus this property may get removed.",
+"ComponentContainer": "ComponentContainer: vcContainer [RW] — The component container this node monitors for arriving products. Using other than vcComponentContainer may cause issues.",
+"VisualPositionFrame": "VisualPositionFrame: vcFrameFeature [RW] — Defines visualization position of the node. The frame feature must be in the same component as this transport node behavior.",
+"VisualPosition": "VisualPosition: vcMatrix [R] — Visualization position of this node in world coordinates.",
+"DefaultProductPositionFrame": "DefaultProductPositionFrame: vcFrameFeature [RW] — The default position for products.",
+"DefaultResourcePositionFrame": "DefaultResourcePositionFrame: vcFrameFeature [RW] — The default position for resources.",
+"Frame": "Frame: vcFrameFeature [RW] — Only used when connected to a path as sensor. Defines the Frame feature referenced as the sensor's physical location.",
+"ResetAt": "ResetAt: Enumeration integer [RW] — Only used when connected to a path as sensor. Defines the mode for resetting the sensor. See Path Constants for more information.",
+"TriggerAt": "TriggerAt: Enumeration integer [RW] — Only used when connected to a path as sensor. Defines the mode for triggering the sensor. See Path Constants for more information.",
+"createTransportTarget": "createTransportTarget(vcProduct product) -> vcTransportTarget — Creates a new transport target object for this node and assigns it for the given product instance. The target is created with the default values of this transport node. Replaces any existing transport target assigned to the given product in this node. Note that the node automatically deletes any transport targets when they are no longer needed.",
+"getTransportTarget": "getTransportTarget(vcProduct product) -> vcTransportTarget — Gets transport target in this node assigned for a given product instance. Returns None if a target is not defined. Note that the node automatically deletes any transport targets when they are no longer needed.",
+"deleteTransportTarget": "deleteTransportTarget(vcProduct product) -> None — Deletes a transport target assigned for a given product instance. Note that the default transport target is used if a product instance doesn�t have a specific target defined.",
+"beginTransportOut": "beginTransportOut(vcProduct product) -> None — Begin the process of transporting the given product through its transport solution. Note that transport is asynchronous i.e. the product won�t leave immediately."
+}
+},
+"vcTransportSolution": {
+"parents": "",
+"properties": [
+"Source",
+"Destination",
+"Links"
+],
+"methods": [
+"getNextLink",
+"replaceLinks"
+],
+"events": [],
+"rows": {
+"Source": "Source: vcTransportNode [R] — The transport node this route starts from. Returns None if the solution is empty.",
+"Destination": "Destination: vcTransportNode [R] — The transport node this route ends to. Returns None if the solution is empty.",
+"Links": "Links: List of vcTransportLink [R] — The list of transport links that need to be travelled to get from the Source node to the Destination node, starting from Source.",
+"getNextLink": "getNextLink(vcTransportNode) -> vcTransportLink — Returns the transport link (there can be only one) that has the given transport node as its Source. Returns None if such link doesn�t exist in the solution i.e. the route doesn�t start from or pass through that transport node.",
+"replaceLinks": "replaceLinks(List of vcTransportLink) -> None — Replaces the route with given links. If the given links do not form a valid transport solution, an error is raised and the previous route is preserved."
+}
+},
+"vcTransportSystem": {
+"parents": "",
+"properties": [
+"ProcessController",
+"Nodes",
+"Links",
+"Controllers"
+],
+"methods": [
+"createTransportLink",
+"deleteTransportLink",
+"createTransportSolution",
+"findSolution",
+"findAllLinksBetweenNodeSets"
+],
+"events": [],
+"rows": {
+"ProcessController": "ProcessController: vcProcessController [R] — Parent controller that owns this system.",
+"Nodes": "Nodes: List of vcTransportNode [R] — Gets all transport nodes associated with this system.",
+"Links": "Links: List of vcTransportLink [R] — Gets all transport links owned by this system.",
+"Controllers": "Controllers: List of vcTransportController [R] — Gets all available transport controllers. Includes both system and user-implemented controllers.",
+"createTransportLink": "createTransportLink(vcTransportNode source, vcTransportNode destination, vcTransportController implementer, vcProcessFlowGroup group) -> vcTransportLink — Creates a new transport link from source to destination node and registers it to the system. Source and destination have to be in this transport system and cannot be the same.",
+"deleteTransportLink": "deleteTransportLink(vcTransportLink link) -> None — Removes the given link from this system and deletes it.",
+"createTransportSolution": "createTransportSolution(-) -> vcTransportSolution — Creates an empty transport solution.",
+"findSolution": "findSolution(vcTransportNode source, vcTransportNode destination, vcProcessFlowGroup flowGroup) -> vcTransportSolution — Tries to find a valid route from source to destination, only considers links that support the given flow group. The route isn�t optimized. Returns None if a valid route doesn�t exist.",
+"findAllLinksBetweenNodeSets": "findAllLinksBetweenNodeSets(vcTransportNode[] sourceNodes, vcTransportNode[] destinationNodes, vcProcessFlowGroup group) -> List of vcTransportLink — Finds a set containing all links that are part of any valid path from any node in sourceNodes set to any node in the destinationNodes set. This can be used to e.g. check navigability between all implementations of two processes. The source and destination node sets can overlap. Only considers transport links that support the given flow group."
+}
+},
+"vcTransportTarget": {
+"parents": "",
+"properties": [
+"ProductPosition",
+"ResourcePosition",
+"ProductPositionNode",
+"ResourcePositionNode",
+"ProductPositionInNode",
+"ResourcePositionInNode"
+],
+"methods": [],
+"events": [],
+"rows": {
+"ProductPosition": "ProductPosition: vcMatrix [RW] — Target position where a product should be placed. This matrix is expressed in world coordinates and denotes the target position and orientation of the product. Note that this is not the same as the position and orientation of the product: the difference is the offset defined in the corresponding vcProductType.",
+"ResourcePosition": "ResourcePosition: vcMatrix [RW] — Hint for the desired location of a resource while it is placing a product instance to the ProductPosition. Expressed in world coordinates.",
+"ProductPositionNode": "ProductPositionNode: vcNode [RW] — By default, the node that contains ResourcePositionFrame, which is set in the transporting statement (TransportIn, TransportOut, or TransportPatternIn). If frames have not been selected, the statements use the transport node. In TransportOut, ProductPositionNode is set no None. Reference node to ProductPositionInNode. Note that a reference to the vcProduct itself can be used to get the current position of the product instance at any time.",
+"ResourcePositionNode": "ResourcePositionNode: vcNode [RW] — By default, the node that contains ResourcePositionFrame, which is set in the transporting statement (TransportIn and TransportPatternIn). If frames have not been set, the statements use the transport node. Reference node to ResourcePositionInNode.",
+"ProductPositionInNode": "ProductPositionInNode: vcMatrix [RW] — Position in relation to ProductPositionNode, if the value of ProductPositionNode is not None. The property can be used to transport the product from or into moving processes or nodes.",
+"ResourcePositionInNode": "ResourcePositionInNode: vcMatrix [RW] — Position in relation to ResourcePositionNode, if the value of ResourcePositionNode is not None. The property can be used to transport the product from or into moving processes or nodes."
+}
+},
+"vcViewAnimation": {
+"parents": "vcLayoutItem",
+"properties": [
+"Program"
+],
+"methods": [
+"getProgram"
+],
+"events": [],
+"rows": {
+"Program": "Program: vcProgram [R] — Gets the program of animator.",
+"getProgram": "getProgram(None) -> vcProgram — Returns the program of animator."
+}
+},
+"vcVREvents": {
+"parents": "",
+"properties": [
+"Buttons",
+"ClientId",
+"DeviceInputs",
+"DeviceModel",
+"Directions",
+"EventCounter",
+"EventsEnabled",
+"MaxUpdateRate",
+"OneMeterLength",
+"Position",
+"RealEventCounter",
+"RoomCenter",
+"Times",
+"Touches"
+],
+"methods": [
+"toggleAction"
+],
+"events": [],
+"rows": {
+"Buttons": "Buttons: List of Integer [R] — - Index 0: a bitmask for pressed buttons, first 32 bits (see ulButtonPressed ) - Index 1: see above, last 32 bits - Index 2: a bitmask for touched buttons, first 32 bits (see ulButtonTouched ) - Index 3: see above, last 32 bits",
+"ClientId": "ClientId: Integer [R] — a number identifying which client sent the data that is currently stored in the VREvents object",
+"DeviceInputs": "DeviceInputs: List of Dictionaries [R] — a list of dictionaries, where each dictionary contains the following key-value pairs - key: \"DeviceRole\", value: string, \"LeftHanded\"/\"RightHanded\" - key: \"Axis2DInputs\", value: dict<string, Tuple<float, float>>, 2D inputs (e.g. touchpad) - key: \"AxisInputs\", value: dict<string, float>, 1D inputs (e.g. trigger) - key: \"ButtonInputs\", value: dict<string, bool>, digital (0/1) button inputs Note: in all input dictionaries the key value is a string value identifying the input type (see InputFeatureUsage column in Unity XR input mappings)",
+"DeviceModel": "DeviceModel: String [R] — The model of the connected VR device",
+"Directions": "Directions: List of vcVector [R] — - Index 0: right controller - forward - Index 1: right controller - right - Index 2: left controller - forward - Index 3: left controller - right - Index 4: HMD - forward - Index 5: HMD - right Note: the up vector can be computed as the crossproduct of the right and forward vector",
+"EventCounter": "EventCounter: Integer [R] — The number of events processed by the server",
+"EventsEnabled": "EventsEnabled: Boolean [RW] — Enable/disable the events",
+"MaxUpdateRate": "MaxUpdateRate: Integer [RW] — Defines the maximum update rate",
+"OneMeterLength": "OneMeterLength: Real [RW] — Defines the scale of the units used in Experience. For example, when the value is 1000.0, one meter in Experience is 1000 units in simulation.",
+"Position": "Position: List of vcVector [R] — - Index 0: right controller position - Index 1: left controller position - Index 2: Head-mounted device (HMD) position",
+"RealEventCounter": "RealEventCounter: Integer [R] — Number of events sent by the client",
+"RoomCenter": "RoomCenter: vcVector [R] — The physical location of the room",
+"Times": "Times: List of Real [R] — - Index 0: time as reported by Experience - Index 1: delta from the last message sent by Experience - Index 2: delta from the last update (basically the frametime in Experience) - Index 3: VR event updates skipped before the last update (the client skips sending updates according to the MaxUpdateRate and also if the server is still processing a certain number of old messages) - Index 4: VR event updates skipped in total",
+"Touches": "Touches: List of vcVector [R] — - Index 0: Vector (touchpad x-axis, touchpad y-axis, touchpad is pressed (0.0/1.0)) (right controller) - Index 1: Vector (??? x-axis, ??? y-axis, 0.0) (right controller, device-specific) - Index 2: Vector (trigger value, has teleported (0.0/1.0), trigger pressed (0.0/1.0)) (right controller)",
+"toggleAction": "toggleAction(Integer clientId, String action, Boolean value) -> None — Makes it possible to enable or disable certain VR actions in R-Pro Experience. The clientId argument is the ClientId received through the VREvents object. The action argument defines the action to be enabled or disabled. Teleport toggles the user's ability to teleport, Elevator toggles the user's ability to use the built-in elevator platform Pause toggles the user's ability to pause and resume the simulation within Experience. The value argument denotes whether the action is enabled (True) or disabled (False)."
+}
+}
+}

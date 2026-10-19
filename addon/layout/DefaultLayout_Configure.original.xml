@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xamDockManager version="21.1.20211.27">
+  <contentPanes>
+    <contentPane name="Direct3DViewportViewModelContentPane" location="Document" />
+    <contentPane name="VcProgramEditorContentPane" location="DockedLeft" visibility="Collapsed" />
+    <contentPane name="VcECatalogueContentPane" location="DockedLeft" />
+    <contentPane name="ConConfigPanelContentPane" location="DockedLeft" visibility="Collapsed" />
+    <contentPane name="StaubliConfigPanelContentPane" location="DockedLeft" visibility="Collapsed" />
+    <contentPane name="VcCellGraphContentPane" location="DockedLeft" />
+    <contentPane name="ProductEditorPanelContentPane" location="DockedLeft" visibility="Collapsed" />
+    <contentPane name="VcPropertyEditorContentPane" location="DockedRight" />
+    <contentPane name="VcJogPanelContentPane" location="DockedRight" visibility="Collapsed" />
+    <contentPane name="CollisionSettingsPanelContentPane" location="DockedRight" visibility="Collapsed" />
+    <contentPane name="CommandPanelViewModelContentPane" location="DockedRight" visibility="Collapsed" />
+    <contentPane name="VcOutputContentPane" location="DockedBottom" />
+    <contentPane name="FlowEditorPanelContentPane" location="DockedBottom" visibility="Collapsed" />
+    <contentPane name="ConVariablesWindowContentPane" location="DockedBottom" visibility="Collapsed" />
+    <contentPane name="StaubliIOMappingsWindowContentPane" location="Floating" visibility="Collapsed" />
+  </contentPanes>
+  <panes>
+    <splitPane name="VcDockedLeftSplitPane" splitterOrientation="Vertical" location="DockedLeft" extent="320">
+      <tabGroup name="VcVc_L_TabGroupTabGroup" selectedIndex="1">
+        <contentPane name="VcProgramEditorContentPane" />
+        <contentPane name="VcECatalogueContentPane" />
+        <contentPane name="ConConfigPanelContentPane" />
+        <contentPane name="StaubliConfigPanelContentPane" />
+        <contentPane name="VcCellGraphContentPane" />
+        <contentPane name="ProductEditorPanelContentPane" />
+      </tabGroup>
+    </splitPane>
+    <splitPane name="VcDockedRightSplitPane" splitterOrientation="Horizontal" location="DockedRight" extent="320">
+      <tabGroup name="VcVc_R_TabGroupTabGroup" selectedIndex="-1">
+        <contentPane name="VcPropertyEditorContentPane" />
+        <contentPane name="VcJogPanelContentPane" />
+        <contentPane name="CollisionSettingsPanelContentPane" />
+        <contentPane name="CommandPanelViewModelContentPane" />
+      </tabGroup>
+    </splitPane>
+    <splitPane name="VcDockedBottomSplitPane" splitterOrientation="Vertical" location="DockedBottom" extent="220">
+      <tabGroup name="VcVc_B_TabGroupTabGroup" selectedIndex="-1">
+        <contentPane name="VcOutputContentPane" />
+        <contentPane name="FlowEditorPanelContentPane" />
+        <contentPane name="ConVariablesWindowContentPane" />
+      </tabGroup>
+    </splitPane>
+    <splitPane name="VcDockableFloatingSplitPane" splitterOrientation="Horizontal" location="Floating">
+      <contentPane name="StaubliIOMappingsWindowContentPane" />
+    </splitPane>
+  </panes>
+  <documents splitterOrientation="Vertical">
+    <splitPane splitterOrientation="Vertical">
+      <tabGroup name="Direct3DViewportViewModelTabGroupPane" selectedIndex="-1">
+        <contentPane name="Direct3DViewportViewModelContentPane" />
+      </tabGroup>
+    </splitPane>
+  </documents>
+</xamDockManager>

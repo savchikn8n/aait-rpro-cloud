@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xamDockManager version="21.1.20211.27">
+  <contentPanes>
+    <contentPane name="Direct3DViewportViewModelContentPane" location="Document" lastActivatedTime="2026-09-25T12:59:29.8253811Z" />
+    <contentPane name="AiAgentChatPanelContentPane" location="DockedRight" lastFloatingSize="332,448" lastFloatingWindowRect="2396,727,326,448" lastFloatingLocation="2401,758" lastActivatedTime="2026-09-25T12:54:43.2643387Z" />
+    <contentPane name="VcECatalogueContentPane" location="DockedLeft" lastActivatedTime="2026-09-25T12:49:48.4258616Z" />
+    <contentPane name="VcPropertyEditorContentPane" location="DockedBottom" lastFloatingSize="326,448" lastFloatingWindowRect="1188,1251,320,448" lastFloatingLocation="1193,1282" lastActivatedTime="2026-09-25T12:49:39.661088Z" />
+    <contentPane name="VcOutputContentPane" location="DockedBottom" lastActivatedTime="2026-09-24T13:14:19.0657156Z" />
+    <contentPane name="VcCellGraphContentPane" location="DockedLeft" lastActivatedTime="2026-09-22T14:15:32.6109685Z" />
+    <contentPane name="VcProgramEditorContentPane" location="DockedLeft" visibility="Collapsed" />
+    <contentPane name="ConConfigPanelContentPane" location="DockedLeft" visibility="Collapsed" />
+    <contentPane name="StaubliConfigPanelContentPane" location="DockedLeft" visibility="Collapsed" />
+    <contentPane name="ProductEditorPanelContentPane" location="DockedLeft" visibility="Collapsed" />
+    <contentPane name="VcJogPanelContentPane" location="DockedRight" visibility="Collapsed" />
+    <contentPane name="CollisionSettingsPanelContentPane" location="DockedRight" visibility="Collapsed" />
+    <contentPane name="CommandPanelViewModelContentPane" location="DockedRight" visibility="Collapsed" />
+    <contentPane name="FlowEditorPanelContentPane" location="DockedBottom" visibility="Collapsed" />
+    <contentPane name="ConVariablesWindowContentPane" location="DockedBottom" visibility="Collapsed" />
+    <contentPane name="StaubliIOMappingsWindowContentPane" location="Floating" visibility="Collapsed" />
+  </contentPanes>
+  <panes>
+    <splitPane name="Z584e58c9c48545458925dd32083b324d" splitterOrientation="Vertical" location="DockedRight" extent="326">
+      <contentPane name="AiAgentChatPanelContentPane" />
+    </splitPane>
+    <splitPane name="VcDockedLeftSplitPane" splitterOrientation="Vertical" location="DockedLeft" extent="320">
+      <tabGroup name="VcVc_L_TabGroupTabGroup" selectedIndex="1">
+        <contentPane name="VcProgramEditorContentPane" />
+        <contentPane name="VcECatalogueContentPane" />
+        <contentPane name="ConConfigPanelContentPane" />
+        <contentPane name="StaubliConfigPanelContentPane" />
+        <contentPane name="VcCellGraphContentPane" />
+        <contentPane name="ProductEditorPanelContentPane" />
+      </tabGroup>
+    </splitPane>
+    <splitPane name="VcDockedRightSplitPane" splitterOrientation="Horizontal" location="DockedRight" extent="320">
+      <tabGroup name="VcVc_R_TabGroupTabGroup" selectedIndex="-1">
+        <contentPane name="VcJogPanelContentPane" />
+        <contentPane name="CollisionSettingsPanelContentPane" />
+        <contentPane name="CommandPanelViewModelContentPane" />
+      </tabGroup>
+    </splitPane>
+    <splitPane name="VcDockedBottomSplitPane" splitterOrientation="Vertical" location="DockedBottom" extent="220">
+      <tabGroup name="VcVc_B_TabGroupTabGroup" selectedIndex="0">
+        <contentPane name="VcOutputContentPane" />
+        <contentPane name="FlowEditorPanelContentPane" />
+        <contentPane name="ConVariablesWindowContentPane" />
+      </tabGroup>
+      <contentPane name="VcPropertyEditorContentPane" />
+    </splitPane>
+    <splitPane name="VcDockableFloatingSplitPane" splitterOrientation="Horizontal" location="Floating" floatingLocation="0,0">
+      <contentPane name="StaubliIOMappingsWindowContentPane" />
+    </splitPane>
+    <splitPane name="Zd8ec2deed6d441ec827fc7bc90715fd9" splitterOrientation="Vertical" location="Floating" floatingLocation="1188,1251" floatingSize="320,448">
+      <tabGroup name="Z5e4c0353ea274269b1d6f293ea16252c" selectedIndex="-1" relativeSize="100,100">
+        <contentPane name="VcPropertyEditorContentPane" />
+      </tabGroup>
+    </splitPane>
+    <splitPane name="Z89f8976e40b64c659388b6b752bbc6d3" splitterOrientation="Vertical" location="Floating" floatingLocation="2396,727" floatingSize="326,448">
+      <contentPane name="AiAgentChatPanelContentPane" />
+    </splitPane>
+  </panes>
+  <documents splitterOrientation="Vertical">
+    <splitPane name="Zea863f69cd34435996ed8a96b31677f2" splitterOrientation="Vertical">
+      <tabGroup name="Direct3DViewportViewModelTabGroupPane" selectedIndex="0">
+        <contentPane name="Direct3DViewportViewModelContentPane" />
+      </tabGroup>
+    </splitPane>
+  </documents>
+</xamDockManager>
