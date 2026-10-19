@@ -145,11 +145,15 @@ if (Test-Path $academySource) { Copy-Item $academySource (Join-Path $agent 'kb')
 # Данные быстрых команд /api, /термин, /совет, /проблема (agent\quickref.py):
 # faq.json пишется руками, остальное собирают kb_build.py и quickref_build.py.
 # Курс ИИТБ (agent\iitb\iitb_to_kb.py) — тоже источник справки.
-foreach ($name in 'iitb_chunks.jsonl', 'api_index.json', 'ui_terms.json', 'tips.jsonl', 'faq.json', 'howto.json') {
+foreach ($name in 'contest_chunks.jsonl', 'iitb_chunks.jsonl', 'api_index.json', 'ui_terms.json', 'tips.jsonl', 'faq.json', 'howto.json') {
     $source = Join-Path $root "agent\kb\$name"
     if (Test-Path $source) { Copy-Item $source (Join-Path $agent 'kb') }
     else { Write-Warning "Нет agent\kb\$name — команда агента останется без данных (python agent\quickref_build.py)" }
 }
+
+# Конкурсное задание TechSkills 2026 (модули A, B, C): разбор по модулям для contest.py
+$contestSource = Join-Path $root 'agent\contest'
+if (Test-Path $contestSource) { Copy-Item $contestSource (Join-Path $agent 'contest') -Recurse }
 
 $defaults = [ordered]@{ OLLAMA_URL = $OllamaUrl }
 if ($Cloud) {
