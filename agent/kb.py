@@ -23,6 +23,7 @@ import glossary
 PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "kb", "chunks.jsonl")
 ACADEMY_PATH = os.path.join(os.path.dirname(PATH), "academy_chunks.jsonl")
 IITB_PATH = os.path.join(os.path.dirname(PATH), "iitb_chunks.jsonl")
+CONTEST_PATH = os.path.join(os.path.dirname(PATH), "contest_chunks.jsonl")
 # Оценка A/B (25 вопросов): релевантность 1,44 → 2,32; поэтому по умолчанию включено,
 # с ограничением «не больше одного урока в первых двух». Выключить: RPRO_KB_ACADEMY=0.
 ACADEMY_DEFAULT = os.environ.get("RPRO_KB_ACADEMY", "1") != "0"
@@ -90,6 +91,11 @@ class Index:
         # Курс ИИТБ (iitb/iitb_to_kb.py): родной курс по R-Pro, без скидок и ограничений.
         if path == PATH and os.path.exists(IITB_PATH):
             with open(IITB_PATH, encoding="utf-8") as f:
+                for line in f:
+                    self.chunks.append(json.loads(line))
+        # Конкурсное задание TechSkills (contest.py → kb/contest_chunks.jsonl)
+        if path == PATH and os.path.exists(CONTEST_PATH):
+            with open(CONTEST_PATH, encoding="utf-8") as f:
                 for line in f:
                     self.chunks.append(json.loads(line))
         self.tf: list[Counter] = []

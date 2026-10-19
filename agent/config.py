@@ -135,6 +135,12 @@ NUM_CTX = int(os.environ.get("RPRO_NUM_CTX", "8192"))
 
 # Справка по теме вопроса, которую агент подкладывает модели сам (chat._reference_note).
 # Порог отсекает случайные находки; длина — около 500 токенов на фрагмент.
+# Строители прошлого теста TechSkills (rpro_pharma_plant, rpro_robot_cell, rpro_lean_optimize,
+# rpro_techskills_field) заменяют сцену; для конкурса 2026 они выключены.
+LEGACY_TECHSKILLS_TOOLS = os.environ.get("RPRO_LEGACY_TECHSKILLS", "0") not in ("0", "false", "False")
+
+# Сколько знаков конкурсного задания (contest.py) подкладывать к вопросу при облачной модели.
+CONTEST_NOTE_CHARS = int(os.environ.get("RPRO_CONTEST_NOTE_CHARS", "9000"))
 KB_PREFETCH = os.environ.get("RPRO_KB_PREFETCH", "1") not in ("0", "false", "False")
 KB_PREFETCH_MIN_SCORE = float(os.environ.get("RPRO_KB_PREFETCH_MIN_SCORE", "8"))
 KB_PREFETCH_CHARS = int(os.environ.get("RPRO_KB_PREFETCH_CHARS", "1500"))

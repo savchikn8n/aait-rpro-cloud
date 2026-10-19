@@ -153,6 +153,15 @@ def _reference_note(messages: list[dict]) -> dict | None:
     if not config.KB_PREFETCH or not messages or messages[-1].get("role") != "user":
         return None
     вопрос = messages[-1].get("content") or ""
+    # Конкурсное задание TechSkills (модули A, B, C): точные требования и критерии — по теме вопроса,
+    # раньше общей справки и без ограничения «только вопросы как…»: просьбы тоже должны знать задание.
+    try:
+        import contest
+        конкурс = contest.note(messages, budget=3000 if llm.provider() == "ollama" else config.CONTEST_NOTE_CHARS)
+    except Exception:  # noqa: BLE001 — разбор задания не должен ломать обычный разговор
+        конкурс = None
+    if конкурс:
+        return {"role": "system", "content": конкурс}
     # Проверенный на R-Pro факт (kb/faq.json) кладём и к просьбам: на «поставь
     # скорость конвейеров 300» модели нужно имя свойства ConveyorSpeed.
     import quickref
@@ -334,6 +343,8 @@ _ABOUT_LINES = re.compile(
     r"фарм|сироп|таблет|блистер|паллет|lean|бережлив|vsm|yamazumi|ямадзуми|ямазуми|поле|techskills|техскилс|"
     r"тестов\w* задани|оформ|обстановк|живее|реалистичн)", re.IGNORECASE)
 
+LEGACY_TECHSKILLS = {"rpro_pharma_plant", "rpro_robot_cell", "rpro_lean_optimize", "rpro_techskills_field"}
+
 BASIC_TOOLS = {"rpro_status", "rpro_scene", "rpro_find", "rpro_component", "rpro_messages",
                "rpro_simulation", "rpro_select", "rpro_set_property", "rpro_look",
                "rpro_catalog_find", "rpro_catalog_add", "rpro_help", "rpro_exec"}
@@ -342,6 +353,11 @@ BASIC_TOOLS = {"rpro_status", "rpro_scene", "rpro_find", "rpro_component", "rpro
 def _loop(messages: list[dict], on_tool=None) -> str:
     вопрос = _is_question(messages)
     доступные = tools.READ_ONLY_TOOLS if вопрос else tools.TOOLS
+    # Строители прошлого теста TechSkills (фарма, KUKA, двигатель) заменяют сцену целиком. Задания этого
+    # конкурса другие (манометр МП-63, Dobot CR10), поэтому по «сделай модуль A» агент не должен стирать
+    # сцену пользователя фармфабрикой: инструменты скрыты, пока не включён RPRO_LEGACY_TECHSKILLS=1.
+    if not config.LEGACY_TECHSKILLS_TOOLS:
+        доступные = [t for t in доступные if t["function"]["name"] not in LEGACY_TECHSKILLS]
     # Просьба не про линии — только базовые инструменты (13 вместо 24). Со всеми
     # 24 модель 8B на «поставь длину конвейера 3000 мм» шесть минут гоняла
     # настройку и отчёт по линии, которой в сцене не было (прогон 06.10).
