@@ -150,7 +150,9 @@ def _post(payload: dict, timeout: float) -> dict:
             if r.status_code in (401, 403):
                 raise OpenRouterError(f"OpenRouter отклонил ключ или доступ ({last})")
             if r.status_code == 402:
-                raise OpenRouterError(f"OpenRouter: нужна оплата или нет кредитов ({last})")
+                break        # нет кредитов для платной модели — берём следующую, это не отказ всего облака
+            if r.status_code == 429 and any(w in r.text.lower() for w in ("per-day", "per day", "daily")):
+                break        # суточный лимит бесплатных моделей общий: повторы бессмысленны, идём дальше по списку
             if r.status_code in (429, 500, 502, 503, 504):
                 wait = r.headers.get("Retry-After", "")
                 time.sleep(min(float(wait) if wait.replace(".", "", 1).isdigit() else 2.0 * (attempt + 1), 20))

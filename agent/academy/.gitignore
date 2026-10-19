@@ -1,0 +1,16 @@
+# Рабочие папки: существуют только пока идёт обработка. Знания живут в registry/,
+# рабочее убирает `python academy_consolidate.py --apply --clean` (см. README.md).
+# Комментарии только отдельными строками: в конце строки git их не понимает.
+__pycache__/
+
+# входы, результат запуска модели и скачанные PDF
+pending/
+
+# исходные транскрипты и конспекты до слияния; отчёты оценки уходят в registry/audit/
+work/
+transcripts/
+digests_en/
+digests_ru/
+
+# status.json строится academy_status.py; в репозитории — человекочитаемый STATUS.md
+status.json

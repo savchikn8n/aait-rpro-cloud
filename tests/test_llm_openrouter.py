@@ -19,7 +19,7 @@ class H(BaseHTTPRequestHandler):
         body = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
         SEEN.append(body)
         if body["model"].endswith("ultra-550b-a55b:free"):
-            return self._j(429, {"error": "rate limited"})          # основная перегружена -> запасная
+            return self._j(429, {"error": "free-models-per-day limit"})  # суточный лимит -> сразу запасная
         msgs = body["messages"]
         if isinstance(msgs[-1]["content"], list):
             msg = {"role": "assistant", "content": "на снимке цех"}
