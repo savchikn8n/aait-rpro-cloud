@@ -1,0 +1,236 @@
+# Лента R-Pro
+Снято 2026-09-30 с окна «R-Про версия 2.2.2» скриптом kb_ui_dump.ps1.
+
+## Вкладка «ГЛАВНАЯ» `VcTabHome`
+- ToolBar «Быстрый доступ» `VcTabHomeVcRibbonClipboard` [RibbonGroup] — Быстрый доступ
+  - Button «Копировать» `VcTabHomeVcRibbonClipboardCopy` [ButtonTool] (неактивна)
+  - Button «Вставить» `VcTabHomeVcRibbonClipboardPaste` [ButtonTool] (неактивна)
+  - Button «Удалить» `VcTabHomeVcRibbonClipboardDelete` [ButtonTool] (неактивна)
+  - Button «Сгруппировать» `VcTabHomeVcRibbonClipboardCreateGroup` [ButtonTool] (неактивна)
+  - Button «Разгруппировать» `VcTabHomeVcRibbonClipboardUnGroup` [ButtonTool] (неактивна)
+- ToolBar «Действия» `VcTabHomeVcRibbonManipulation` [RibbonGroup] — Действия
+  - Menu «Выделить» `VcTabHomeVcRibbonManipulationSetAreaSelectModeCommand` [MenuTool]
+  - Button «Переместить» `VcTabHomeVcRibbonManipulationMove` [ToggleButtonTool]
+  - Button «PnP» `VcTabHomeVcRibbonManipulationPlugAndPlay` [ToggleButtonTool]
+  - Button «Взаимодействие» `VcTabHomeVcRibbonManipulationInteract` [ToggleButtonTool]
+- ToolBar «Привязка к сетке» `VcTabHomeVcRibbonGridSnap` [RibbonGroup] — Привязка к сетке
+  - Edit «Размер» `VcTabHomeVcRibbonGridSnapGridSnapSize` [TextEditorTool] (неактивна)
+  - Button «Авторазмер» `VcTabHomeVcRibbonGridSnapGridSnapZoomBased` [ToggleButtonTool]
+  - Button «Всегда привязывать» `VcTabHomeVcRibbonGridSnapGridSnapAlwaysSnap` [ToggleButtonTool]
+- ToolBar «Инструменты» `VcTabHomeVcRibbonTools` [RibbonGroup] — Инструменты
+  - Button «Измерение» `VcTabHomeVcRibbonToolsMeasure` [ToggleButtonTool]
+  - Button «Привязка» `VcTabHomeVcRibbonToolsSnapPrimitiveCommand` [ToggleButtonTool] (неактивна)
+  - Button «Выровнять» `VcTabHomeVcRibbonToolsAlignPrimitiveCommand` [ToggleButtonTool] (неактивна)
+  - Button «Паттерн» `VcTabHomeVcRibbonToolscmdComponentPattern` [ButtonTool] (неактивна)
+  - Button «ИИ-мост» `VcTabHomeVcRibbonToolsaiAgentBridge` [ButtonTool]
+- ToolBar «Размеры» `VcTabHomeVcRibbonDimension` [RibbonGroup] — Размеры
+  - Button «Линейный» `VcTabHomeVcRibbonDimensionLinearDimension` [ToggleButtonTool]
+  - Button «Угловое» `VcTabHomeVcRibbonDimensionAngularDimension` [ToggleButtonTool]
+- ToolBar «Соединить» `VcTabHomeVcRibbonConnect` [RibbonGroup] — Соединить
+  - Button «Интерфейсы» `VcTabHomeVcRibbonConnectInterfaces` [ToggleButtonTool]
+  - Button «Сигналы» `VcTabHomeVcRibbonConnectSignals` [ToggleButtonTool]
+- ToolBar «Иерархия» `VcTabHomeVcRibbonHierarchy` [RibbonGroup] — Иерархия
+  - Button «Прикрепить» `VcTabHomeVcRibbonHierarchyAttach` [ToggleButtonTool] (неактивна)
+  - Button «Открепить» `VcTabHomeVcRibbonHierarchyDetach` [ButtonTool] (неактивна)
+- ToolBar «Импорт» `VcTabHomeVcRibbonImport` [RibbonGroup] — Импорт
+  - Button «Геометрия» `VcTabHomeVcRibbonImportImportCADFiles` [ToggleButtonTool]
+- ToolBar «Экспорт» `VcTabHomeVcRibbonExport` [RibbonGroup] — Экспорт
+  - Button «Геометрия» `VcTabHomeVcRibbonExportExportToVectorDrawing3D` [ToggleButtonTool]
+  - Button «Изображение» `VcTabHomeVcRibbonExportExportToBitmap` [ToggleButtonTool]
+  - Button «Видео» `VcTabHomeVcRibbonExportExportToVideo` [ToggleButtonTool]
+  - Button «PDF» `VcTabHomeVcRibbonExportExportToPDF` [ToggleButtonTool]
+- ToolBar «Статистика» `VcTabHomeVcRibbonStatistics` [RibbonGroup] — Статистика
+  - Button «Статистика» `VcTabHomeVcRibbonStatisticsStatisticsPanelCommand` [ButtonTool]
+  - Button «Печать графика» `VcTabHomeVcRibbonStatisticsStatisticsPrintCommand` [ButtonTool]
+  - Menu «Экспортировать график» `VcTabHomeVcRibbonStatisticsStatisticsExportCommand` [MenuTool]
+  - Edit «Интервал» `VcTabHomeVcRibbonStatisticsStatisticsInterval` [TextEditorTool]
+- ToolBar «Камера» `VcTabHomeCameraView` [RibbonGroup] — Камера
+  - Button «Аниматор камеры» `VcTabHomeCameraViewCameraEditorPanelCommand` [ButtonTool]
+- ToolBar «Исходная точка» `VcTabHomeVcRibbonOrigin` [RibbonGroup] — Исходная точка
+  - Button «Привязка» `VcTabHomeVcRibbonOriginSnapOrigin` [ToggleButtonTool] (неактивна)
+  - Button «Переместить» `VcTabHomeVcRibbonOriginSetOrigin` [ToggleButtonTool] (неактивна)
+- ToolBar «Окна» `VcTabHomeVcRibbonWindow` [RibbonGroup] — Окна
+  - Button «Восстановить окна» `VcTabHomeVcRibbonWindowRestoreLayout` [ButtonTool]
+  - Menu «Показать» `VcTabHomeVcRibbonWindowScreenToggleItem` [MenuTool]
+- ToolBar «Дополнительно» `VcTabHomeVcRibbonConfigPython` [RibbonGroup] — Дополнительно
+
+## Вкладка «ПРОЦЕСС» `VcTabProcess`
+- ToolBar «Быстрый доступ» `VcTabProcessVcRibbonClipboard` [RibbonGroup] — Быстрый доступ
+  - Button «Копировать» `VcTabProcessVcRibbonClipboardCopy` [ButtonTool] (неактивна)
+  - Button «Вставить» `VcTabProcessVcRibbonClipboardPaste` [ButtonTool]
+  - Button «Удалить» `VcTabProcessVcRibbonClipboardDelete` [ButtonTool] (неактивна)
+- ToolBar «Действия» `VcTabProcessVcRibbonManipulation` [RibbonGroup] — Действия
+  - Menu «Выделить» `VcTabProcessVcRibbonManipulationSetAreaSelectModeCommand` [MenuTool]
+  - Button «Переместить» `VcTabProcessVcRibbonManipulationMove` [ToggleButtonTool]
+  - Button «PnP» `VcTabProcessVcRibbonManipulationPlugAndPlay` [ToggleButtonTool]
+- ToolBar «Привязка к сетке» `VcTabProcessVcRibbonGridSnap` [RibbonGroup] — Привязка к сетке
+  - Edit «Размер» `VcTabProcessVcRibbonGridSnapGridSnapSize` [TextEditorTool] (неактивна)
+  - Button «Авторазмер» `VcTabProcessVcRibbonGridSnapGridSnapZoomBased` [ToggleButtonTool]
+  - Button «Всегда привязывать» `VcTabProcessVcRibbonGridSnapGridSnapAlwaysSnap` [ToggleButtonTool]
+- ToolBar «Инструменты» `VcTabProcessVcRibbonTools` [RibbonGroup] — Инструменты
+  - Button «Измерение» `VcTabProcessVcRibbonToolsMeasure` [ToggleButtonTool]
+  - Button «Привязка» `VcTabProcessVcRibbonToolsSnapPrimitiveCommand` [ToggleButtonTool] (неактивна)
+  - Button «Выровнять» `VcTabProcessVcRibbonToolsAlignPrimitiveCommand` [ToggleButtonTool] (неактивна)
+- ToolBar «Инструменты транспортных ссылок» `VcTabProcessTransport Link Tools` [RibbonGroup] — Инструменты транспортных ссылок
+  - Button «Очистить ссылки» `VcTabProcessTransport Link ToolsPMClearLinks` [ButtonTool]
+  - Button «Автоматические ссылки» `VcTabProcessTransport Link ToolsPMAutoLink` [ButtonTool]
+  - Button «Установить контроллер» `VcTabProcessTransport Link ToolsPMSetController` [ButtonTool]
+- ToolBar «Инструменты помощники» `VcTabProcessHelper Tools` [RibbonGroup] — Инструменты помощники
+  - Button «Создать систему координат» `VcTabProcessHelper ToolsPMCreateFrame` [ButtonTool] (неактивна)
+  - Button «Создать сигнал» `VcTabProcessHelper ToolsPMCreateSignal` [ButtonTool] (неактивна)
+- ToolBar «Редактор» `VcTabProcessVcRibbonProcessModelEdit` [RibbonGroup] — Редактор
+  - Button «Детали» `VcTabProcessVcRibbonProcessModelEditProductEditor` [ToggleButtonTool]
+  - Button «Операции» `VcTabProcessVcRibbonProcessModelEditProcessConfigurator` [ToggleButtonTool]
+  - Button «Процесс» `VcTabProcessVcRibbonProcessModelEditFlowEditor` [ToggleButtonTool]
+  - Button «Фильтр Транспортных Ссылок» `VcTabProcessVcRibbonProcessModelEditFilterTransportLinks` [ToggleButtonTool] (неактивна)
+- ToolBar «Окна» `VcTabProcessVcRibbonWindow` [RibbonGroup] — Окна
+  - Button «Восстановить окна» `VcTabProcessVcRibbonWindowRestoreLayout` [ButtonTool]
+  - Menu «Показать» `VcTabProcessVcRibbonWindowScreenToggleItem` [MenuTool]
+
+## Вкладка «МОДЕЛИРОВАНИЕ» `VcTabAuthor`
+- ToolBar «Быстрый доступ» `VcTabAuthorVcRibbonClipboard` [RibbonGroup] — Быстрый доступ
+  - Button «Копировать» `VcTabAuthorVcRibbonClipboardAuthorContextCopy` [ButtonTool] (неактивна)
+  - Button «Вставить» `VcTabAuthorVcRibbonClipboardAuthorContextPaste` [ButtonTool] (неактивна)
+  - Button «Удалить» `VcTabAuthorVcRibbonClipboardAuthorContextDelete` [ButtonTool] (неактивна)
+- ToolBar «Действия» `VcTabAuthorVcRibbonManipulation` [RibbonGroup] — Действия
+  - Menu «Выделить» `VcTabAuthorVcRibbonManipulationSetAreaSelectModeCommand` [MenuTool]
+  - Button «Переместить» `VcTabAuthorVcRibbonManipulationMove` [ToggleButtonTool]
+  - Button «Взаимодействие» `VcTabAuthorVcRibbonManipulationInteract` [ToggleButtonTool]
+- ToolBar «Привязка к сетке» `VcTabAuthorVcRibbonGridSnap` [RibbonGroup] — Привязка к сетке
+  - Edit «Размер» `VcTabAuthorVcRibbonGridSnapGridSnapSize` [TextEditorTool] (неактивна)
+  - Button «Авторазмер» `VcTabAuthorVcRibbonGridSnapGridSnapZoomBased` [ToggleButtonTool]
+  - Button «Всегда привязывать» `VcTabAuthorVcRibbonGridSnapGridSnapAlwaysSnap` [ToggleButtonTool]
+- ToolBar «Инструменты» `VcTabAuthorVcRibbonTools` [RibbonGroup] — Инструменты
+  - Button «Измерение» `VcTabAuthorVcRibbonToolsMeasure` [ToggleButtonTool]
+  - Button «Привязка» `VcTabAuthorVcRibbonToolsSnapPrimitiveCommand` [ToggleButtonTool] (неактивна)
+  - Button «Выровнять» `VcTabAuthorVcRibbonToolsAlignPrimitiveCommand` [ToggleButtonTool] (неактивна)
+- ToolBar «Соединить» `VcTabAuthorVcRibbonConnect` [RibbonGroup] — Соединить
+  - Button «Интерфейсы» `VcTabAuthorVcRibbonConnectInterfaces` [ToggleButtonTool]
+  - Button «Сигналы» `VcTabAuthorVcRibbonConnectSignals` [ToggleButtonTool]
+- ToolBar «Режим Перемещения» `VcTabAuthorVcRibbonEditMode` [RibbonGroup] — Режим Перемещения
+  - Button «Иерархия» `VcTabAuthorVcRibbonEditModeEditModeHierarchyCommand` [ToggleButtonTool]
+  - Button «Выделено» `VcTabAuthorVcRibbonEditModeEditModeSelectedCommand` [ToggleButtonTool]
+- ToolBar «Импорт» `VcTabAuthorVcRibbonImport` [RibbonGroup] — Импорт
+  - Button «Геометрия» `VcTabAuthorVcRibbonImportImportCADFiles` [ToggleButtonTool]
+- ToolBar «Компонент» `VcTabAuthorVcRibbonComponent` [RibbonGroup] — Компонент
+  - Button «Создать» `VcTabAuthorVcRibbonComponentCreateComponentCommand` [ButtonTool]
+  - Button «Сохранить» `VcTabAuthorVcRibbonComponentSaveComponent` [ToggleButtonTool] (неактивна)
+  - Button «Сохранить как» `VcTabAuthorVcRibbonComponentSaveAsComponent` [ToggleButtonTool] (неактивна)
+- ToolBar «Структура» `VcTabAuthorVcRibbonStructure` [RibbonGroup] — Структура
+  - Button «Создать звено» `VcTabAuthorVcRibbonStructureCreateLinkCommand` [ButtonTool] (неактивна)
+  - Button «Показать» `VcTabAuthorVcRibbonStructureComponentStructureCommand` [ToggleButtonTool]
+- ToolBar «Геометрия» `VcTabAuthorVcRibbonGeometry` [RibbonGroup] — Геометрия
+  - Menu «Элементы» `VcTabAuthorVcRibbonGeometryGeometry` [MenuTool] (неактивна)
+  - Menu «Инструменты» `VcTabAuthorVcRibbonGeometryTool` [MenuTool]
+- ToolBar «Поведение» `VcTabAuthorVcRibbonBehavior` [RibbonGroup] — Поведение
+  - Menu «Поведение» `VcTabAuthorVcRibbonBehaviorBehavior` [MenuTool] (неактивна)
+- ToolBar «Свойства» `VcTabAuthorVcRibbonProperties` [RibbonGroup] — Свойства
+  - Menu «Свойства» `VcTabAuthorVcRibbonPropertiesProperty` [MenuTool] (неактивна)
+- ToolBar «Дополнительно» `VcTabAuthorVcRibbonAuthorPython` [RibbonGroup] — Дополнительно
+  - Menu «Мастер» `VcTabAuthorVcRibbonAuthorPythonPythonTools` [MenuTool] (неактивна)
+- ToolBar «Исходная точка» `VcTabAuthorVcRibbonOrigin` [RibbonGroup] — Исходная точка
+  - Button «Привязка» `VcTabAuthorVcRibbonOriginSnapOrigin` [ToggleButtonTool] (неактивна)
+  - Button «Переместить» `VcTabAuthorVcRibbonOriginSetOrigin` [ToggleButtonTool] (неактивна)
+- ToolBar «Окна» `VcTabAuthorVcRibbonWindow` [RibbonGroup] — Окна
+  - Button «Восстановить окна» `VcTabAuthorVcRibbonWindowRestoreLayout` [ButtonTool]
+  - Menu «Показать» `VcTabAuthorVcRibbonWindowScreenToggleItem` [MenuTool]
+
+## Вкладка «ПРОГРАММИРОВАНИЕ» `VcTabTeach`
+- ToolBar «Быстрый доступ» `VcTabTeachVcRibbonClipboard` [RibbonGroup] — Быстрый доступ
+  - Button «Вырезать» `VcTabTeachVcRibbonClipboardTeachContextCut` [ButtonTool] (неактивна)
+  - Button «Копировать» `VcTabTeachVcRibbonClipboardTeachContextCopy` [ButtonTool] (неактивна)
+  - Button «Вставить» `VcTabTeachVcRibbonClipboardTeachContextPaste` [ButtonTool] (неактивна)
+  - Button «Удалить» `VcTabTeachVcRibbonClipboardTeachContextDelete` [ButtonTool] (неактивна)
+- ToolBar «Действия» `VcTabTeachVcRibbonManipulation` [RibbonGroup] — Действия
+  - Menu «Выделить» `VcTabTeachVcRibbonManipulationSetAreaSelectModeCommand` [MenuTool]
+  - Button «Переместить» `VcTabTeachVcRibbonManipulationMove` [ToggleButtonTool]
+  - Button «Взаимодействие» `VcTabTeachVcRibbonManipulationJog` [ToggleButtonTool]
+- ToolBar «Привязка к сетке» `VcTabTeachVcRibbonGridSnap` [RibbonGroup] — Привязка к сетке
+  - Edit «Размер» `VcTabTeachVcRibbonGridSnapGridSnapSize` [TextEditorTool] (неактивна)
+  - Button «Авторазмер» `VcTabTeachVcRibbonGridSnapGridSnapZoomBased` [ToggleButtonTool]
+  - Button «Всегда привязывать» `VcTabTeachVcRibbonGridSnapGridSnapAlwaysSnap` [ToggleButtonTool]
+- ToolBar «Инструменты» `VcTabTeachVcRibbonTools` [RibbonGroup] — Инструменты
+  - Button «Измерение» `VcTabTeachVcRibbonToolsMeasure` [ToggleButtonTool]
+  - Button «Привязка» `VcTabTeachVcRibbonToolsSnapPrimitiveCommand` [ToggleButtonTool] (неактивна)
+  - Button «Выровнять» `VcTabTeachVcRibbonToolsAlignPrimitiveCommand` [ToggleButtonTool] (неактивна)
+  - Button «Поменять роботов» `VcTabTeachVcRibbonToolsExchangeRobot` [ButtonTool] (неактивна)
+  - Button «Переместить Рамку Робота» `VcTabTeachVcRibbonToolsSelectRobotWorldFrame` [ButtonTool] (неактивна)
+- ToolBar «Показать» `VcTabTeachVcRibbonShow` [RibbonGroup] — Показать
+  - Button «Линии соединения» `VcTabTeachVcRibbonShowConnectingLinesVisibility` [ToggleButtonTool]
+  - Button «Трассеры» `VcTabTeachVcRibbonShowToolTraceVisibility` [ToggleButtonTool]
+  - Button «Меню Программирования» `VcTabTeachVcRibbonShowTeachOverlayMenuVisibility` [ToggleButtonTool]
+- ToolBar «Соединить» `VcTabTeachVcRibbonConnect` [RibbonGroup] — Соединить
+  - Button «Интерфейсы» `VcTabTeachVcRibbonConnectInterfaces` [ToggleButtonTool]
+  - Button «Сигналы» `VcTabTeachVcRibbonConnectSignals` [ToggleButtonTool]
+- ToolBar «Обнаружение столкновений» `VcTabTeachVcRibbonCollisionDetection` [RibbonGroup] — Обнаружение столкновений
+  - Button «Детекторы» `VcTabTeachVcRibbonCollisionDetectionCollisionSettings` [ToggleButtonTool]
+  - Button «Активировать детекторы» `VcTabTeachVcRibbonCollisionDetectionCollisionDetectionState` [ToggleButtonTool]
+  - Button «Остановить при столкновении» `VcTabTeachVcRibbonCollisionDetectionCollisionDetectionStopOn` [ToggleButtonTool]
+- ToolBar «Заблокировать Положения» `VcTabTeachVcRibbonLockPositions` [RibbonGroup] — Заблокировать Положения
+  - RadioButton «К опорному объекту» `VcTabTeachVcRibbonLockPositionsToggleLockPositionsOff` [RadioButtonTool]
+  - RadioButton «К миру» `VcTabTeachVcRibbonLockPositionsToggleLockPositionsOn` [RadioButtonTool]
+- ToolBar «Ограничения» `VcTabTeachVcRibbonJointLimits` [RibbonGroup] — Ограничения
+  - Button «Скорость» `VcTabTeachVcRibbonJointLimitsToggleJointSpeedLimitTest` [ToggleButtonTool]
+  - Button «Ускорение» `VcTabTeachVcRibbonJointLimitsToggleJointAccelerationLimitTest` [ToggleButtonTool]
+  - Button «Сингулярность» `VcTabTeachVcRibbonJointLimitsToggleJointSingularityTest` [ToggleButtonTool]
+  - Button «Выделение цветом» `VcTabTeachVcRibbonJointLimitsToggleColorHighlightOnLimitExceedCommand` [ToggleButtonTool]
+  - Button «Останавливать при превышении ограничения» `VcTabTeachVcRibbonJointLimitsToggleStopOnLimitExceedCommand` [ToggleButtonTool]
+  - Button «Уведомлять в панели вывода» `VcTabTeachVcRibbonJointLimitsToggleMessagePanelOutputOnLimitExceedCommand` [ToggleButtonTool]
+- ToolBar «Окна» `VcTabTeachVcRibbonWindow` [RibbonGroup] — Окна
+  - Button «Восстановить окна» `VcTabTeachVcRibbonWindowRestoreLayout` [ButtonTool]
+  - Menu «Показать» `VcTabTeachVcRibbonWindowTeachScreenToggleItem` [MenuTool]
+- ToolBar «Дополнительно» `VcTabTeachVcRibbonTeachPython` [RibbonGroup] — Дополнительно
+
+## Вкладка «ЧЕРТЕЖ» `VcTabDrawing`
+- ToolBar «Быстрый доступ» `VcTabDrawingVcRibbonClipboard` [RibbonGroup] — Быстрый доступ
+  - Button «Копировать» `VcTabDrawingVcRibbonClipboardCopy` [ButtonTool] (неактивна)
+  - Button «Вставить» `VcTabDrawingVcRibbonClipboardPaste` [ButtonTool]
+  - Button «Удалить» `VcTabDrawingVcRibbonClipboardDelete` [ButtonTool] (неактивна)
+- ToolBar «Действия» `VcTabDrawingVcRibbonManipulation` [RibbonGroup] — Действия
+  - Button «Переместить» `VcTabDrawingVcRibbonManipulationMove` [ToggleButtonTool]
+- ToolBar «Привязка к сетке» `VcTabDrawingVcRibbonGridSnap` [RibbonGroup] — Привязка к сетке
+  - Edit «Размер» `VcTabDrawingVcRibbonGridSnapGridSnapSize` [TextEditorTool] (неактивна)
+  - Button «Авторазмер» `VcTabDrawingVcRibbonGridSnapGridSnapZoomBased` [ToggleButtonTool]
+  - Button «Всегда привязывать» `VcTabDrawingVcRibbonGridSnapGridSnapAlwaysSnap` [ToggleButtonTool]
+- ToolBar «Чертеж» `VcTabDrawingVcRibbonDrawing` [RibbonGroup] — Чертеж
+  - Button «Загрузить шаблон» `VcTabDrawingVcRibbonDrawingImportDrawingTemplate` [ToggleButtonTool]
+  - Button «Очистить» `VcTabDrawingVcRibbonDrawingClearAllDrawings` [ButtonTool]
+- ToolBar «Размеры» `VcTabDrawingVcRibbonDimension` [RibbonGroup] — Размеры
+  - Button «Линейный» `VcTabDrawingVcRibbonDimensionLinearDimension` [ToggleButtonTool]
+  - Button «Угловое» `VcTabDrawingVcRibbonDimensionAngularDimension` [ToggleButtonTool]
+- ToolBar «Аннотации» `VcTabDrawingVcRibbonAnnotation` [RibbonGroup] — Аннотации
+  - Button «Прямоугольная» `VcTabDrawingVcRibbonAnnotationRectangularAnnotation` [ToggleButtonTool]
+  - Button «Круглая» `VcTabDrawingVcRibbonAnnotationBalloonAnnotation` [ToggleButtonTool]
+  - Button «Текстовая» `VcTabDrawingVcRibbonAnnotationTextAnnotation` [ToggleButtonTool]
+- ToolBar «BOM» `VcTabDrawingVcRibbonBOM` [RibbonGroup] — BOM
+  - Button «Создать» `VcTabDrawingVcRibbonBOMDrawingBOM` [ButtonTool]
+  - Button «Удалить» `VcTabDrawingVcRibbonBOMClearBOM` [ButtonTool] (неактивна)
+- ToolBar «Создать вид» `VcTabDrawingVcRibbonDrawingViews` [RibbonGroup] — Создать вид
+  - Button «Выбрать вид» `VcTabDrawingVcRibbonDrawingViewsAddNewDrawingView` [ToggleButtonTool]
+  - Button «Сверху» `VcTabDrawingVcRibbonDrawingViewsAddNewDrawingViewTop` [ButtonTool]
+  - Button «Слева» `VcTabDrawingVcRibbonDrawingViewsAddNewDrawingViewLeft` [ButtonTool]
+  - Button «Спереди» `VcTabDrawingVcRibbonDrawingViewsAddNewDrawingViewFront` [ButtonTool]
+  - Button «Снизу» `VcTabDrawingVcRibbonDrawingViewsAddNewDrawingViewDown` [ButtonTool]
+  - Button «Справа» `VcTabDrawingVcRibbonDrawingViewsAddNewDrawingViewRight` [ButtonTool]
+  - Button «Сзади» `VcTabDrawingVcRibbonDrawingViewsAddNewDrawingViewBack` [ButtonTool]
+- ToolBar «Исходная точка» `VcTabDrawingVcRibbonOrigin` [RibbonGroup] — Исходная точка
+  - Button «Привязка» `VcTabDrawingVcRibbonOriginSnapOrigin` [ToggleButtonTool] (неактивна)
+  - Button «Переместить» `VcTabDrawingVcRibbonOriginSetOrigin` [ToggleButtonTool] (неактивна)
+- ToolBar «Экспорт» `VcTabDrawingVcRibbonExport` [RibbonGroup] — Экспорт
+  - Button «Чертеж» `VcTabDrawingVcRibbonExportExportToVectorDrawing2D` [ToggleButtonTool] (неактивна)
+- ToolBar «Печать» `VcTabDrawingVcRibbonPrint` [RibbonGroup] — Печать
+  - Button «Чертеж» `VcTabDrawingVcRibbonPrintPrintDrawing` [ButtonTool]
+- ToolBar «Окна» `VcTabDrawingVcRibbonWindow` [RibbonGroup] — Окна
+  - Button «Восстановить окна» `VcTabDrawingVcRibbonWindowRestoreLayout` [ButtonTool]
+  - Menu «Показать» `VcTabDrawingVcRibbonWindowScreenToggleItem` [MenuTool]
+- ToolBar «Дополнительно» `VcTabDrawingVcRibbonDrawingPython` [RibbonGroup] — Дополнительно
+
+## Вкладка «ПОМОЩЬ» `VcTabHelp`
+- ToolBar «Помощь и справка» `VcTabHelpVcRibbonHelpAndReference` [RibbonGroup] — Помощь и справка
+  - Button «Помощь» `VcTabHelpVcRibbonHelpAndReferenceOpenHelpDocument` [ButtonTool]
+  - Button «Python API» `VcTabHelpVcRibbonHelpAndReferenceOpenPythonHelpDocument` [ButtonTool]
+  - Button «Python 2.7» `VcTabHelpVcRibbonHelpAndReferenceOpenPython27HelpDocument` [ButtonTool]
+- ToolBar «Онлайн помощь» `VcTabHelpVcRibbonOnLineSupportMaterial` [RibbonGroup] — Онлайн помощь
+  - Button «Задайте вопрос.» `VcTabHelpVcRibbonOnLineSupportMaterialMailTo` [ButtonTool]
+- Button «Открыть файл лицензии» `VcTabHelpLicenseOpenLicense` [ButtonTool]
+- ToolBar «Социальные сети» `VcTabHelpVcRibbonSocialMedia` [RibbonGroup] — Социальные сети

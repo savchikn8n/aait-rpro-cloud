@@ -1,0 +1,2752 @@
+{
+ "vc3DIcon": {
+  "parents": "vcLayoutItem",
+  "methods": [],
+  "properties": [
+   "Geometry",
+   "Layer",
+   "Name",
+   "Uri"
+  ],
+  "events": []
+ },
+ "vcAction": {
+  "parents": "",
+  "methods": [
+   "createProperty",
+   "deleteProperty",
+   "getProperty",
+   "send",
+   "sendMessage"
+  ],
+  "properties": [
+   "ActionContainer",
+   "ActionTime",
+   "Filter",
+   "From",
+   "Message",
+   "Name",
+   "Properties",
+   "Receiver",
+   "Sender",
+   "To"
+  ],
+  "events": []
+ },
+ "vcActionContainer": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "clear",
+   "clearPending",
+   "createAction",
+   "createPendingAction",
+   "deleteAction",
+   "deletePendingAction",
+   "do",
+   "getAction",
+   "getPendingAction",
+   "getResources",
+   "moveAction",
+   "movePendingAction",
+   "popPending",
+   "release",
+   "removePendingAction",
+   "reserve",
+   "start",
+   "use",
+   "wait"
+  ],
+  "properties": [
+   "ActionCount",
+   "Actions",
+   "Brokers",
+   "Clients",
+   "PendingActionCount",
+   "NextFreeTime",
+   "PendingActions",
+   "Processing",
+   "Providers",
+   "Reserved"
+  ],
+  "events": []
+ },
+ "vcAnnotation": {
+  "parents": "vcLayoutItem",
+  "methods": [
+   "getProperty"
+  ],
+  "properties": [
+   "Height",
+   "LineWidth",
+   "Location",
+   "LockToNode",
+   "Material",
+   "Name",
+   "Node",
+   "Position",
+   "Text",
+   "Thickness"
+  ],
+  "events": []
+ },
+ "vcApplication": {
+  "parents": "",
+  "methods": [
+   "loadBitmap",
+   "saveBitmap",
+   "findCamera",
+   "cancelCommand",
+   "deleteCommand",
+   "findCommand",
+   "getCommands",
+   "loadCommand",
+   "clearWorld",
+   "cloneComponent",
+   "connectComponents",
+   "createComponent",
+   "deleteComponent",
+   "findComponent",
+   "load",
+   "setContext",
+   "beginFrameGrab",
+   "endFrameGrab",
+   "executeFrameGrab",
+   "createLayer",
+   "deleteLayer",
+   "findLayer",
+   "createLayoutItem",
+   "deleteLayoutItem",
+   "findLayoutItem",
+   "createLight",
+   "deleteLight",
+   "findLight",
+   "addMaterial",
+   "createMaterial",
+   "findMaterial",
+   "addUxSite",
+   "addMenuItem",
+   "createBehaviourMenuItem",
+   "createFeatureMenuItem",
+   "createGeometryMenuItem",
+   "createMenuItem",
+   "removeMenuItem",
+   "getSelection",
+   "getSelections",
+   "delayRealTime",
+   "getSimulation",
+   "resetSimulation",
+   "startSimulation",
+   "stopSimulation",
+   "createQuantity",
+   "createUnitFamily",
+   "createUnitGroup",
+   "deleteUnitFamily",
+   "deleteUnitGroup",
+   "findQuantity",
+   "findUnit",
+   "findUnitFamily",
+   "findUnitGroup",
+   "createView",
+   "deleteView",
+   "findView",
+   "useView",
+   "clearMessages",
+   "detectFrameOwnerNode",
+   "getApplicationPath",
+   "getPyhonDllPath",
+   "getRandomSeed",
+   "getMessages",
+   "messageBox",
+   "getLocalizedString",
+   "getLocalizedString",
+   "rayCast",
+   "render",
+   "save"
+  ],
+  "properties": [
+   "ActivationKey",
+   "CustomProductVersion",
+   "AmbientOcclusionContrast",
+   "Animate",
+   "AuthorContext",
+   "Commands",
+   "Components",
+   "ConfigureContext",
+   "Contexts",
+   "CurrentContext",
+   "CurrentSelection",
+   "DrawingContext",
+   "IgnoreEvents",
+   "Layers",
+   "LayoutItems",
+   "LayoutModified",
+   "LayoutUri",
+   "LayoutPath",
+   "Lights",
+   "Materials",
+   "PdfFileName",
+   "PdfRecord",
+   "PdfShow",
+   "PdfStepSize",
+   "ProductClass",
+   "ProductKey",
+   "ProductName",
+   "ProductVersion",
+   "ProgressStatus",
+   "ProgressValue",
+   "Quantities",
+   "RealTime",
+   "RealTimeMode",
+   "Recorder",
+   "Recording",
+   "RecordingFileName",
+   "RecordingFrameRate",
+   "RecordingHeight",
+   "RecordingShow",
+   "RecordingWidth",
+   "RecordScreen",
+   "RenderAmbientOcclusion",
+   "RenderShadows",
+   "RenderStereo",
+   "ResetSimulationAtLoading",
+   "SelectionManager",
+   "Selections",
+   "Simulation",
+   "StereoMagnitude",
+   "StereoParallax",
+   "TeachContext",
+   "UnitFamilies",
+   "UnitGroups",
+   "Views"
+  ],
+  "events": [
+   "OnContextChanged",
+   "OnComponentAdded",
+   "OnComponentRemoved",
+   "OnDynamicComponent",
+   "OnIdle",
+   "OnProgress",
+   "OnRender",
+   "OnSelectionPreChange",
+   "OnSelectionPostChange"
+  ]
+ },
+ "vcAuthorContext": {
+  "parents": "vcContext",
+  "methods": [
+   "setActiveFeature",
+   "setActiveFeatures",
+   "ActiveComponentChanged",
+   "ActiveFeaturesChanged"
+  ],
+  "properties": [
+   "ActiveComponent",
+   "ActiveFeatures",
+   "ActiveNode"
+  ],
+  "events": []
+ },
+ "vcBaseContainer": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "addBase",
+   "removeBase"
+  ],
+  "properties": [
+   "Bases"
+  ],
+  "events": []
+ },
+ "vcBaseFrame": {
+  "parents": "",
+  "methods": [
+   "createProperty",
+   "deleteProperty",
+   "getProperty"
+  ],
+  "properties": [
+   "IPOMode",
+   "Name",
+   "Node",
+   "PositionMatrix",
+   "PositionExpression",
+   "Properties"
+  ],
+  "events": []
+ },
+ "vcBehaviour": {
+  "parents": "",
+  "methods": [
+   "delete",
+   "update"
+  ],
+  "properties": [
+   "Component",
+   "Enabled",
+   "IgnoreEvents",
+   "Name",
+   "Parent",
+   "Properties",
+   "Type",
+   "World"
+  ],
+  "events": []
+ },
+ "vcBitMap": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "Format",
+   "Height",
+   "Name",
+   "URI",
+   "Width"
+  ],
+  "events": []
+ },
+ "vcBooleanSignal": {
+  "parents": "vcBehaviour vcSignal",
+  "methods": [
+   "signal"
+  ],
+  "properties": [
+   "Value"
+  ],
+  "events": []
+ },
+ "vcBooleanSignalMap": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "addPort",
+   "connect",
+   "disconnect",
+   "getAllConnectedPorts",
+   "getPortName",
+   "getInternalPortSignal",
+   "getConnectedExternalSignals",
+   "getConnectedExternalPorts",
+   "input",
+   "output",
+   "setPortName"
+  ],
+  "properties": [
+   "Listeners",
+   "PortCount"
+  ],
+  "events": [
+   "OnSignalTrigger"
+  ]
+ },
+ "vcCamera": {
+  "parents": "",
+  "methods": [
+   "getRay"
+  ],
+  "properties": [
+   "ClipFar",
+   "ClippingMethod",
+   "ClipNear",
+   "Coi",
+   "Eye",
+   "Matrix",
+   "Name",
+   "NavigationDisabled"
+  ],
+  "events": []
+ },
+ "vcCollisionDetector": {
+  "parents": "vcLayoutItem",
+  "methods": [
+   "getBBoxGeometry",
+   "getHitFeatureA",
+   "getHitFeatureB",
+   "getHitGeometrySetA",
+   "getHitGeometrySetB",
+   "getHitNodeA",
+   "getHitNodeB",
+   "getMinimumDistanceDistance",
+   "getMinimumDistancePoint1",
+   "getMinimumDistancePoint2",
+   "testAllBBoxCollisions",
+   "testAllCollisions",
+   "testBBoxComponentCollisions",
+   "testBBoxNodeCollisions",
+   "testComponentCollisions",
+   "testMinimumDistance",
+   "testNodeCollisions",
+   "testOneBBoxCollision",
+   "testOneCollision"
+  ],
+  "properties": [
+   "Active",
+   "DisplayMinimumDistance",
+   "FirstCollision",
+   "HitCount",
+   "NodeListA",
+   "NodeListB",
+   "StopOnCollision",
+   "Tolerance"
+  ],
+  "events": []
+ },
+ "vcCommand": {
+  "parents": "",
+  "methods": [
+   "addState",
+   "cancelNextClick",
+   "createProperty",
+   "deleteProperty",
+   "execute",
+   "executeAsTool",
+   "getApplication",
+   "getCommand",
+   "getCommandPath",
+   "getProperty",
+   "getSimulation",
+   "genVarSpaceDialog",
+   "recompile",
+   "setEventState",
+   "setNextState",
+   "centerView",
+   "clearWorld",
+   "countData",
+   "dialogOpen",
+   "dialogSave",
+   "dialogSaveFile",
+   "exportLayoutAsGeometry",
+   "fillView",
+   "genPropertyDialog",
+   "getUniqueComponentName",
+   "interactiveBoolValue",
+   "interactiveCenterView",
+   "interactiveClearWorld",
+   "interactiveComponentSelect",
+   "interactiveCreatePackage",
+   "interactiveDoubleValue",
+   "interactiveImportModel",
+   "interactiveJogJoints",
+   "interactiveLoadModel",
+   "interactiveMeasureDistance",
+   "interactiveOrbitView",
+   "interactivePanView",
+   "interactivePickPosition",
+   "interactivePlugPlay",
+   "interactiveRotate",
+   "interactiveRotateTCP",
+   "interactiveSaveBitmap",
+   "interactiveSaveComponent",
+   "interactiveSaveComponentAs",
+   "interactiveSaveLayout",
+   "interactiveSaveLayoutAs",
+   "interactiveSnap",
+   "interactiveToggleCollisionTesting",
+   "interactiveTopologyPick",
+   "interactiveTranslate",
+   "interactiveTranslateTCP",
+   "interactiveZoomView",
+   "loadGeometryAsComponent",
+   "loadLayout",
+   "loadLayoutToPosition",
+   "readLicenseData",
+   "rebuildECatalog",
+   "resetSimulation",
+   "saveBitmap",
+   "saveComponentToUri",
+   "saveLayoutToUri",
+   "saveScreen",
+   "saveState",
+   "setNotesVisibility",
+   "simLimitTest",
+   "writeLicenseData"
+  ],
+  "properties": [
+   "Application",
+   "Checked",
+   "Enabled",
+   "ExecutionType",
+   "Icon",
+   "IgnoreEvents",
+   "IsActive",
+   "IsModelingCommand",
+   "Name",
+   "Properties",
+   "Simulation",
+   "SupportsOverrideActivation"
+  ],
+  "events": [
+   "OnStart",
+   "OnStop",
+   "OnPreExecute",
+   "OnPostExecute"
+  ]
+ },
+ "vcCommandEvent": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "EyeToMouse",
+   "Key",
+   "MouseOnFloor",
+   "MouseOnViewPlane",
+   "ShiftState",
+   "Type",
+   "X",
+   "Y"
+  ],
+  "events": []
+ },
+ "vcCompactLineSet": {
+  "parents": "vcGeometrySet",
+  "methods": [
+   "addLine",
+   "deleteLine",
+   "getLinePointCount",
+   "getLine"
+  ],
+  "properties": [
+   "CurveData",
+   "Lines",
+   "LineCount",
+   "LineWidth"
+  ],
+  "events": []
+ },
+ "vcComponent": {
+  "parents": "vcNode",
+  "methods": [
+   "clone",
+   "createProperty",
+   "deleteProperty",
+   "getPathDistance",
+   "getProperty",
+   "getTransportInfo",
+   "incrementRevision",
+   "save",
+   "saveState",
+   "startMovement",
+   "stopMovement",
+   "transfer",
+   "transferNonBlocking"
+  ],
+  "properties": [
+   "BackfaceMode",
+   "Container",
+   "CreationTime",
+   "Locked",
+   "Material",
+   "MovementOrigin",
+   "PathAcceleration",
+   "PathDeceleration",
+   "PathVelocity",
+   "PDFExportLevel",
+   "Properties",
+   "Uri",
+   "VCID",
+   "Visible"
+  ],
+  "events": [
+   "OnNodeConfigurationChange",
+   "OnContainerTransition"
+  ]
+ },
+ "vcComponentFlowProxy": {
+  "parents": "",
+  "methods": [
+   "connectInternally",
+   "createConnector",
+   "deleteConnector",
+   "getInternalConnector",
+   "resetConnectorPort"
+  ],
+  "properties": [
+   "ComponentSignal",
+   "DynamicConnections",
+   "InternalConnectorCount",
+   "PortSignal"
+  ],
+  "events": []
+ },
+ "vcComponentsCreator": {
+  "parents": "vcBehaviour vcFlow vcContainer",
+  "methods": [
+   "create"
+  ],
+  "properties": [
+   "Interval",
+   "Limit",
+   "Part",
+   "TemplateComponent"
+  ],
+  "events": []
+ },
+ "vcComponentSignal": {
+  "parents": "vcBehaviour vcSignal",
+  "methods": [
+   "signal"
+  ],
+  "properties": [
+   "Value"
+  ],
+  "events": []
+ },
+ "vcConnector": {
+  "parents": "",
+  "methods": [
+   "connect",
+   "testCapacity",
+   "testConnectedCapacity"
+  ],
+  "properties": [
+   "Behaviour",
+   "CapacityTest",
+   "Connection",
+   "Index",
+   "Name",
+   "Type"
+  ],
+  "events": []
+ },
+ "vcContainer": {
+  "parents": "vcBehaviour vcFlow",
+  "methods": [],
+  "properties": [
+   "Capacity",
+   "CapacityBlocks",
+   "ComponentCount",
+   "Components",
+   "ContentVisible",
+   "HeadComponent",
+   "Statistics",
+   "TailComponent",
+   "TransitionSignal"
+  ],
+  "events": []
+ },
+ "vcContext": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "Id"
+  ],
+  "events": []
+ },
+ "vcCurveData": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "clearCurves",
+   "createCurveNurbs",
+   "createCurvePolyLine",
+   "createCurveSpline",
+   "deleteCurve",
+   "getCurveEnds",
+   "getCurveLength",
+   "getCurveMinCurveDistance",
+   "getCurveMinDistance",
+   "getCurvePoint",
+   "getCurvePointAndDerivate",
+   "getCurvePointCount",
+   "getCurvePositions",
+   "getCurveType",
+   "getPolyLineCurvePoints",
+   "getSplineCurveControlPoint",
+   "getSplineCurveControlWeights",
+   "getSplineCurveDegree",
+   "getSplineCurveKnots"
+  ],
+  "events": []
+ },
+ "vcDimension": {
+  "parents": "vcLayoutItem",
+  "methods": [
+   "getProperty"
+  ],
+  "properties": [
+   "ArrowSize",
+   "Dimension",
+   "Height",
+   "LineWidth",
+   "Location",
+   "Material",
+   "Node1",
+   "Node2",
+   "Position1",
+   "Position2",
+   "Thickness"
+  ],
+  "events": []
+ },
+ "vcDof": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "Name",
+   "VALUE"
+  ],
+  "events": []
+ },
+ "vcEdge": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "Direction",
+   "Points",
+   "Polygons",
+   "Type"
+  ],
+  "events": []
+ },
+ "vcExecutor": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "callRoutine"
+  ],
+  "properties": [
+   "Controller",
+   "CurrentStatement",
+   "DigitalInputSignals",
+   "DigitalOutputSignals",
+   "IsEnabled",
+   "IsLooping",
+   "Program",
+   "UseExternalExecutor"
+  ],
+  "events": [
+   "OnCurrentStatementChanged"
+  ]
+ },
+ "vcFeature": {
+  "parents": "",
+  "methods": [
+   "attach",
+   "clone",
+   "collapse",
+   "createFeature",
+   "createProperty",
+   "delete",
+   "deleteProperty",
+   "getFeature",
+   "getProperty",
+   "rebuild"
+  ],
+  "properties": [
+   "Children",
+   "Name",
+   "NodePositionMatrix",
+   "Parent",
+   "PositionMatrix",
+   "Properties",
+   "Type"
+  ],
+  "events": []
+ },
+ "vcFlow": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "CapacityAvailable",
+   "ConnectorCount",
+   "Connectors",
+   "Statistics"
+  ],
+  "events": []
+ },
+ "vcFrameFeature": {
+  "parents": "vcFeature",
+  "methods": [],
+  "properties": [
+   "FramePositionMatrix",
+   "OriginalFramePositionMatrix"
+  ],
+  "events": []
+ },
+ "vcFrameSet": {
+  "parents": "vcGeometrySet",
+  "methods": [
+   "createFrame",
+   "deleteFrame",
+   "getFrame",
+   "setFrame",
+   "update"
+  ],
+  "properties": [
+   "FrameCount"
+  ],
+  "events": []
+ },
+ "vcFrameSetVisualization": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "AxisTextVisible",
+   "ConnectingLinesVisible",
+   "CustomIcon",
+   "FixedSize",
+   "FrameDisplayMode",
+   "FramesVisible",
+   "LineDisplayMode",
+   "LoopLines",
+   "Material",
+   "NamesVisible"
+  ],
+  "events": []
+ },
+ "vcGeometryContainer": {
+  "parents": "",
+  "methods": [
+   "clear",
+   "cloneGeometrySets",
+   "createGeometrySet",
+   "deleteGeometrySet",
+   "getGeometrySet",
+   "moveGeometrySets",
+   "setModified",
+   "transformContent",
+   "update"
+  ],
+  "properties": [
+   "BoundCenter",
+   "BoundDiagonal",
+   "GeometrySetCount",
+   "GeometrySets"
+  ],
+  "events": []
+ },
+ "vcGeometryFeature": {
+  "parents": "vcFeature",
+  "methods": [
+   "makeUnique"
+  ],
+  "properties": [
+   "AmbientOcclusion",
+   "CreaseAngle",
+   "Geometry",
+   "IsUnique",
+   "ShowContent",
+   "ShowBackfaces",
+   "TesselationQuality",
+   "Uri"
+  ],
+  "events": [
+   "OnDemandLoad"
+  ]
+ },
+ "vcGeometrySet": {
+  "parents": "",
+  "methods": [
+   "updateBoundIncrementally"
+  ],
+  "properties": [
+   "Billboard",
+   "BoundCenter",
+   "BoundDiagonal",
+   "Container",
+   "Feature",
+   "FixedSize",
+   "Layer",
+   "LightAmbientTexture",
+   "LightAmbientVertex",
+   "Material",
+   "Name",
+   "Type",
+   "UseBackface",
+   "VertexColor"
+  ],
+  "events": []
+ },
+ "vcIfStatement": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "Condition",
+   "ElseScope",
+   "ThenScope"
+  ],
+  "events": []
+ },
+ "vcIntegerSignal": {
+  "parents": "vcBehaviour vcSignal",
+  "methods": [
+   "signal"
+  ],
+  "properties": [
+   "Value"
+  ],
+  "events": []
+ },
+ "vcInteractiveCommand": {
+  "parents": "",
+  "methods": [],
+  "properties": [],
+  "events": [
+   "OnInteraction"
+  ]
+ },
+ "vcIntergerSignalMap": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "getPortName",
+   "input",
+   "output",
+   "setPortName"
+  ],
+  "properties": [
+   "Listeners",
+   "PortCount"
+  ],
+  "events": [
+   "OnSignalTrigger"
+  ]
+ },
+ "vcJogInfo": {
+  "parents": "vcBehaviour",
+  "methods": [],
+  "properties": [],
+  "events": [
+   "OnInteract"
+  ]
+ },
+ "vcJoint": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "Controller",
+   "CurrentValue",
+   "Dof",
+   "ExternalController",
+   "InitialValue",
+   "LagTime",
+   "MaxAcceleration",
+   "MaxDeceleration",
+   "MaxSpeed",
+   "MaxValue",
+   "MinValue",
+   "Name",
+   "SettleTime",
+   "Type"
+  ],
+  "events": []
+ },
+ "vcKinObject": {
+  "parents": "",
+  "methods": [
+   "createProperty",
+   "getJointMoveDist",
+   "getJointMoveTo",
+   "moveJointTo"
+  ],
+  "properties": [
+   "CustomData",
+   "JointCount",
+   "JointMaxLimits",
+   "JointMinLimits",
+   "JointsRotational",
+   "JointValues",
+   "Properties",
+   "SecondaryJointValues",
+   "Solutions",
+   "Target"
+  ],
+  "events": []
+ },
+ "vcLayer": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "Name",
+   "Visibility"
+  ],
+  "events": []
+ },
+ "vcLayoutItem": {
+  "parents": "",
+  "methods": [
+   "update"
+  ],
+  "properties": [
+   "IsPersistent",
+   "Name",
+   "Properties",
+   "Type"
+  ],
+  "events": []
+ },
+ "vcLayoutPropertyList": {
+  "parents": "vcLayoutItem",
+  "methods": [],
+  "properties": [
+   "createProperty",
+   "deleteProperty",
+   "getProperty"
+  ],
+  "events": []
+ },
+ "vcLayoutSchemaPropertyList": {
+  "parents": "vcLayoutItem",
+  "methods": [
+   "DataCount",
+   "FrameDataSchemaIndex",
+   "FrameVisibleSchemaIndex",
+   "LineDisplaySchemaIndex",
+   "Node",
+   "PositionMatrix",
+   "SchemaProperties",
+   "clearSchema",
+   "createProperty",
+   "createSchemaProperty",
+   "deleteProperty",
+   "deleteSchemaProperty",
+   "getDataValue",
+   "getDataValues",
+   "getProperty",
+   "getSchemaProperty",
+   "setDataValue",
+   "setDataValues",
+   "updateData"
+  ],
+  "properties": [
+   "Data Record 0",
+   "Data Record 1",
+   "Data Record 2"
+  ],
+  "events": []
+ },
+ "vcLight": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "ConstantAttenuation",
+   "Direction",
+   "Enabled",
+   "Intensity",
+   "LinearAttenuation",
+   "Name",
+   "Position",
+   "QuadraticAttenuation",
+   "SpotAngle",
+   "SpotExponent",
+   "Type"
+  ],
+  "events": []
+ },
+ "vcLine": {
+  "parents": "",
+  "methods": [
+   "getPoint",
+   "addPoint",
+   "removePoint",
+   "update"
+  ],
+  "properties": [
+   "Points",
+   "PointCount"
+  ],
+  "events": []
+ },
+ "vcLinePoint": {
+  "parents": "vcPoint",
+  "methods": [
+   "getLine"
+  ],
+  "properties": [
+   "LineCount"
+  ],
+  "events": []
+ },
+ "vcLineSet": {
+  "parents": "vcGeometrySet",
+  "methods": [
+   "createPoint",
+   "createLine",
+   "deleteLine",
+   "getLine",
+   "update"
+  ],
+  "properties": [
+   "Lines",
+   "Points",
+   "LineCount",
+   "LineWidth"
+  ],
+  "events": []
+ },
+ "vcMaterial": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "Ambient",
+   "ColorMask",
+   "DepthComparison",
+   "Diffuse",
+   "LineStippling",
+   "LineWidth",
+   "Name",
+   "Opacity",
+   "OpacityType",
+   "RenderOrder",
+   "Shininess",
+   "Specular",
+   "StipplingPattern",
+   "StipplingScale",
+   "Texture",
+   "TextureMapping"
+  ],
+  "events": []
+ },
+ "vcMatrix": {
+  "parents": "",
+  "methods": [
+   "N",
+   "O",
+   "A",
+   "P",
+   "WPR",
+   "getAxisAngle",
+   "getEuler",
+   "getQuaternion",
+   "getWPR",
+   "identity",
+   "invert",
+   "rotateAbsX",
+   "rotateAbsY",
+   "rotateAbsZ",
+   "rotateAbsV",
+   "rotateRelX",
+   "rotateRelY",
+   "rotateRelZ",
+   "rotateRelV",
+   "scaleAbs",
+   "scaleRel",
+   "setAxisAngle",
+   "setEuler",
+   "setIJK",
+   "setQuaternion",
+   "setWPR",
+   "translateAbs",
+   "translateRel",
+   "uniform"
+  ],
+  "properties": [
+   "new"
+  ],
+  "events": []
+ },
+ "vcMatrixSignal": {
+  "parents": "vcBehaviour vcSignal",
+  "methods": [
+   "signal"
+  ],
+  "properties": [
+   "Value"
+  ],
+  "events": []
+ },
+ "vcMotionInterpolator": {
+  "parents": "",
+  "methods": [
+   "createTarget",
+   "getCycleTimeAtTarget",
+   "interpolate"
+  ],
+  "properties": [
+   "DefaultTargetMode",
+   "Targets"
+  ],
+  "events": []
+ },
+ "vcMotionPath": {
+  "parents": "vcBehaviour vcFlow vcContainer",
+  "methods": [],
+  "properties": [
+   "Acceleration",
+   "Accumulate",
+   "Deceleration",
+   "Direction",
+   "Interpolation",
+   "Path",
+   "PathAxis",
+   "PathLength",
+   "RetainOffset",
+   "SegmentSize",
+   "Sensors",
+   "SpaceUtilization",
+   "DetailCurveMotion",
+   "Speed"
+  ],
+  "events": [
+   "OnMotionChanged",
+   "OnPhysicalTransition"
+  ]
+ },
+ "vcMotionStatement": {
+  "parents": "vcStatement vcPositionStatement",
+  "methods": [],
+  "properties": [
+   "AccuracyMethod",
+   "AccuracyValue",
+   "Base",
+   "ExternalTCP",
+   "Tool"
+  ],
+  "events": []
+ },
+ "vcMotionTarget": {
+  "parents": "",
+  "methods": [
+   "getConfigWarning",
+   "getConfigWarnings",
+   "getPositionerRootToPositionerFlange",
+   "getRootNodeToPositionerRoot",
+   "getRootNodeToRobotRoot",
+   "getRobotRootToRobotFlange",
+   "getSimWorldToRootNode",
+   "getSimWorldToRobotTool",
+   "getSimWorldToRobotWorld",
+   "getWorldToRootNode",
+   "getWorldToRobotTool"
+  ],
+  "properties": [
+   "AccuracyMethod",
+   "AccuracyValue",
+   "AngularSpeed",
+   "BaseMatrix",
+   "BaseName",
+   "CartesianSpeed",
+   "ConfigCount",
+   "ConfigurationMode",
+   "JointSpeedFactor",
+   "JointTurnMode",
+   "JointValues",
+   "MotionType",
+   "PositionerIndex",
+   "RobotConfig",
+   "Target",
+   "TargetMode",
+   "ToolMatrix",
+   "ToolName",
+   "UseJoints"
+  ],
+  "events": []
+ },
+ "vcNode": {
+  "parents": "",
+  "methods": [
+   "attach",
+   "createNode",
+   "createBehaviour",
+   "delete",
+   "findBehaviour",
+   "findBehavioursByType",
+   "findFeature",
+   "findNode",
+   "getBehaviour",
+   "getBehavioursByType",
+   "getFeature",
+   "rebuild",
+   "update"
+  ],
+  "properties": [
+   "Behaviours",
+   "BoundCenter",
+   "BoundDiagonal",
+   "ChildComponents",
+   "Children",
+   "Component",
+   "ComponentChildren",
+   "Dof",
+   "Geometry",
+   "IgnoreEvents",
+   "InverseWorldPositionMatrix",
+   "JointExpression",
+   "JointType",
+   "MaterialInheritance",
+   "Name",
+   "NodeMaterial",
+   "Offset",
+   "OffsetExpression",
+   "Parent",
+   "PivotExpression",
+   "PositionMatrix",
+   "RootFeature",
+   "Type",
+   "UserGeometry",
+   "Visible",
+   "World",
+   "WorldPositionMatrix"
+  ],
+  "events": [
+   "OnNodeTransform"
+  ]
+ },
+ "vcNodeList": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "getFilteredNodes"
+  ],
+  "properties": [
+   "Nodes",
+   "PureNodes"
+  ],
+  "events": []
+ },
+ "vcPathObject": {
+  "parents": "vcLayoutItem",
+  "methods": [
+   "clear",
+   "clearNodes",
+   "clearSegments",
+   "createNode",
+   "createSegment",
+   "deleteNode",
+   "deleteSegment",
+   "findNode",
+   "findSegment",
+   "getNode",
+   "getNodes",
+   "getSegment"
+  ],
+  "properties": [
+   "ActionNodeCount",
+   "ActionNodeVisualization",
+   "MotionNodeCount",
+   "MotionNodeVisualization",
+   "Name",
+   "ParameterNodeCount",
+   "ParameterNodeVisualization",
+   "Persistent",
+   "ReferenceNodeCount",
+   "ReferenceNodeVisualization",
+   "SegmentCount"
+  ],
+  "events": []
+ },
+ "vcPathObjectActionNode": {
+  "parents": "vcPathObjectNode",
+  "methods": [],
+  "properties": [
+   "LogicalPosition",
+   "MotionNode",
+   "Offset"
+  ],
+  "events": []
+ },
+ "vcPathObjectMotionNode": {
+  "parents": "vcPathObjectNode",
+  "methods": [],
+  "properties": [
+   "LogicalPosition",
+   "PositionMatrix",
+   "ReferenceNode"
+  ],
+  "events": []
+ },
+ "vcPathObjectNode": {
+  "parents": "",
+  "methods": [
+   "createProperty",
+   "deleteProperty",
+   "getProperty"
+  ],
+  "properties": [
+   "Name",
+   "PathObject",
+   "Properties",
+   "Type"
+  ],
+  "events": []
+ },
+ "vcPathObjectParameterNode": {
+  "parents": "vcPathObjectNode",
+  "methods": [],
+  "properties": [
+   "PositionMatrix",
+   "ReferenceNode"
+  ],
+  "events": []
+ },
+ "vcPathObjectReferenceNode": {
+  "parents": "vcPathObjectNode",
+  "methods": [],
+  "properties": [
+   "Node",
+   "PositionMatrix"
+  ],
+  "events": []
+ },
+ "vcPathObjectSegment": {
+  "parents": "",
+  "methods": [
+   "createProperty",
+   "deleteProperty",
+   "getProperty"
+  ],
+  "properties": [
+   "BeginLogicalDistance",
+   "EndLogicalDistance",
+   "PatObject",
+   "Properties"
+  ],
+  "events": []
+ },
+ "vcPatternContainer": {
+  "parents": "vcBehaviour vcFlow vcContainer",
+  "methods": [],
+  "properties": [
+   "fill"
+  ],
+  "events": []
+ },
+ "vcPoint": {
+  "parents": "",
+  "methods": [
+   "update"
+  ],
+  "properties": [
+   "Position"
+  ],
+  "events": []
+ },
+ "vcPointSet": {
+  "parents": "",
+  "methods": [
+   "addPoint",
+   "clearPoints",
+   "updateInvertColor",
+   "updatePointPosition",
+   "update"
+  ],
+  "properties": [
+   "PointSize",
+   "Scale"
+  ],
+  "events": []
+ },
+ "vcPolygon": {
+  "parents": "",
+  "methods": [
+   "addPoint",
+   "getNeighbors",
+   "getPoint",
+   "getPointNormal",
+   "removePoint",
+   "reverse",
+   "update"
+  ],
+  "properties": [
+   "Edges",
+   "Normal",
+   "PointCount",
+   "Points"
+  ],
+  "events": []
+ },
+ "vcPolygonPoint": {
+  "parents": "vcPoint",
+  "methods": [
+   "getAverageNormal",
+   "getPolygon"
+  ],
+  "properties": [
+   "Color",
+   "Edges",
+   "PolygonCount",
+   "U",
+   "V"
+  ],
+  "events": []
+ },
+ "vcPolygonSet": {
+  "parents": "vcGeometrySet",
+  "methods": [
+   "createPoint",
+   "createPolygon",
+   "deletePolygon",
+   "filterDuplicatePolygons",
+   "getPolygon",
+   "smoothGroupProcessing",
+   "triangulate",
+   "update",
+   "updatePointSurrounding"
+  ],
+  "properties": [
+   "CreaseAngle",
+   "Edges",
+   "Points",
+   "PolygonCount",
+   "Polygons"
+  ],
+  "events": []
+ },
+ "vcPositionFrame": {
+  "parents": "",
+  "methods": [
+   "setJoints",
+   "setExternalJoints",
+   "createProperty",
+   "deleteProperty",
+   "getProperty"
+  ],
+  "properties": [
+   "Name",
+   "ReferencePoint",
+   "Configuration",
+   "Properties",
+   "Statement",
+   "JointValues",
+   "InternalJointValues",
+   "ExternalJointValues",
+   "PositionInReference",
+   "PositionInWorld"
+  ],
+  "events": []
+ },
+ "vcPositionStatement": {
+  "parents": "vcStatement",
+  "methods": [
+   "createPosition",
+   "deletePosition"
+  ],
+  "properties": [
+   "Base",
+   "ExternalTCP",
+   "Positions",
+   "Tool"
+  ],
+  "events": []
+ },
+ "vcPrimative": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "GeometrySet",
+   "Id"
+  ],
+  "events": []
+ },
+ "vcProcessPointSensor": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "processValue",
+   "setValue",
+   "startFailure",
+   "stopFailure"
+  ],
+  "properties": [
+   "Frame",
+   "BoolSignal",
+   "ProcessAt",
+   "RuleComponent",
+   "TriggerAt"
+  ],
+  "events": [
+   "OnValue"
+  ]
+ },
+ "vcProgram": {
+  "parents": "",
+  "methods": [
+   "addRoutine",
+   "createProperty",
+   "deleteProperty",
+   "deleteRoutine",
+   "findRoutine",
+   "getProperty"
+  ],
+  "properties": [
+   "Executor",
+   "MainRoutine",
+   "Name",
+   "Properties",
+   "Routines"
+  ],
+  "events": [
+   "OnRoutineAdded",
+   "OnRoutineRemoving"
+  ]
+ },
+ "vcProperty": {
+  "parents": "",
+  "methods": [
+   "addValueFromTemplate",
+   "deleteValue",
+   "getValue",
+   "setUnitMagnitude"
+  ],
+  "properties": [
+   "CalculatedValue",
+   "ChangeOnRebuild",
+   "ChangeOnReconfigure",
+   "ChangeOnUpdate",
+   "Distribution",
+   "Group",
+   "IgnoreEvents",
+   "IsVisible",
+   "IsVisibleDesignTime",
+   "IsDesignTime",
+   "IsPersistent",
+   "ListValueCount",
+   "ListValues",
+   "Magnitude",
+   "MaxValue",
+   "MinValue",
+   "Name",
+   "Quantity",
+   "Unit",
+   "RandomStream",
+   "StepValues",
+   "SupportsTemplate",
+   "Templates",
+   "Type",
+   "Value",
+   "WritableWhenConnected",
+   "WritableWhenDisconnected",
+   "WritableWhenSimulating"
+  ],
+  "events": [
+   "OnChanged"
+  ]
+ },
+ "vcPropertyListValue": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "Properties",
+   "Template"
+  ],
+  "events": []
+ },
+ "vcPythonKinematics": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "getApplication",
+   "getComponent",
+   "getNode",
+   "getSimulation",
+   "sasa",
+   "sass",
+   "sssa"
+  ],
+  "properties": [
+   "Name",
+   "Application",
+   "Simulation",
+   "Script"
+  ],
+  "events": [
+   "OnCalculateTarget",
+   "OnConstrainParams",
+   "OnFinalize",
+   "OnForward",
+   "OnGetConfigurationCount",
+   "OnGetCurrentConfiguration",
+   "OnGetJointCount",
+   "OnGetJointName",
+   "OnGetKinematicJointCount",
+   "OnGetSecondaryJointCount",
+   "OnGetSecondaryJointName",
+   "OnInitKinObject",
+   "OnInverse",
+   "OnRebuild",
+   "OnRelaxParams",
+   "OnSetCurrentConfiguration",
+   "OnUpdateSecondaryJoints"
+  ]
+ },
+ "vcPythonProcessHandler": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "condition",
+   "delay",
+   "getApplication",
+   "getComponent",
+   "getSimulation",
+   "getTrigger",
+   "resumeRun",
+   "suspendRun",
+   "triggerCondition"
+  ],
+  "properties": [
+   "Icon",
+   "Process",
+   "Script"
+  ],
+  "events": [
+   "OnContinue",
+   "OnDestroy",
+   "OnEvaluate",
+   "OnStatementExecute",
+   "OnFinalize",
+   "OnReset",
+   "OnSignal",
+   "OnStart",
+   "OnStatementAdd",
+   "OnStatementDialog",
+   "OnStatementModified",
+   "OnStatementRemove",
+   "OnStop"
+  ]
+ },
+ "vcRealSignal": {
+  "parents": "vcBehaviour vcSignal",
+  "methods": [
+   "signal"
+  ],
+  "properties": [
+   "Value"
+  ],
+  "events": []
+ },
+ "vcReport": {
+  "parents": "vcLayoutItem",
+  "methods": [],
+  "properties": [
+   "getProperty",
+   "publish",
+   "show"
+  ],
+  "events": []
+ },
+ "vcRobotController": {
+  "parents": "vcBehaviour vcServoController",
+  "methods": [
+   "addBase",
+   "addTarget",
+   "addTool",
+   "clearTargets",
+   "createMotionInterpolator",
+   "createTarget",
+   "move",
+   "moveImmediate",
+   "moveTo",
+   "moveRelTo",
+   "removeBase",
+   "removeTool"
+  ],
+  "properties": [
+   "Bases",
+   "ConfigurationMode",
+   "FlangeOffset",
+   "InitialBase",
+   "InitialTool",
+   "Kinematics",
+   "LagTime",
+   "MaxAngularAccel",
+   "MaxAngularSpeed",
+   "MaxCartesianAccel",
+   "MaxCartesianSpeed",
+   "OrientationInterpolationMode",
+   "RootOffset",
+   "SettleTime",
+   "Tools",
+   "TrackWorldFrameMode",
+   "WorldTransformMatrix"
+  ],
+  "events": [
+   "OnPosition"
+  ]
+ },
+ "vcRoutine": {
+  "parents": "vcScope",
+  "methods": [
+   "createProperty",
+   "deleteProperty",
+   "getProperty"
+  ],
+  "properties": [
+   "IsPersistent",
+   "Name",
+   "Program",
+   "Properties"
+  ],
+  "events": []
+ },
+ "vcRoutingRule": {
+  "parents": "vcBehaviour vcFlow vcContainer",
+  "methods": [
+   "createConnector",
+   "deleteConnector",
+   "processRoute",
+   "setTarget"
+  ],
+  "properties": [
+   "FlowProxy",
+   "RuleComponent"
+  ],
+  "events": [
+   "OnRoute"
+  ]
+ },
+ "vcRslMotionStatement": {
+  "parents": "vcRslStatement",
+  "methods": [],
+  "properties": [
+   "Base",
+   "CycleTime",
+   "ExternalTCP",
+   "Joint1 to JointN",
+   "JointForce",
+   "JointSpeed",
+   "MotionType",
+   "Synchronize",
+   "Target",
+   "Tool"
+  ],
+  "events": []
+ },
+ "vcRslProcessHandler": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "condition",
+   "delay",
+   "getApplication",
+   "getComponent",
+   "getSimulation",
+   "getTrigger",
+   "resumeRun",
+   "suspendRun",
+   "triggerCondition"
+  ],
+  "properties": [
+   "Icon",
+   "Process",
+   "Script"
+  ],
+  "events": [
+   "OnContinue",
+   "OnDestroy",
+   "OnEvaluate",
+   "OnStatementExecute",
+   "OnFinalize",
+   "OnReset",
+   "OnSignal",
+   "OnStart",
+   "OnStatementAdd",
+   "OnStatementDialog",
+   "OnStatementModified",
+   "OnStatementRemove",
+   "OnStop"
+  ]
+ },
+ "vcRslProcessStatement": {
+  "parents": "vcRslStatement",
+  "methods": [
+   "createProperty",
+   "deleteProperty",
+   "getProperty"
+  ],
+  "properties": [
+   "Process"
+  ],
+  "events": []
+ },
+ "vcRslProgramExecutor": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "callRemoteAction",
+   "callRoutine",
+   "createSubRoutine",
+   "delay",
+   "deleteProgram",
+   "deleteSubRoutine",
+   "newProgram",
+   "setOutput",
+   "waitInput",
+   "waitRemoteAction"
+  ],
+  "properties": [
+   "ActionMode",
+   "Colour",
+   "Controller",
+   "CurrentRoutine",
+   "DigitalMapIn",
+   "DigitalMapOut",
+   "ExecutionMode",
+   "IntegerMapIn",
+   "IntegerMapOut",
+   "Looping",
+   "MainRoutine",
+   "ProcessHandlers",
+   "Program",
+   "RealMapIn",
+   "RealMapOut",
+   "StringMapIn",
+   "StringMapOut",
+   "SubRoutines"
+  ],
+  "events": [
+   "OnProgramChange"
+  ]
+ },
+ "vcRslRoutine": {
+  "parents": "",
+  "methods": [
+   "beginBatch",
+   "createStatement",
+   "deleteStatement",
+   "endBatch",
+   "getStatement"
+  ],
+  "properties": [
+   "Name",
+   "Program",
+   "StatementCount",
+   "Statements"
+  ],
+  "events": []
+ },
+ "vcRslStatement": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "GridColor",
+   "Index",
+   "Name",
+   "Properties",
+   "Routine",
+   "Type"
+  ],
+  "events": []
+ },
+ "vcScalarQuantity": {
+  "parents": "",
+  "methods": [
+   "createChildQuantity",
+   "destroy",
+   "getEffectiveUnit"
+  ],
+  "properties": [
+   "AvailableGroups",
+   "Category",
+   "Children",
+   "CurrentGroup",
+   "EffectiveGroup",
+   "FullName",
+   "IsBuiltIn",
+   "Name",
+   "Parent",
+   "Type"
+  ],
+  "events": []
+ },
+ "vcScope": {
+  "parents": "",
+  "methods": [
+   "addStatement",
+   "clear",
+   "deleteStatement",
+   "getStatement"
+  ],
+  "properties": [
+   "ParentStatement",
+   "Statements"
+  ],
+  "events": [
+   "OnStatementAdded",
+   "OnStatementRemoving"
+  ]
+ },
+ "vcScopeStatement": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "Condition",
+   "Scope"
+  ],
+  "events": []
+ },
+ "vcScript": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "condition",
+   "convertToByteCode",
+   "delay",
+   "getApplication",
+   "getComponent",
+   "getNode",
+   "getSimulation",
+   "getTrigger",
+   "resumeRun",
+   "suspendRun",
+   "triggerCondition"
+  ],
+  "properties": [
+   "Application",
+   "Component",
+   "IsRunning",
+   "Node",
+   "Script",
+   "Simulation"
+  ],
+  "events": [
+   "OnAction",
+   "OnContinue",
+   "OnDestroy",
+   "OnFinalize",
+   "OnRebuild",
+   "OnReset",
+   "OnRun",
+   "OnSignal",
+   "OnSimulationUpdate",
+   "OnStart",
+   "OnStop"
+  ]
+ },
+ "vcScriptStatement": {
+  "parents": "",
+  "methods": [
+   "getApplication",
+   "getComponent",
+   "getExecutor",
+   "getNode",
+   "getSimulation",
+   "signalOut"
+  ],
+  "properties": [
+   "Application",
+   "Component",
+   "Executor",
+   "Node",
+   "Simulation"
+  ],
+  "events": []
+ },
+ "vcSelectCommand": {
+  "parents": "vcCommand",
+  "methods": [
+   "cancelPick",
+   "startPick"
+  ],
+  "properties": [
+   "PickedNode",
+   "PickedObject",
+   "PickedPrimitive"
+  ],
+  "events": []
+ },
+ "vcSelection": {
+  "parents": "",
+  "methods": [
+   "addItem",
+   "beginUpdate",
+   "clear",
+   "endUpdate",
+   "getCommand",
+   "getItem",
+   "getItemNode",
+   "getItemWorldMatrix",
+   "registerCommand",
+   "removeItem"
+  ],
+  "properties": [
+   "Count",
+   "IgnoreEvents",
+   "Name",
+   "Objects",
+   "Type"
+  ],
+  "events": [
+   "OnPostChange",
+   "OnPreChange"
+  ]
+ },
+ "vcSelectionManager": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "clear",
+   "getSelection",
+   "setSelection"
+  ],
+  "events": [
+   "OnSelectionChanged"
+  ]
+ },
+ "vcServoController": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "calcMotionTime",
+   "createJoint",
+   "deleteJoint",
+   "findJoint",
+   "getJoint",
+   "getJointTarget",
+   "getJointValue",
+   "move",
+   "moveImmediate",
+   "moveJoint",
+   "setJointTarget",
+   "setMotionTime"
+  ],
+  "properties": [
+   "FlangeNode",
+   "HeartbeatTime",
+   "JointCount",
+   "Joints",
+   "RootNode",
+   "Speed",
+   "UseHeartbeat"
+  ],
+  "events": [
+   "OnHeartbeat"
+  ]
+ },
+ "vcSignal": {
+  "parents": "vcBehaviour",
+  "methods": [],
+  "properties": [
+   "AutomaticReset",
+   "Connections"
+  ],
+  "events": [
+   "OnValueChange"
+  ]
+ },
+ "vcSimInterface": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "canConnect",
+   "connect",
+   "createSection",
+   "deleteSection",
+   "overrideEventResult",
+   "unConnect",
+   "Disconnect"
+  ],
+  "properties": [
+   "AngleTolerance",
+   "ConnectedComponent",
+   "ConnectedComponents",
+   "ConnectedFromSections",
+   "ConnectedSection",
+   "ConnectedSections",
+   "ConnectedToSections",
+   "ConnectionEditName",
+   "IsAbstract",
+   "IsConnected",
+   "Sections"
+  ],
+  "events": [
+   "OnConnect",
+   "OnMatch",
+   "OnUnConnect",
+   "OnDisconnect"
+  ]
+ },
+ "vcSimInterfaceField": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "Index",
+   "Name",
+   "Properties",
+   "Section",
+   "Type"
+  ],
+  "events": []
+ },
+ "vcSimInterfaceSection": {
+  "parents": "",
+  "methods": [
+   "createField",
+   "deleteField"
+  ],
+  "properties": [
+   "ConnectedToSection",
+   "Fields",
+   "Frame",
+   "Index",
+   "Interface",
+   "Name"
+  ],
+  "events": []
+ },
+ "vcSimulation": {
+  "parents": "",
+  "methods": [
+   "autoHalt",
+   "continueRun",
+   "halt",
+   "newCollisionDetector",
+   "newVolumeDetector",
+   "reset",
+   "restoreInitialState",
+   "run",
+   "setInitialState",
+   "setFastScheduling",
+   "update"
+  ],
+  "properties": [
+   "IgnoreEvents",
+   "IsRunning",
+   "Name",
+   "SimSpeed",
+   "SimTime",
+   "SimulationRunTime",
+   "SimWarmupTime",
+   "Statistics",
+   "World"
+  ],
+  "events": [
+   "OnReset",
+   "OnStartStop"
+  ]
+ },
+ "vcSimVehicle": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "addControlPoint",
+   "addOrientationPoint",
+   "attachWagonAtTheEnd",
+   "calculateDecisionTimeToStopAt",
+   "calculateEnterExitBox",
+   "calculateFinishedTimeToStopAt",
+   "calculateOffsetPathLength",
+   "calculatePositionAt",
+   "calculatePositionWithDistance",
+   "calculateSpeedAt",
+   "calculateTravelWithTime",
+   "clearMove",
+   "clearPassedPoints",
+   "detachAllWagons",
+   "getControlPointDistance",
+   "offsetPath",
+   "rePlan",
+   "resetStopAtDistance",
+   "rotateInPlace",
+   "update"
+  ],
+  "properties": [
+   "Acceleration",
+   "Deceleration",
+   "DecisionTime",
+   "Interpolation",
+   "LengthIterations",
+   "MaxSpeed",
+   "OffsetMatrix",
+   "PathLength",
+   "TotalTime"
+  ],
+  "events": [
+   "OnDecisionPointReached",
+   "OnFinalDestinationReached",
+   "OnMovementChanged",
+   "OnMovementFinished"
+  ]
+ },
+ "vcSnapCommand": {
+  "parents": "vcCommand",
+  "methods": [],
+  "properties": [
+   "Snap",
+   "SnapOnCircleCenter",
+   "SnapOnCurve",
+   "SnapOnEdge",
+   "SnapOnEdgeCenter",
+   "SnapOnFaceCenter",
+   "SnapOnFrame",
+   "SnapOnNodeCenter",
+   "SnapOnNodeOrigin",
+   "SnapOnPoint",
+   "SnapOnPolygon",
+   "SnapOnSurface",
+   "TargetAvailable",
+   "TargetCircleCenterAvailable",
+   "TargetCurve",
+   "TargetCurveAvailable",
+   "TargetCurveIndex",
+   "TargetFaceCenterAvailable",
+   "TargetGeoset",
+   "TargetLocked",
+   "TargetMatrix",
+   "TargetMatrixAvailable",
+   "TargetNode",
+   "TargetNormal",
+   "TargetNormalAvailable",
+   "TargetPosition",
+   "TargetPrimitive",
+   "TargetSurfaceAvailable",
+   "TargetSurfaceIndex"
+  ],
+  "events": [
+   "OnTargetAvailable",
+   "OnTargetSet"
+  ]
+ },
+ "vcStatement": {
+  "parents": "",
+  "methods": [
+   "createProperty",
+   "deleteProperty",
+   "getProperty"
+  ],
+  "properties": [
+   "Name",
+   "ParentScope",
+   "Properties",
+   "ParentRoutine",
+   "Type"
+  ],
+  "events": []
+ },
+ "vcStatistics": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "PartsAverageCount",
+   "PartsAverageTime",
+   "PartsCurrent",
+   "PartsEntered",
+   "PartsExited",
+   "PartsMaxCount",
+   "PartsMaxTime",
+   "PartsMinCount",
+   "PartsMinTime",
+   "PartsTotalTime",
+   "PartsUtilization",
+   "PartsIntervalAverageCount",
+   "PartsIntervalAverageTime",
+   "PartsIntervalCurrent",
+   "PartsIntervalEntered",
+   "PartsIntervalExited",
+   "PartsIntervalMaxCount",
+   "PartsIntervalMaxTime",
+   "PartsIntervalMinCount",
+   "PartsIntervalMinTime",
+   "PartsIntervalTotalTime",
+   "PartsIntervalUtilization",
+   "AverageActivePeriodTime",
+   "BlockedPercentage",
+   "BreakPercentage",
+   "BusyPercentage",
+   "FailedPercentage",
+   "IdlePercentage",
+   "RepairPercentage",
+   "SetupPercentage",
+   "State",
+   "State&lt;name&gt;Percentage",
+   "TotalStateTime",
+   "Utilization",
+   "IntervalBlockedPercentage",
+   "IntervalBreakPercentage",
+   "IntervalBusyPercentage",
+   "IntervalFailedPercentage",
+   "IntervalIdlePercentage",
+   "IntervalRepairPercentage",
+   "IntervalSetupPercentage",
+   "IntervalTotalStateTime",
+   "IntervalUtilization",
+   "State&lt;name&gt;IntervalPercentage",
+   "flowEnter",
+   "flowLeave",
+   "getIntervalPercentage",
+   "getPercentage",
+   "getSystemIntervalPercentage",
+   "getSystemPercentage",
+   "getSystemTime",
+   "getTime",
+   "warmupCompleted"
+  ],
+  "properties": [
+   "ComponentMaxCount",
+   "ComponentMaxTime",
+   "ComponentMinCount",
+   "ComponentMinTime",
+   "ComponentsArrived",
+   "ComponentsAverageTime",
+   "ComponentsCurrent",
+   "ComponentsDeparted",
+   "Name",
+   "States",
+   "SystemStates"
+  ],
+  "events": [
+   "OnFlowChange",
+   "OnStateChange"
+  ]
+ },
+ "vcStatisticsManager": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "SamplingInterval"
+  ],
+  "events": []
+ },
+ "vcStringSignal": {
+  "parents": "vcBehaviour vcSignal",
+  "methods": [
+   "signal"
+  ],
+  "properties": [
+   "Value"
+  ],
+  "events": []
+ },
+ "vcStringSignalMap": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "input",
+   "output"
+  ],
+  "properties": [
+   "Listeners",
+   "PortCount"
+  ],
+  "events": []
+ },
+ "vcSweptVolume": {
+  "parents": "vcLayoutItem",
+  "methods": [
+   "begin",
+   "clear",
+   "end",
+   "next",
+   "store"
+  ],
+  "properties": [
+   "Decomposition",
+   "DecompositionDecimationTarget",
+   "DecompositionQuality",
+   "InputNodeList",
+   "Method",
+   "TargetNode"
+  ],
+  "events": []
+ },
+ "vcTeachContext": {
+  "parents": "vcContext",
+  "methods": [
+   "ActiveRobotChanged"
+  ],
+  "properties": [
+   "ActiveRobot",
+   "ActiveRoutine",
+   "ActiveScope",
+   "ActiveStatement",
+   "ActiveStatementIndex"
+  ],
+  "events": []
+ },
+ "vcText2DSet": {
+  "parents": "vcGeometrySet",
+  "methods": [
+   "getTextHeight",
+   "getTextWidth",
+   "update"
+  ],
+  "properties": [
+   "DepthBuffered",
+   "OffsetX",
+   "OffsetY",
+   "Position",
+   "Text"
+  ],
+  "events": []
+ },
+ "vcText3DSet": {
+  "parents": "vcGeometrySet",
+  "methods": [
+   "getTextHeight",
+   "getTextWidth",
+   "update"
+  ],
+  "properties": [
+   "Matrix",
+   "OffsetX",
+   "OffsetY",
+   "Text"
+  ],
+  "events": []
+ },
+ "vcToolContainer": {
+  "parents": "vcBehaviour",
+  "methods": [
+   "addTool",
+   "removeTool"
+  ],
+  "properties": [
+   "Tools"
+  ],
+  "events": []
+ },
+ "vcToolFrame": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "IPOMode",
+   "Name",
+   "Node",
+   "PositionMatrix",
+   "PositionExpression"
+  ],
+  "events": []
+ },
+ "vcTopology": {
+  "parents": "",
+  "methods": [
+   "brepAvailable",
+   "createCurveLoop",
+   "createNurbsFace",
+   "createPlanarFace",
+   "createOffsetSurface",
+   "createTrimPolyLine",
+   "createTrimSpline",
+   "deleteNurbFace",
+   "getCurveCurveLoop",
+   "getCurveFace",
+   "getCurveIntersections",
+   "getCurveLength",
+   "getCurveLoopCurve",
+   "getCurveLoopCurveCount",
+   "getCurveNeighbor",
+   "getCurvePointCount",
+   "getCurvePointIndex",
+   "getCurvePosition",
+   "getCurvePositions",
+   "getCurveType",
+   "getFaceBound",
+   "getFaceCurveLoop",
+   "getFaceCurveLoopCount",
+   "getFaceMinPointDistance",
+   "getFaceNormal",
+   "getFacePlaneIntersections",
+   "getFacePoint",
+   "getFacePointAndDerivate",
+   "getFaceStartTriangle",
+   "getFaceTriangleCount",
+   "getFaceType",
+   "getNurbsFaceControlPoints",
+   "getNurbsFaceControlWeights",
+   "getNurbsFaceDegree",
+   "getNurbsFaceUKnots",
+   "getNurbsFaceVKnots",
+   "getPlanarFacePositionAndNormal",
+   "getPolyLineCurvePoints",
+   "getPoint",
+   "getSplineCurveDegree",
+   "getSplineCurveControlPoints",
+   "getSplineCurveControlWeights",
+   "getSplineCurveKnots",
+   "getSurfaceIntersections",
+   "isCurveCircular",
+   "isFaceLinear",
+   "projectCurve",
+   "trimFace"
+  ],
+  "properties": [
+   "CurveCount",
+   "CurveLoopCount",
+   "FaceCount",
+   "PointCount"
+  ],
+  "events": []
+ },
+ "vcTopologyPick": {
+  "parents": "vcCommand",
+  "methods": [],
+  "properties": [
+   "ContinuousMode",
+   "SnapOnCurve",
+   "SnapOnCurveLoop",
+   "SnapOnSurface",
+   "TargetAvailable",
+   "TargetCurveAvailable",
+   "TargetCurvesAvailable",
+   "TargetCurveIndex",
+   "TargetCurveLoopAvailable",
+   "TargetCurveLoopIndex",
+   "TargetCurves",
+   "TargetGeoset",
+   "TargetLocked",
+   "TargetNode",
+   "TargetNormal",
+   "TargetNormalAvailable",
+   "TargetPosition",
+   "TargetSurfaceAvailable",
+   "TargetSurfaceIndex"
+  ],
+  "events": [
+   "OnTargetAvailable",
+   "OnTargetSet"
+  ]
+ },
+ "vcTranslateCommand": {
+  "parents": "vcCommand vcInteractiveCommand",
+  "methods": [],
+  "properties": [
+   "ParentMatrix",
+   "UseAbsoluteCoordSystem",
+   "UseHandles",
+   "WorldMatrix",
+   "WorldPosition"
+  ],
+  "events": [
+   "OnTranslate"
+  ]
+ },
+ "vcTransport": {
+  "parents": "vcBehaviour",
+  "methods": [],
+  "properties": [
+   "setTargetInfo"
+  ],
+  "events": [
+   "OnTransportInfo"
+  ]
+ },
+ "vcTriangleSet": {
+  "parents": "vcGeometrySet",
+  "methods": [
+   "addPoint",
+   "addTriangle",
+   "collapsePoint",
+   "decimate",
+   "decompose",
+   "deleteTriangle",
+   "getClosestPointAndNormal",
+   "getTexCoord1",
+   "getTextureCoordinates",
+   "getPoint",
+   "getPointIndexesWithin",
+   "getPointNormals",
+   "getPointPositions",
+   "getTriangle",
+   "getTriangleEdgeNeighbor",
+   "getTriangleEdgeType",
+   "getTriangleNormal",
+   "mergePoints",
+   "setPoint",
+   "setTexCoord1",
+   "setTextureCoordinates",
+   "setTriangle",
+   "subdivde",
+   "update"
+  ],
+  "properties": [
+   "CreaseAngle",
+   "DynamicTextureCoordinates1",
+   "DynamicUpdate",
+   "Name",
+   "PointCount",
+   "PolygonCount",
+   "PolygonTable",
+   "PositionTable",
+   "TextureCoordinateTable",
+   "Topology",
+   "TriangleCount",
+   "TriangleTable",
+   "UseTextureCoordinates1"
+  ],
+  "events": []
+ },
+ "vcUnit": {
+  "parents": "",
+  "methods": [
+   "convertFromCanonical",
+   "convertToCanonical",
+   "getConstantExpression",
+   "getRelativeMagnitude"
+  ],
+  "properties": [
+   "Factor",
+   "Group",
+   "IsBuiltIn",
+   "Name",
+   "Offset",
+   "Suffix"
+  ],
+  "events": []
+ },
+ "vcUnitFamily": {
+  "parents": "",
+  "methods": [
+   "addGroup",
+   "containsGroup",
+   "removeGroup",
+   "removeGroupAt"
+  ],
+  "properties": [
+   "Groups",
+   "IsBuiltIn",
+   "Name"
+  ],
+  "events": []
+ },
+ "vcUnitGroup": {
+  "parents": "",
+  "methods": [
+   "createUnit",
+   "deleteUnitAt",
+   "getUnitWithMagnitude"
+  ],
+  "properties": [
+   "IsBuiltIn",
+   "Name",
+   "Quantity",
+   "Units"
+  ],
+  "events": []
+ },
+ "vcVector": {
+  "parents": "",
+  "methods": [
+   "W",
+   "X",
+   "Y",
+   "Z",
+   "angle",
+   "getQuaternionAngle",
+   "length",
+   "normalize",
+   "square"
+  ],
+  "properties": [
+   "new"
+  ],
+  "events": []
+ },
+ "vcVectorQuantity": {
+  "parents": "vcScalarQuantity",
+  "methods": [],
+  "properties": [
+   "IsAngular",
+   "Pair",
+   "VectorName"
+  ],
+  "events": []
+ },
+ "vcView": {
+  "parents": "",
+  "methods": [],
+  "properties": [
+   "CameraFar",
+   "CameraFovy",
+   "CameraIsOrtho",
+   "CameraMatrix",
+   "CameraNear",
+   "Flags",
+   "Properties",
+   "ShadingEdge",
+   "ShadingRender"
+  ],
+  "events": []
+ },
+ "vcVolumeDetector": {
+  "parents": "",
+  "methods": [
+   "getHitFeature",
+   "getHitGeometrySet",
+   "getHitNode",
+   "testAllCollisions",
+   "testOneCollision"
+  ],
+  "properties": [
+   "Corner1",
+   "Corner2",
+   "HitCount",
+   "NodeList",
+   "TestMethod",
+   "Transformation"
+  ],
+  "events": []
+ }
+}

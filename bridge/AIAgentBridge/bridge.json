@@ -1,0 +1,17 @@
+{
+  "host": "127.0.0.1",
+  "port": 8765,
+  "token": "",
+  "allow_exec": true,
+  "screenshot_dir": "",
+  "pump_on_idle": true,
+  "pump_on_render": true,
+  "keep_rendering": false,
+  "render_fps": 0,
+  "render_strategies": [
+    "ao_contrast",
+    "camera",
+    "world_update"
+  ],
+  "trace_frames": 0
+}

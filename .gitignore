@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Среды разработки
+.vscode/
+.idea/
+
+# Локальные настройки и временные файлы
+bridge/AIAgentBridge/bridge.local.json
+screenshots/
+*.log
+*.tmp
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Дистрибутив R-Pro и сопутствующие файлы: в репозитории им не место
+# (сотни мегабайт, лицензионное ПО, адрес сервера лицензий).
+R-Pro_distributive/
+
+# Настройки агента под сборку — их генерирует installer/build.ps1
+agent/defaults.json
+
+# Сборка установщика
+installer/cache/
+installer/stage/
+installer/output/
+addon/bin/AssemblyVersion.g.cs
+
+# Панель ИТЦ с плиткой для site/deploy-itc.ps1 tile — чужой файл, не храним
+site/build/
+addon/bin/LoaderVersion.g.cs
+
+# Skill Camp ИИТБ: скачанные видео/PDF/кадры (рабочие, тяжёлые)
+agent/iitb/work/
+
+# Патчи с ключом OpenRouter — не коммитить
+dist/
