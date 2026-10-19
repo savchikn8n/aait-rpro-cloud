@@ -325,8 +325,16 @@ def _guard(name: str, args: dict, messages: list[dict]) -> str | None:
         return json.dumps({"error": "Менять линию пользователь не просил. Ничего не меняй: "
                                     "назови узкое место и предложи правку словами — "
                                     "пользователь решит сам."}, ensure_ascii=False)
+    if name == "rpro_exec" and _WIPE.search(str(args.get("code") or "")):
+        return json.dumps({"error": "Полная очистка, пересборка или подмена сцены кодом запрещены. Работай с тем, что "
+                                    "уже стоит: меняй или удаляй только то, что назвал пользователь, остальное не "
+                                    "трогай. Нужна очистка — пользователь выполнит /очистить сам."}, ensure_ascii=False)
     return None
 
+
+# Код, сносящий или подменяющий всю сцену: clearWorld, открытие другой планировки, цикл удаления всех компонентов.
+_WIPE = re.compile(r"clearWorld|loadLayout|newLayout|app\.new\w*\(|"
+                   r"for\s+\w+\s+in\s+(?:list\()?(?:app\.)?[Cc]omponents\b[\s\S]{0,250}\.delete\s*\(")
 
 _TUNE_OK = re.compile(r"(что если|что будет|ускор|быстрее|медленн|оптимиз|улучш|сократ|уменьш|"
                       r"увелич|поменя|измени|настро|подкрут|поставь|сделай|поправ|исправ|разгруз)",
@@ -350,6 +358,46 @@ BASIC_TOOLS = {"rpro_status", "rpro_scene", "rpro_find", "rpro_component", "rpro
                "rpro_catalog_find", "rpro_catalog_add", "rpro_help", "rpro_exec"}
 
 
+# Осмотр сцены и автосохранение (snapshots.py): правке всегда предшествует взгляд на сцену, а первой правке
+# хода — копия сцены, к которой можно вернуться фразой «откатись».
+LOOK_TOOLS = {"rpro_status", "rpro_scene", "rpro_find", "rpro_component", "rpro_messages", "rpro_look",
+              "rpro_line_check", "rpro_line_report"}
+SNAPSHOT_TOOLS = (set(tools._CHANGING) - {"rpro_simulation", "rpro_select"}) | {"rpro_dress_scene"}
+_LOOK_MARK = '{"сначала_осмотр"'
+
+
+def _look_first() -> str:
+    """Осмотр сцены кодом: состояние, состав, последние сообщения — вместо отказа модели «сначала посмотри»."""
+    parts: dict[str, str] = {}
+    for key, tool, args, cap in (("состояние", "rpro_status", {}, 700), ("сцена", "rpro_scene", {"limit": 60}, 2600),
+                                 ("сообщения_R-Pro", "rpro_messages", {}, 1000)):
+        try:
+            parts[key] = tools.run_tool(tool, args)[:cap]
+        except Exception as exc:  # noqa: BLE001
+            parts[key] = f"не удалось: {exc}"
+    return json.dumps({
+        "сначала_осмотр": True, **parts,
+        "требование": "Это то, что сейчас в сцене пользователя. Определи, где именно затык, и доработай только это: "
+                      "достройка, правка свойства, перестановка, связь. Не пересобирай сцену, не удаляй и не дублируй "
+                      "то, что уже стоит. Теперь повтори нужный вызов."}, ensure_ascii=False)
+
+
+def _autosave(name: str) -> list[str]:
+    """Копия сцены перед первой правкой хода. Возвращает заметки для ответа пользователю."""
+    try:
+        import snapshots
+        e = snapshots.take(tools.client, f"перед правкой — {_TOOL_WORDS.get(name, name)}")
+        print(f"{DIM}  → автосохранение: {os.path.basename(e['path'])}{RESET}")
+        notes = ["Перед правкой сохранил автосохранение сцены; не понравится результат — напишите «откатись»."]
+        if e.get("warning"):
+            notes.append(e["warning"])
+        return notes
+    except Exception as exc:  # noqa: BLE001 — сбой копии не должен блокировать работу, но молчать о нём нельзя
+        print(f"{DIM}  → автосохранение не удалось: {exc}{RESET}")
+        return ["Внимание: автосохранение перед правкой не удалось (" + type(exc).__name__ + ": " + str(exc)[:120] +
+                ") — откат к состоянию до правки невозможен, сохраните проект сами."]
+
+
 def _loop(messages: list[dict], on_tool=None) -> str:
     вопрос = _is_question(messages)
     доступные = tools.READ_ONLY_TOOLS if вопрос else tools.TOOLS
@@ -367,6 +415,9 @@ def _loop(messages: list[dict], on_tool=None) -> str:
     отказано: set[str] = set()   # инструменты, в которых отказал _guard, — до конца хода
     был_прогон = False           # повторный отчёт в том же ходе не гоняет прогон заново
     отчёт_был = False            # в этом ходе делали отчёт — его итог и будет ответом
+    осмотр_был = False           # в этом ходе уже смотрели сцену (иначе перед правкой — осмотр кодом)
+    снимок_сделан = False        # автосохранение перед первой правкой хода — одно на ход
+    предупреждения: list[str] = []
     for step in range(config.MAX_TOOL_STEPS):
         доступные = [t for t in доступные if t["function"]["name"] not in отказано]
         _progress("думаю…" if step == 0 else "обдумываю результат…")
@@ -381,7 +432,7 @@ def _loop(messages: list[dict], on_tool=None) -> str:
                 # производительность оптимальна» при 6 батареях в час против 12
                 import line_report
                 ответ = line_report.summary_text(tools.LAST_REPORT)
-            return _honest(ответ, сбои)
+            return _honest(ответ, сбои, предупреждения)
 
         for call in calls:
             fn = call.get("function", {})
@@ -408,9 +459,19 @@ def _loop(messages: list[dict], on_tool=None) -> str:
             # и спросила, очищать ли сцену. Аргумент вырезаем у всех инструментов.
             args.pop("clear", None)
             _progress(_TOOL_WORDS.get(name, "работаю с R-Pro") + "…")
+            if name in LOOK_TOOLS:
+                осмотр_был = True
             refused = _guard(name, args, messages)
-            if refused:
-                отказано.add(name)
+            if not refused and name in SNAPSHOT_TOOLS:
+                if not осмотр_был:
+                    # «сначала посмотри, потом правь»: осмотр делает код, модель получает сцену и повторяет вызов
+                    осмотр_был = True
+                    refused = _look_first()
+                elif not снимок_сделан:
+                    снимок_сделан = True
+                    предупреждения += _autosave(name)
+            if refused and not refused.startswith(_LOOK_MARK):
+                отказано.add(name)            # осмотр — не отказ: инструмент остаётся доступным
             output = refused or tools.run_tool(name, args)
             if (name in ("rpro_line_tune", "rpro_build_assembly", "rpro_build_line",
                          "rpro_build_plant", "rpro_link_lines", "rpro_build_factory") and not refused
@@ -429,7 +490,7 @@ def _loop(messages: list[dict], on_tool=None) -> str:
                 # вызвала стройку ячейки 8 раз подряд и в итоге выдала секунды за
                 # миллиметры и несуществующее окно «Пусконаладка»
                 messages.append({"role": "assistant", "content": ячейка})
-                return ячейка
+                return _honest(ячейка, [], предупреждения)
             нет_набора = _no_kit_answer(name, output)
             if нет_набора:
                 # 08.10, «линия сборки голых кузовов»: 8B на отказ думала ещё
@@ -446,10 +507,10 @@ def _loop(messages: list[dict], on_tool=None) -> str:
         final = llm.chat(messages, tools=None)
         messages.pop()   # служебную просьбу из истории убираем
         messages.append(final)
-        return _honest((final.get("content") or "").strip(), сбои)
+        return _honest((final.get("content") or "").strip(), сбои, предупреждения)
     except Exception:  # noqa: BLE001
         messages.pop()
-        return _honest("Слишком много шагов с инструментами — прерываю. Уточните задачу.", сбои)
+        return _honest("Слишком много шагов с инструментами — прерываю. Уточните задачу.", сбои, предупреждения)
 
 
 def _robot_cell_answer(name: str, output: str) -> str | None:
@@ -590,7 +651,15 @@ _ADMITS = re.compile(r"(не получил|не удал|ошибк|не смо
                      re.IGNORECASE)
 
 
-def _honest(answer: str, сбои: list[str]) -> str:
+def _honest(answer: str, сбои: list[str], заметки: list[str] | None = None) -> str:
+    """Ответ + то, что сделал код сам (автосохранение, предупреждения), + честная приписка о сбоях."""
+    answer = _honest_failures(answer, сбои)
+    if заметки:
+        answer += "\n\n" + "\n".join(dict.fromkeys(заметки))
+    return answer
+
+
+def _honest_failures(answer: str, сбои: list[str]) -> str:
     """Если инструмент вернул ошибку, а модель в ответе о ней молчит —
     приписать, что не получилось. Модель 8B отчитывалась об удачной части
     и умалчивала о сорвавшейся (правило в подсказке нарушала)."""

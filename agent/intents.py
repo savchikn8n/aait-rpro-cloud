@@ -201,6 +201,9 @@ COMMANDS: list[tuple[str, str, str, str]] = [
     ("/критерии", "<A|B|C>", "чек-лист приёмки модуля и частые ошибки", "Конкурс"),
     ("/раскладка", "[Д Ш а б]", "коробки на паллете: сколько и как (по умолчанию 1200 800 100 90)", "Конкурс"),
     ("/расчёт", "[годных мин брак% такт]", "план выпуска: запуски, паллеты, контейнеры", "Конкурс"),
+    ("/откат", "[N]", "вернуть сцену к последнему автосохранению (или к номеру N)", "Сцена"),
+    ("/автосохранение", "", "список автосохранений перед правками агента", "Сцена"),
+    ("/сохрани", "[название]", "сохранить копию сцены вручную, чтобы потом откатиться", "Сцена"),
     ("/состояние", "", "что открыто, сколько компонентов, симуляция, выделение", "Сцена"),
     ("/сцена", "", "состав сцены: компоненты или построенные линии", "Сцена"),
     ("/ошибки", "", "ошибки и предупреждения из панели вывода", "Сцена"),
@@ -375,6 +378,12 @@ def handle(text: str, on_tool: Callable | None = None) -> str | None:
         if r is not None:
             return done("очистить", r)
 
+    # Откат к автосохранению (snapshots.py): «откатись», «верни как было», /откат [N]
+    if not low.startswith("/"):
+        import snapshots
+        if snapshots.ROLLBACK.match(low):
+            return done("откат", snapshots.rollback_text(tools.client))
+
     # Курс ИИТБ: задание заменяет сцену — если в ней что-то есть, сначала спрашиваем «да»
     if _course_asked[0]:
         n_, asked = _course_asked
@@ -404,6 +413,19 @@ def handle(text: str, on_tool: Callable | None = None) -> str | None:
 
     if low.startswith("/"):
         cmd, _, arg = low[1:].partition(" ")
+        if cmd.startswith("откат") or cmd in ("undo", "rollback"):
+            import snapshots
+            n_ = re.search(r"\d+", arg)
+            return done("откат", snapshots.rollback_text(tools.client, int(n_.group()) if n_ else None))
+        if cmd.startswith("автосохр") or cmd in ("снимки", "версии"):
+            import snapshots
+            return done("автосохранение", snapshots.list_text())
+        if cmd.startswith("сохран") or cmd in ("save", "чекпоинт"):
+            import snapshots
+            name_ = t[1:].partition(" ")[2].strip() or "вручную"
+            e_ = snapshots.take(tools.client, name_)
+            return done("автосохранение", f"Сцена сохранена: «{name_}» ({e_.get('components')} компонентов). Вернуться — «откатись» "
+                        "или /откат." + (f"\n{e_['warning']}" if e_.get("warning") else ""))
         if cmd.startswith("очист") or cmd in ("clear", "очистка"):
             return done("очистить", _clear_question())
         if cmd in ("помощь", "help", "команды", "?"):
